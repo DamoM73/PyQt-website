@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Setup" href="02_setup.html" /><link rel="prev" title="" href="index.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Setup" href="02_setup.html" /><link rel="prev" title="PyQt Tutorials" href="index.html" />
 
     <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>Introduction - PyQt Tutorials</title>
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -243,7 +243,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -251,6 +251,17 @@
         <article role="main" id="furo-main-content">
           <section id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h1>
+<section id="what-is-pyqt">
+<h2>What is PyQt?<a class="headerlink" href="#what-is-pyqt" title="Link to this heading">¶</a></h2>
+<p><strong>Qt</strong> (cute) is a powerful tool that helps developers build <strong>GUI</strong> (Graphical User Interface) computer programs. Imagine making a custom app where you can click buttons, type into boxes, or drag and drop items - Qt makes all of that possible. It’s like a big box of LEGO, where each block is a tool to design parts of an app. Qt works on many devices, from computers and phones to special-purpose devices like ATMs or car dashboards.</p>
+<p>The Qt library is written in C++ which provides low level access to computer hardware. Its flexibility and powerful features means that there is demand for using Qt with other languages. This demand has resulted in language wrappers for many popular languages, allowing developers to access and use the features of Qt.</p>
+<div class="tip admonition">
+<p class="admonition-title">Code wrappers</p>
+<p>Code wrappers are like translators that let code written in one programming language talk to code written in another. They work by creating <strong>bindings</strong>, which are special connections that make functions or objects from one language available in another. For example, if you have a Python program and want it to use a library written in C, a wrapper acts as a bridge, using bindings to translate between Python and C so they can work together seamlessly. This allows developers to use the strengths of multiple languages in the same project.</p>
+</div>
+<p><strong>PyQt</strong> (pie-cute) is a Python wrapper for Qt. It brings the power of Qt to your Python projects. This means that instead of using the more complex C++ language, PyQt lets you design the same kinds of apps using Python. With PyQt, you can create windows, buttons, menus, and even games!</p>
+<p><img alt="PyQt as a wrapper" src="_images/pyqt_wrapper.png" /></p>
+</section>
 </section>
 
         </article>
@@ -303,8 +314,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#what-is-pyqt">What is PyQt?</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
