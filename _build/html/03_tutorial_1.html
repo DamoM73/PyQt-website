@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Setup" href="02_setup.html" />
 
     <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Creating Apps - PyQt Tutorials</title>
+        <title>Tutorial 1 - Creating Apps - PyQt Tutorials</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -209,7 +209,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_setup.html">Setup</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Creating Apps</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 1 - Creating Apps</a></li>
 </ul>
 
 </div>
@@ -250,20 +250,156 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="creating-apps">
-<h1>Creating Apps<a class="headerlink" href="#creating-apps" title="Link to this heading">¶</a></h1>
+          <section id="tutorial-1-creating-apps">
+<h1>Tutorial 1 - Creating Apps<a class="headerlink" href="#tutorial-1-creating-apps" title="Link to this heading">¶</a></h1>
 <div class="admonition-in-this-lesson-you-will admonition">
 <p class="admonition-title">In this lesson you will:</p>
 <ul class="simple">
-<li><p>Create a UI for a simple app in QT Designer</p></li>
+<li><p>Create a UI for a simple app in Qt Designer</p></li>
 <li><p>Add some formatted text to the UI</p></li>
 <li><p>Convert the UI to the view Python file</p></li>
 <li><p>Launch and test the app.</p></li>
 </ul>
 </div>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
-<p>In this tutorial we will make a super simple app whose sole purpose is to learn our workflow. Throughout these tutorials we will design a UI in QT Designer and then convert it to a Python file that we can use with the boilerplate code downloaded from the repo. This process will be the same irrespective of the complexity of the app.</p>
+<p>In this tutorial we will make a super simple app whose sole purpose is to learn our workflow. Throughout these tutorials we will design a UI in Qt Designer and then convert it to a Python file that we can use with the boilerplate code downloaded from the repo. This process will be the same irrespective of the complexity of the app.</p>
+<section id="meet-qt-designer">
+<h2>Meet Qt Designer<a class="headerlink" href="#meet-qt-designer" title="Link to this heading">¶</a></h2>
+<p>Qt Designer is a drag a drop UI creator. It is easy to underestimate how complex UIs can be. Just knowing the range of available components is a challenge. let along dealing with layout tools and resizing of windows. Having a visual representation of what your UI will look like makes life so much easier. So lets meet Qt Designer. Go ahead and launch it.</p>
+<section id="new-form-dialogue">
+<h3>New Form Dialogue<a class="headerlink" href="#new-form-dialogue" title="Link to this heading">¶</a></h3>
+<p>When Qt Designer first opens, it displays the New Form dialogue. This can be used to create different windows, as well as open previous UI files and access your recent designs.</p>
+<p>To get started:</p>
+<ol class="arabic simple">
+<li><p>Make sure that <strong>Main Window</strong> is selected</p></li>
+<li><p>Click the <strong>Create</strong> button</p></li>
+</ol>
+<p><img alt="new form dialogue" src="_images/qtd_newform.png" /></p>
+</section>
+<section id="qt-designer-interface">
+<h3>Qt Designer Interface<a class="headerlink" href="#qt-designer-interface" title="Link to this heading">¶</a></h3>
+<p>Next your will see Qt Designer’s interface.</p>
+<p>These tutorials will only be using four parts of the interface:</p>
+<ol class="arabic simple">
+<li><p><strong>Widget Library</strong> - this contains all of Qt’s UI components.</p></li>
+<li><p><strong>Window Canvas</strong> - this is the window you’re designing.</p></li>
+<li><p><strong>Object Inspector</strong> - shows all the components that make up the window. It also shows which components are nested inside other components.</p></li>
+<li><p><strong>Property Editor</strong> - this is where you can change the properties of the selected component.</p></li>
+</ol>
+<p><img alt="qt designer interface" src="_images/qtd_interface.png" /></p>
+<p>We don’t the <strong>Resource Browser</strong>, the <strong>Action Editor</strong> or the <strong>Signal/Slot Editor</strong> in the lower right corner. So feel free to close them if you want more screen real-estate.</p>
+<div class="hint admonition">
+<p class="admonition-title">A word on widets</p>
+<p>Qt calls everything widgets. All windows are widgets. All textboxes are widgets. All layout components are widgets. These tutorials will use more specific terminology, but you will need to remember widgets if you look for information elsewhere.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="first-app">
+<h2>First App<a class="headerlink" href="#first-app" title="Link to this heading">¶</a></h2>
+<p>Time to make your first app, a classic <strong>Hello World!</strong>.</p>
+<section id="adjust-window">
+<h3>Adjust window<a class="headerlink" href="#adjust-window" title="Link to this heading">¶</a></h3>
+<p>At the top is a of the screen there is a menu placeholder. This window won’t have a menu, so we will remove that placeholder.</p>
+<ol class="arabic simple">
+<li><p>Right mouse click where is says <strong>Type Here</strong></p></li>
+<li><p>Click on <strong>Remove Menu Bar</strong></p></li>
+</ol>
+<p><img alt="remover the menu placeholder" src="_images/01_remove_menu.gif" /></p>
+<p>Next we will change the geometry (size) of the window.</p>
+<ol class="arabic simple" start="3">
+<li><p>In the <strong>Property Editor</strong> change <strong>width</strong> to 400</p></li>
+<li><p>Then change <strong>height</strong> to 300</p></li>
+</ol>
+<div class="note admonition">
+<p class="admonition-title">Expanding <strong>Property Editor</strong></p>
+<p>If your Property Editor looks different to the examples in these tutorials, you may need to expand sections. For example, if you can’t see <strong>width</strong> and <strong>height</strong> you may need to expand the <strong>geometry</strong> section by clicking on the little arrow to the right of geometry.</p>
+</div>
+<p><img alt="change window geometry" src="_images/02_geometry.gif" /></p>
+<p>Finally, we will change the title of the window.</p>
+<ol class="arabic simple" start="5">
+<li><p>In the <strong>Property Editor</strong> scroll down until you see <strong>windowTitle</strong></p></li>
+<li><p>Change the value from <strong>MainWindow</strong> to <strong>Tutorial 1</strong></p></li>
+</ol>
+<p><img alt="change window title" src="_images/03_widnow_title.gif" /></p>
+<div class="hint admonition">
+<p class="admonition-title">Naming conventions</p>
+<p>We learnt in the introduction that Qt is written in C++. C++ uses the <strong>camelCase</strong> naming convention, as opposed to Python’s <strong>snake_case</strong>. You will find that any variable, method or property will use camelCase, for example <strong>windowTitle</strong>.</p>
+</div>
+</section>
+<section id="add-a-label">
+<h3>Add a label<a class="headerlink" href="#add-a-label" title="Link to this heading">¶</a></h3>
+<p>Now we will add our label.</p>
+<ol class="arabic simple">
+<li><p>Scroll the <strong>Widget Menu</strong> down until you see the <strong>Display Widgets</strong></p></li>
+<li><p>Locate the <strong>Label</strong> widget onto the <strong>Window Canvas</strong></p></li>
+</ol>
+<p><img alt="add label" src="_images/04_add_label.gif" /></p>
+<p>The label needs to say something.</p>
+<ol class="arabic simple" start="3">
+<li><p>Double click on the label to edit it</p></li>
+<li><p>Type <strong>Hello World!</strong></p></li>
+<li><p>Click on the <strong>Window Canvas</strong> away from the label to deselect it</p></li>
+</ol>
+<p><img alt="change text" src="_images/05_change_text.gif" /></p>
+<p>That message is too hard to see.</p>
+<ol class="arabic simple" start="6">
+<li><p>Find <strong>font</strong> in the <strong>Property Editor</strong></p></li>
+<li><p>Change the <strong>Point Size</strong> to <strong>20</strong></p></li>
+<li><p>Grab the label’s blue resize handles and resize the label so it can be read</p></li>
+</ol>
+<p><img alt="change font size" src="_images/06_resize_font.gif" /></p>
+</section>
+<section id="save-the-ui-file">
+<h3>Save the UI file<a class="headerlink" href="#save-the-ui-file" title="Link to this heading">¶</a></h3>
+<p>Time to save the UI. It is important to save the UI file in the same directory (folder) as your <strong>main_window.py</strong>, ie. your repo for these tutorials.</p>
+<ol class="arabic simple">
+<li><p>Select <strong>Save</strong> from the <strong>File</strong> menu</p></li>
+<li><p>Navigate to your repo for these tutorials</p></li>
+<li><p>Name the file <strong>tutorial_01.ui</strong></p></li>
+</ol>
+</section>
+<section id="convert-ui-file">
+<h3>Convert UI file<a class="headerlink" href="#convert-ui-file" title="Link to this heading">¶</a></h3>
+<p>Now we need to convert the UI file to a Python file, and we will do this in VS Code.</p>
+<p>If you don’t have VS Code open from the setup.</p>
+<ol class="arabic simple">
+<li><p>Go to GitHub Desktop</p></li>
+<li><p>Navigate to the repo for these tutorials</p></li>
+<li><p>Choose <strong>Open in Visual Studio Code</strong></p></li>
+</ol>
+<p>Is everything ready?</p>
+<ol class="arabic simple" start="4">
+<li><p>Check that the <strong>tutorial_01.ui</strong> file is in your file panel.</p></li>
+</ol>
+<p><img alt="check file" src="_images/vsc_check_file.png" /></p>
+<p>Convert the file</p>
+<ol class="arabic simple" start="5">
+<li><p>Open a new terminal</p></li>
+<li><p>At the prompt, type <code class="docutils literal notranslate"><span class="pre">pyuic6</span> <span class="pre">-o</span> <span class="pre">ui_main_window.py</span> <span class="pre">-x</span> <span class="pre">tutorial_01.ui</span></code></p></li>
+<li><p>Then press enter</p></li>
+</ol>
+<div class="important admonition">
+<p class="admonition-title">The convert command</p>
+<p>Let’s break down that file converting command:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pyuic6</span></code> → the command that convert the file it stands for <strong>py</strong>thon <strong>ui</strong> file <strong>c</strong>onverter for PyQt<strong>6</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">ui_main_window.py</span></code> → designates the output file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-x</span> <span class="pre">tutorial_01.ui</span></code> → designates the source file</p></li>
+</ul>
+</div>
+<p><img alt="convert file" src="_images/07_convert_file.gif" /></p>
+<p>Time to run the app and check that it all works</p>
+<ol class="arabic simple" start="8">
+<li><p>Open the <strong>main_window.py</strong></p></li>
+<li><p>Run the code</p></li>
+</ol>
+<p><img alt="run the program" src="_images/08_run.gif" /></p>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h2>
+<p>Congratulations, you just made your first PyQt apps. It may have been simple, but you learn some important processes that we will use over and over again during these tutorials.</p>
+<p>Next tutorial we will build on these and learn more about the Label widget.</p>
 </section>
 </section>
 
@@ -321,8 +457,20 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Creating Apps</a><ul>
-<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#">Tutorial 1 - Creating Apps</a><ul>
+<li><a class="reference internal" href="#meet-qt-designer">Meet Qt Designer</a><ul>
+<li><a class="reference internal" href="#new-form-dialogue">New Form Dialogue</a></li>
+<li><a class="reference internal" href="#qt-designer-interface">Qt Designer Interface</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#first-app">First App</a><ul>
+<li><a class="reference internal" href="#adjust-window">Adjust window</a></li>
+<li><a class="reference internal" href="#add-a-label">Add a label</a></li>
+<li><a class="reference internal" href="#save-the-ui-file">Save the UI file</a></li>
+<li><a class="reference internal" href="#convert-ui-file">Convert UI file</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
 </ul>
 </li>
 </ul>

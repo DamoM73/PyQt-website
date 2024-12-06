@@ -15,6 +15,14 @@ Code wrappers are like translators that let code written in one programming lang
 
 ![PyQt as a wrapper](./assets/img/01/pyqt_wrapper.png)
 
+## Tutorials and examples
+
+This website has two parts, tutorials and examples. 
+
+The **tutorials** will take you through the process of creating increasingly complex apps using PyQt. They will explore the thinking and habit involved in developing PyQt apps in preparation for developing your own apps.
+
+The **examples** are basic applications which are designed to show you how a specific component works. Use these as a reference when developing your applications.
+
 ## MVC Architecture Pattern
 
 The PyQt apps we create in these tutorials will use MVC Architecture. The MVC architecture pattern turns complex application development into a much more manageable process. It is example of modularization and decomposition.
@@ -37,4 +45,4 @@ It is also easier to swap out components. If a developer wants to use a differen
 
 ### How we will use MVC in these tutorials
 
-In these tutorials we will design the UI in **QT Designer**. The resulting file will then be converted to the view file. 
+In these tutorials we will design the UI in **Qt Designer**. The resulting file will then be converted to the view file.

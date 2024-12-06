@@ -5,7 +5,7 @@
 - Install Python
 - Setup a version control workflow
 - Install an Intergrated Development Environment
-- Install QT Designer
+- Install Qt Designer
 - Download the PyQt bolierplate code
 - Create a virtual environment
 ```
@@ -120,7 +120,7 @@ VS Code can be used to write any programming language. We need to prepare it for
 3. Acknowledge that you have VS Code
 4. You may need to accept the prompt to open VS Code
 
-## QT Designer
+## Qt Designer
 
 Qt Designer is a tool for quickly building graphical user interfaces with widgets from the Qt GUI framework. It gives you a simple drag-and-drop interface for laying out components such as buttons, text fields, combo boxes and more.
 
