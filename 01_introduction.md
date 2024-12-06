@@ -13,5 +13,28 @@ Code wrappers are like translators that let code written in one programming lang
 
 **PyQt** (pie-cute) is a Python wrapper for Qt. It brings the power of Qt to your Python projects. This means that instead of using the more complex C++ language, PyQt lets you design the same kinds of apps using Python. With PyQt, you can create windows, buttons, menus, and even games!
 
-![PyQt as a wrapper](./assets/img/pyqt_wrapper.png)
+![PyQt as a wrapper](./assets/img/01/pyqt_wrapper.png)
 
+## MVC Architecture Pattern
+
+The PyQt apps we create in these tutorials will use MVC Architecture. The MVC architecture pattern turns complex application development into a much more manageable process. It is example of modularization and decomposition.
+
+MVC stands for model-view-controller. Here’s what each of those components mean:
+
+- Model: The backend that contains all the data logic. Its job is to simply manage the data.
+- View: The frontend or user interface (UI). Its job is to provide information to the user through graphics and sounds, and gather the user's input.
+- Controller: The brains of the application that controls how data is displayed. Its job is to gather, modify, and provide data to the user. All data transferred between the model and the view must pass through the controller.
+
+![MVC architecture](./assets/img/01/mvc.png)
+
+### Why use MVC?
+
+We use MVC to establish separation of concerns(SoC).
+
+The MVC pattern helps you break up the frontend and backend code into separate components. This way, it’s much easier to manage and make changes to either side without them interfering with each other. 
+
+It is also easier to swap out components. If a developer wants to use a different UI, then they change the view component, same with the model.
+
+### How we will use MVC in these tutorials
+
+In these tutorials we will design the UI in **QT Designer**. The resulting file will then be converted to the view file. 

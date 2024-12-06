@@ -143,19 +143,19 @@ To access this code:
 2. Click on the green **Code** button
 3. Click on the **copy** button beside the https url
 
-![GitHub clone repo](assets/img/gh_clone_repo.png)
+![GitHub clone repo](assets/img/02/gh_clone_repo.png)
 
 4. Open **GitHub Desktop**
 5. Open the **File** menu
 6. Click **Clone Repository**
 
-![GitHub Desktop clone repo](assets/img/ghdt_clone_repo.png)
+![GitHub Desktop clone repo](assets/img/02/ghdt_clone_repo.png)
 
 7. Choose the **URL** tab
 8. Paste repo URL into **URL or username/repository** box
 9.  Click **Clone**
 
-![GitHub desktop clone repo dialogue](assets/img/ghdt_cloning_dialogue.png) 
+![GitHub desktop clone repo dialogue](assets/img/02/ghdt_cloning_dialogue.png) 
 
 The repo should now be copied onto your computer and ready for use.
 
@@ -190,7 +190,7 @@ To use GitHub Desktop to open VS Code:
 2. Make sure the **Current repository** (top lefthand) is **PyQt6-Boiler-Plate**
 3. Click **Open Visual Studio Code**
 
-![Launch with GitHub Desktop]()
+![Launch with GitHub Desktop](./assets/img/02/ghdt_launch.png)
 
 VS Code should now launch and you file panel of the lefthand side should show all the files in your repo.
 
@@ -229,19 +229,19 @@ To create a virtual environment for this project:
 2. Type `Python` at the top
 3. Choose `Python: Create Environment...`
 
-![Create venv problem](assets/img/create_venv_trouble.png)
+![Create venv problem](assets/img/02/create_venv_trouble.png)
 
 4. At the top choose the **Venv** option
 
-![Create venv 2](assets/img/create_venv_2.png)
+![Create venv 2](assets/img/02/create_venv_2.png)
 
 5. Then choose the latest version of Python that you just installed
 
-![Create venv 3](assets/img/create_venv_3.png)
+![Create venv 3](assets/img/02/create_venv_3.png)
 
 6. Tick the box beside **requirements.txt** and then **ok**
 
-![Create venv 4](assets/img/create_venv_4.png)
+![Create venv 4](assets/img/02/create_venv_4.png)
 
 VS Code will now:
 
@@ -257,11 +257,11 @@ Finally to check that the virtual environment has been setup.
 1. Click the **Terminal** menu
 2. Choose **New Terminal**
 
-![New Terminal](assets/img/new_terminal.png)
+![New Terminal](assets/img/02/new_terminal.png)
 
 3. Open the `main_widow.py` file and then check the right of the VS Code status bar for `3.X.X('venv':venv)`
 
-![Venv confirmation]()
+![Venv confirmation](./assets/img/02/create_venv_5.png)
 
 ## Make first commit and push
 
@@ -276,12 +276,12 @@ Learning how ot use PyQt to make GUIs
 2. In GitHub desktop write "Made first change" in the **Summary (required)** box
 3. Then click **Commit to main**
 
-![GitHub Desktop first commit](assets/img/ghdt_first_commit.png)
+![GitHub Desktop first commit](assets/img/02/ghdt_first_commit.png)
 
 4. Click **Push origin** (you will receive an error)
 
-![GitHub Desktop fist push](assets/img/ghtd_first_push.png)
+![GitHub Desktop fist push](assets/img/02/ghtd_first_push.png)
 
 5. Choose to **Fork this repository**
-6. Choose **For my own purposes** and **Continue**
+6. Choose **For my own purposes** then **Continue**
 7. Click **Push origin** again

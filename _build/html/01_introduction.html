@@ -209,6 +209,7 @@
 <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_tutorial_1.html">Creating Apps</a></li>
 </ul>
 
 </div>
@@ -261,6 +262,27 @@
 </div>
 <p><strong>PyQt</strong> (pie-cute) is a Python wrapper for Qt. It brings the power of Qt to your Python projects. This means that instead of using the more complex C++ language, PyQt lets you design the same kinds of apps using Python. With PyQt, you can create windows, buttons, menus, and even games!</p>
 <p><img alt="PyQt as a wrapper" src="_images/pyqt_wrapper.png" /></p>
+</section>
+<section id="mvc-architecture-pattern">
+<h2>MVC Architecture Pattern<a class="headerlink" href="#mvc-architecture-pattern" title="Link to this heading">¶</a></h2>
+<p>The PyQt apps we create in these tutorials will use MVC Architecture. The MVC architecture pattern turns complex application development into a much more manageable process. It is example of modularization and decomposition.</p>
+<p>MVC stands for model-view-controller. Here’s what each of those components mean:</p>
+<ul class="simple">
+<li><p>Model: The backend that contains all the data logic. Its job is to simply manage the data.</p></li>
+<li><p>View: The frontend or user interface (UI). Its job is to provide information to the user through graphics and sounds, and gather the user’s input.</p></li>
+<li><p>Controller: The brains of the application that controls how data is displayed. Its job is to gather, modify, and provide data to the user. All data transferred between the model and the view must pass through the controller.</p></li>
+</ul>
+<p><img alt="MVC architecture" src="_images/mvc.png" /></p>
+<section id="why-use-mvc">
+<h3>Why use MVC?<a class="headerlink" href="#why-use-mvc" title="Link to this heading">¶</a></h3>
+<p>We use MVC to establish separation of concerns(SoC).</p>
+<p>The MVC pattern helps you break up the frontend and backend code into separate components. This way, it’s much easier to manage and make changes to either side without them interfering with each other.</p>
+<p>It is also easier to swap out components. If a developer wants to use a different UI, then they change the view component, same with the model.</p>
+</section>
+<section id="how-we-will-use-mvc-in-these-tutorials">
+<h3>How we will use MVC in these tutorials<a class="headerlink" href="#how-we-will-use-mvc-in-these-tutorials" title="Link to this heading">¶</a></h3>
+<p>In these tutorials we will design the UI in <strong>QT Designer</strong>. The resulting file will then be converted to the view file.</p>
+</section>
 </section>
 </section>
 
@@ -328,6 +350,11 @@
             <ul>
 <li><a class="reference internal" href="#">Introduction</a><ul>
 <li><a class="reference internal" href="#what-is-pyqt">What is PyQt?</a></li>
+<li><a class="reference internal" href="#mvc-architecture-pattern">MVC Architecture Pattern</a><ul>
+<li><a class="reference internal" href="#why-use-mvc">Why use MVC?</a></li>
+<li><a class="reference internal" href="#how-we-will-use-mvc-in-these-tutorials">How we will use MVC in these tutorials</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
