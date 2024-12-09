@@ -102,7 +102,7 @@ Visual Studio Code (VS Code) is the IDE that we will be using for this course.
 
 To install VS Code:
 
-1. Go to the [VS Code website](https://code.visualstudio.com/)
+1. Go to the **[VS Code website](https://code.visualstudio.com/)**
 2. Click on the **Download** button
 3. Run the downloaded installation file.
 4. Accept all the default options.
@@ -115,7 +115,7 @@ VS Code extensions add extra functionality to the program. Below are the extensi
 
 VS Code can be used to write any programming language. We need to prepare it for working with Python. We do that by adding the Python extensions.
 
-1. Go to the [Python extension on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+1. Go to the **[Python extension on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python)**
 2. Click **Install**
 3. Acknowledge that you have VS Code
 4. You may need to accept the prompt to open VS Code
@@ -124,7 +124,7 @@ VS Code can be used to write any programming language. We need to prepare it for
 
 Qt Designer is a tool for quickly building graphical user interfaces with widgets from the Qt GUI framework. It gives you a simple drag-and-drop interface for laying out components such as buttons, text fields, combo boxes and more.
 
-1. Go to [Qt Designer stand alone installer](https://build-system.fman.io/qt-designer-download)
+1. Go to **[Qt Designer stand alone installer](https://build-system.fman.io/qt-designer-download)**
 2. Download the package for your system
 3. Install package
 

@@ -1,6 +1,6 @@
 # Tutorial 1 - Creating Apps
 
-```{admonition} In this lesson you will:
+```{admonition} In this tutorial you will:
 - Create a UI for a simple app in Qt Designer
 - Add some formatted text to the UI
 - Convert the UI to the view Python file
@@ -66,7 +66,7 @@ Next we will change the geometry (size) of the window.
 
 ```{admonition} Expanding **Property Editor**
 :class: note
-If your Property Editor looks different to the examples in these tutorials, you may need to expand sections. For example, if you can't see **width** and **height** you may need to expand the **geometry** section by clicking on the little arrow to the right of geometry.
+If your Property Editor looks different to the examples in these tutorials, you may need to expand sections. For example, if you can't see **width** and **height** you may need to expand the **geometry** section by clicking on the **>** to the right of **geometry**.
 ```
 
 ![change window geometry](./assets/img/03/02_geometry.gif)
@@ -113,7 +113,7 @@ That message is too hard to see.
 Time to save the UI. It is important to save the UI file in the same directory (folder) as your **main_window.py**, ie. your repo for these tutorials.
 
 1. Select **Save** from the **File** menu
-2. Navigate to your repo for these tutorials
+2. Navigate to your repo with your **main_window.py** file
 3. Name the file **tutorial_01.ui**
 
 ### Convert UI file
