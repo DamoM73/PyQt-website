@@ -1,13 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="en" data-content_root="./">
-  <head>
-<meta charset="utf-8"/>
+  <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="#" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Tutorial 3 - Layouts" href="05_tutorial_3.html" />
 
     <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-<meta name="robots" content="noindex" />
-<title>Search - PyQt Tutorials</title><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+        <title>Tutorial 4 - Complex UIs - PyQt Tutorials</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -199,20 +199,20 @@
   
   <span class="sidebar-brand-text">PyQt Tutorials</span>
   
-</a><form class="sidebar-search-container" method="get" action="#" role="search">
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_tutorial_1.html">Tutorial 1 - Creating Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_tutorial_2.html">Tutorial 2 - Labels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_tutorial_3.html">Tutorial 3 - Layouts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_tutorial_4.html">Tutorial 4 - Complex UIs</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 4 - Complex UIs</a></li>
 </ul>
 
 </div>
@@ -232,7 +232,13 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/06_tutorial_4.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -241,23 +247,107 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          
-<noscript>
-<div class="admonition error">
-  <p class="admonition-title">Error</p>
-  <p>
-    Please activate JavaScript to enable the search functionality.
-  </p>
+          <section id="tutorial-4-complex-uis">
+<h1>Tutorial 4 - Complex UIs<a class="headerlink" href="#tutorial-4-complex-uis" title="Link to this heading">¶</a></h1>
+<div class="admonition-in-this-tutorial-you-will admonition">
+<p class="admonition-title">In this tutorial you will:</p>
+<ul class="simple">
+<li><p>Nest layouts to create a more complex UI</p></li>
+<li><p>Use spaces to control layout expansion</p></li>
+</ul>
 </div>
-</noscript>
-
-<div id="search-results"></div>
+<p>To make more complex UIs you need to nest layout and use spaces. We will explore these processes in this tutorial. We will create a UI with a horizontal layout for the main window, then place a vertical layout in the centre cell, which will then contain our widgets.The left and right cells will be empty. Finally we will look at how to use spaces to control the expansion of widgets in dynamic UIs.</p>
+<section id="nesting-layouts">
+<h2>Nesting layouts<a class="headerlink" href="#nesting-layouts" title="Link to this heading">¶</a></h2>
+<p>To create our nested layout UI, we need to start with a window that contains widgets.</p>
+<ol class="arabic simple">
+<li><p>Open <strong>tutorial_2.ui</strong> (you should find it in <strong>File → Recent Forms</strong>)</p></li>
+<li><p>Save the file as <strong>tutorial_4.ui</strong> (<strong>File → Save As…</strong>)</p></li>
+</ol>
+<section id="add-horizontal-layout">
+<h3>Add horizontal layout<a class="headerlink" href="#add-horizontal-layout" title="Link to this heading">¶</a></h3>
+<p>The initial layout will be a horizontal layout.</p>
+<ol class="arabic simple">
+<li><p>Right click on the <strong>window canvas</strong></p></li>
+<li><p>From the context menu select <strong>Layout → Lay Out Horizontally</strong></p></li>
+</ol>
+<p><img alt="initial layout" src="_images/01_initial_layout.gif" /></p>
+</section>
+<section id="add-vertical-layout">
+<h3>Add vertical layout<a class="headerlink" href="#add-vertical-layout" title="Link to this heading">¶</a></h3>
+<p>Next we want to place a vertical layout into the middle of the horizontal layout.</p>
+<ol class="arabic simple">
+<li><p>From the <strong>Widget Library</strong> drag a <strong>Vertical Layout</strong> onto the <strong>window canvas</strong></p></li>
+<li><p>Position it either between, the first and second label, or the second and third label.</p></li>
+</ol>
+<p><img alt="second layout" src="_images/02_second_layout.gif" /></p>
+</section>
+<section id="move-labels">
+<h3>Move labels<a class="headerlink" href="#move-labels" title="Link to this heading">¶</a></h3>
+<p>Now we want to move the three labels into the vertical layout. Normally we would click and drag them, but the vertical layout has been reduced to a line, so we can’t do that. Fortunately we can also move things to the objects in the <strong>Objects Inspector</strong>.</p>
+<ol class="arabic simple">
+<li><p>Click and drag the first label to the QVBoxLayout in the <strong>Object Inspector</strong></p></li>
+<li><p>Repeat for the other two labels</p></li>
+</ol>
+<p><img alt="move labels" src="_images/03_move_labels.gif" /></p>
+<p>Note in the <strong>Object Inspector</strong> the three labels are now indented under the QVBoxLabel.</p>
+</section>
+<section id="arrange-labels">
+<h3>Arrange labels<a class="headerlink" href="#arrange-labels" title="Link to this heading">¶</a></h3>
+<p>With the labels inside the vertical layout, you can easily move them around by clicking and dragging. Look for the blue bar to see where widgets are being moved to.</p>
+<ol class="arabic simple">
+<li><p>Rearrange the labels to be in the following order</p></li>
+</ol>
+<p><img alt="arrange" src="_images/04_arrange.gif" /></p>
+</section>
+</section>
+<section id="spacers">
+<h2>Spacers<a class="headerlink" href="#spacers" title="Link to this heading">¶</a></h2>
+<p>At the moment, the UI doesn’t look that different to a simple UI with only a Vertical layout. But this nested setup allows us to use spacers to change the UI.</p>
+<p>In Qt, <strong>spacers</strong> are special tools used to add empty space between widgets in a layout to control their positioning and alignment. Spacers act like “invisible springs” that push widgets apart, ensuring they are evenly spaced or aligned as you want.</p>
+<p>There are two main types of spacers in Qt:</p>
+<ol class="arabic simple">
+<li><p><strong>Horizontal Spacers</strong>: Add space between widgets arranged horizontally.</p></li>
+<li><p><strong>Vertical Spacers</strong>: Add space between widgets stacked vertically.</p></li>
+</ol>
+<p>Spacers are especially useful when you want to create flexible layouts that adjust automatically when the window is resized. For example, you can use a spacer to push a button to the bottom of a window or to evenly spread out widgets. This helps your app look clean and organised across different screen sizes.</p>
+<section id="add-horizontal-spacers">
+<h3>Add horizontal spacers<a class="headerlink" href="#add-horizontal-spacers" title="Link to this heading">¶</a></h3>
+<p>We will add horizontal spacers to the left and the right of the vertical layout.</p>
+<ol class="arabic simple">
+<li><p>Click and drag a <strong>Horizontal Space</strong> from the <strong>Widget library</strong> to the left of the labels</p></li>
+<li><p>Click and drag a <strong>Horizontal Space</strong> from the <strong>Widget library</strong> to the right of the labels</p></li>
+</ol>
+<p><img alt="horizontal spacers" src="_images/05_h_spacers.gif" /></p>
+<p>Note: the spacers compresses the centre cell to it’s minimal size, then evenly split the remaining free space.</p>
+</section>
+<section id="add-vertical-spacer">
+<h3>Add vertical spacer<a class="headerlink" href="#add-vertical-spacer" title="Link to this heading">¶</a></h3>
+<p>Now we will add just one space to the bottom of the horizontal layout.</p>
+<ol class="arabic simple">
+<li><p>Click and drag a <strong>Vertical Space</strong> from the <strong>Widget library</strong> to the bottom of the labels</p></li>
+</ol>
+<p><img alt="vertical spacer" src="_images/06_v_spacer.gif" /></p>
+<p>Note: the spacer compresses the labels to their minimal size, and then shows the rest of the window as empty.</p>
+</section>
+</section>
+<section id="preview-window">
+<h2>Preview window<a class="headerlink" href="#preview-window" title="Link to this heading">¶</a></h2>
+<p>To preview the window, click <strong>Form → Preview</strong> or press <strong>ctrl</strong> / <strong>cmd</strong> + <strong>P</strong> keys.</p>
+<p>Now resize the window, and you will notice that the labels remain at their smallest size, but remain in the middle top of the window.</p>
+<p>Have a play with spacers. Move them around, add more, take some away. Preview the window and see what impact your changes have.</p>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h2>
+<p>In this tutorial we explored how to nest layouts, which will help us make complex UIs. We then learnt about spacers and ow they can be used to place gaps between widgets.</p>
+</section>
+</section>
 
         </article>
       </div>
@@ -265,7 +355,17 @@
         
         <div class="related-pages">
           
-          
+          <a class="prev-page" href="05_tutorial_3.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Tutorial 3 - Layouts</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -291,8 +391,40 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Tutorial 4 - Complex UIs</a><ul>
+<li><a class="reference internal" href="#nesting-layouts">Nesting layouts</a><ul>
+<li><a class="reference internal" href="#add-horizontal-layout">Add horizontal layout</a></li>
+<li><a class="reference internal" href="#add-vertical-layout">Add vertical layout</a></li>
+<li><a class="reference internal" href="#move-labels">Move labels</a></li>
+<li><a class="reference internal" href="#arrange-labels">Arrange labels</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spacers">Spacers</a><ul>
+<li><a class="reference internal" href="#add-horizontal-spacers">Add horizontal spacers</a></li>
+<li><a class="reference internal" href="#add-vertical-spacer">Add vertical spacer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#preview-window">Preview window</a></li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -303,8 +435,5 @@
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    
-<script src="_static/searchtools.js"></script>
-<script src="_static/language_data.js"></script>
-<script src="searchindex.js"></script></body>
+    </body>
 </html>
