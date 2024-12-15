@@ -12,7 +12,8 @@ To make more complex UIs you need to nest layout and use spaces. We will explore
 To create our nested layout UI, we need to start with a window that contains widgets.
 
 1. Open **tutorial_2.ui** (you should find it in **File &rarr; Recent Forms**)
-2. Save the file as **tutorial_4.ui** (**File &rarr; Save As...**)
+2. Change **windowTitle** to **Tutorial 4**
+3. Save the file as **tutorial_4.ui** (**File &rarr; Save As...**)
 
 ### Add horizontal layout
 

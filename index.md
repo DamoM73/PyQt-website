@@ -12,4 +12,5 @@ This website will provide introductory tutorials for developing applications usi
 04_tutorial_2
 05_tutorial_3
 06_tutorial_4
+07_tutorial_5
 ```

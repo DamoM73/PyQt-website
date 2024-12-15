@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Tutorial 4 - Complex UIs" href="06_tutorial_4.html" /><link rel="prev" title="Tutorial 2 - Labels" href="04_tutorial_2.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Tutorial 4 - Complex UIs" href="06_tutorial_4.html" />
 
     <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Tutorial 3 - Layouts - PyQt Tutorials</title>
+        <title>Tutorial 5 - Signals and Slots - PyQt Tutorials</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -211,9 +211,9 @@
 <li class="toctree-l1"><a class="reference internal" href="02_setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_tutorial_1.html">Tutorial 1 - Creating Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_tutorial_2.html">Tutorial 2 - Labels</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 3 - Layouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_tutorial_3.html">Tutorial 3 - Layouts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_tutorial_4.html">Tutorial 4 - Complex UIs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_tutorial_5.html">Tutorial 5 - Signals and Slots</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 5 - Signals and Slots</a></li>
 </ul>
 
 </div>
@@ -234,7 +234,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="_sources/05_tutorial_3.md.txt" title="View this page">
+  <a class="muted-link" href="_sources/07_tutorial_5.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -254,136 +254,162 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="tutorial-3-layouts">
-<h1>Tutorial 3 - Layouts<a class="headerlink" href="#tutorial-3-layouts" title="Link to this heading">¶</a></h1>
+          <section id="tutorial-5-signals-and-slots">
+<h1>Tutorial 5 - Signals and Slots<a class="headerlink" href="#tutorial-5-signals-and-slots" title="Link to this heading">¶</a></h1>
 <div class="admonition-in-this-tutorial-you-will admonition">
 <p class="admonition-title">In this tutorial you will:</p>
 <ul class="simple">
-<li><p>Learn about Qt’s three Layouts</p></li>
-<li><p>Leanr about static and dynamic UIs</p></li>
-<li><p>Apply Layout to organise a window</p></li>
+<li><p>add puchButtons to your UI</p></li>
+<li><p>use QT’s signals and slots process architecture to create an interactive UI</p></li>
 </ul>
 </div>
-<section id="static-vs-dynamic-uis">
-<h2>Static vs Dynamic UIs<a class="headerlink" href="#static-vs-dynamic-uis" title="Link to this heading">¶</a></h2>
-<p>Static UI’s don’t change in response to the size of the window. For example, if you launch the window we created in tutorial 2, you will notice that the labels do not respond to resizing of the window.</p>
-<p><img alt="window resizing example" src="_images/01_resizing.gif" /></p>
-<p>Notice how all three labels:</p>
-<ul class="simple">
-<li><p>remain the same distance from the top left corner (coordinate 0,0)</p></li>
-<li><p>remain the same size</p></li>
-</ul>
-<p>A dynamic UI changes in response to the window size.</p>
-<section id="which-to-use">
-<h3>Which to use?<a class="headerlink" href="#which-to-use" title="Link to this heading">¶</a></h3>
-<p><strong>Static</strong> can be used where the window does not need to change. The use for this is less than it first seems. Even when the window fill the screen, its size is dependant upon the resolution of the screen. Therefore, for most applications, <strong>dynamic</strong> UI are the best option.</p>
-</section>
-</section>
-<section id="what-are-qt-layouts">
-<h2>What are Qt Layouts?<a class="headerlink" href="#what-are-qt-layouts" title="Link to this heading">¶</a></h2>
-<p><strong>Qt layouts</strong> are tools in the Qt framework that help organise how widgets appear in a window or application. Instead of manually setting the size and position of each widget, layouts automatically arrange them in a neat and logical way, even if the window is resized.</p>
-<p>There are different types of layouts you can use in Qt:</p>
-<ul class="simple">
-<li><p>Horizontal Layout</p></li>
-<li><p>Vertical Layout</p></li>
-<li><p>Grid Layout</p></li>
-<li><p><strong>Form Layout</strong> pairs labels with input fields, making forms easy to build.</p></li>
-</ul>
-<p>Using layouts, and nesting layouts inside of other layouts, makes your applications look cleaner, more professional, and adaptable to different screen sizes without extra effort.</p>
-<p>In this tutorial we will focus on the first three of these. Form layouts we will explore in a later tutorial.</p>
-</section>
-<section id="applying-layouts-in-qt-designer">
-<h2>Applying Layouts in Qt Designer<a class="headerlink" href="#applying-layouts-in-qt-designer" title="Link to this heading">¶</a></h2>
-<p>In Qt Designer there are two ways to apply layouts to a window:</p>
-<ul class="simple">
-<li><p>right-click on a widget and then choose the layout</p></li>
-<li><p>drag-and-drop a layout from the Widget library</p></li>
-</ul>
-<p>The best way to apply layouts is reliant upon which layout it is (initial  layout or subsequent layouts). The first layout is applied to the window, while subsequent layouts are nested inside this first layout.</p>
-<section id="initial-layout">
-<h3>Initial Layout<a class="headerlink" href="#initial-layout" title="Link to this heading">¶</a></h3>
-<p>If you drag-and-drop the initial layout, then it will not apply the resizing settings (see below).</p>
-<p><img alt="drag-and-drop initial layout" src="_images/02_drag_n_drop_initial.gif" /></p>
-<p>But Qt Designer will not allow you to right-click either (the options are greyed out).</p>
-<p><img alt="greyed out context menu" src="_images/03_greyed_out_menu.gif" /></p>
-<p>The trick is to have some widgets already in the window before you right-click and access the context menu.</p>
-</section>
-<section id="subsequent-layouts">
-<h3>Subsequent Layouts<a class="headerlink" href="#subsequent-layouts" title="Link to this heading">¶</a></h3>
-<p>All subsequent layouts can use either method. I prefer the drag-and-drop method, so that is what we will use in these tutorials, but feel free to explore the right-click approach.</p>
-</section>
-</section>
-<section id="exploring-qt-layouts">
-<h2>Exploring Qt Layouts<a class="headerlink" href="#exploring-qt-layouts" title="Link to this heading">¶</a></h2>
-<p>To make this quicker, we will start with the UI from last tutorial.</p>
+<p>So far out tutorials have been focusing on how to make an responsive UI.  While this is an important foundation, all we can do is display information. In this tutorial we will start learning about how to make out UI interactive and respond to the user.</p>
+<section id="push-buttons">
+<h2>Push Buttons<a class="headerlink" href="#push-buttons" title="Link to this heading">¶</a></h2>
+<p>The first input widget that we will explore is the <strong>Push Button</strong>. It simply registers when a user clicks on it. Push Buttons are probably the most common components in UIs.</p>
+<section id="tutorial-file">
+<h3>Tutorial file<a class="headerlink" href="#tutorial-file" title="Link to this heading">¶</a></h3>
+<p>Again we will use a previous UI file to introduce the Push Button.</p>
 <ol class="arabic simple">
-<li><p>Open <strong>tutorial_2.ui</strong> (you should find it in <strong>File → Recent Forms</strong>)</p></li>
-<li><p>Change <strong>windowTitle</strong> to <strong>Tutorial 3</strong></p></li>
-<li><p>Save the file as <strong>tutorial_3.ui</strong> (<strong>File → Save As…</strong>)</p></li>
+<li><p>Open <strong>tutorial_4.ui</strong> (you should find it in <strong>File → Recent Forms</strong>)</p></li>
+<li><p>Change <strong>windowTitle</strong> to <strong>Tutorial 5</strong></p></li>
+<li><p>Save the file as <strong>tutorial_5.ui</strong> (<strong>File → Save As…</strong>)</p></li>
 </ol>
-<p>Now lets look at the three different layouts.</p>
-<section id="horizontal-layout">
-<h3>Horizontal Layout<a class="headerlink" href="#horizontal-layout" title="Link to this heading">¶</a></h3>
-<p>The <strong>Horizontal Layout</strong> arranges widgets in a row of cells from left to right.</p>
+</section>
+<section id="add-a-push-button">
+<h3>Add a Push Button<a class="headerlink" href="#add-a-push-button" title="Link to this heading">¶</a></h3>
+<p>We want the Push Button to be on the right of the screen, so first we need to add a horizontal layout.</p>
 <ol class="arabic simple">
-<li><p>Right-click on the window</p></li>
-<li><p>From the context menu choose <strong>Layout → Lay Out Horizontally</strong></p></li>
+<li><p>From the <strong>Widgets Library</strong>, click and drag a <strong>Horizontal Layout</strong></p></li>
+<li><p>Place it at the bottom of the <strong>Vertical Layout</strong> on the <strong>window canvas</strong></p></li>
 </ol>
-<p><img alt="horizontal layout" src="_images/04_horizontal.gif" /></p>
-<p>Note:</p>
+<p><img alt="Add Horizontal Layout" src="_images/01_add_hlayout.gif" /></p>
+<p>We now need add the Push Button, but the Horizontal Layout is compressed. This means we will need to use the <strong>Object Inspector</strong>.</p>
+<ol class="arabic simple" start="3">
+<li><p>In the <strong>Widgets Library</strong> locate and click and drag the <strong>Push Button</strong></p></li>
+<li><p>Drag it over to the <strong>Object Inspector</strong> onto the <strong>Horizontal Layout</strong> we just added.</p></li>
+</ol>
+<p><img alt="Add Button" src="_images/02_add_button.gif" /></p>
+<p>Notice the Push Button expands to fill the available space. We want use a Horizontal Spacer to compress it.</p>
+<ol class="arabic simple" start="5">
+<li><p>Grab a <strong>Horizontal Spacer</strong> from the <strong>Widgets Library</strong></p></li>
+<li><p>Drag it to the left of the <strong>Push Button</strong></p></li>
+</ol>
+<p><img alt="Horizontal Spacer" src="_images/03_hspacer.gif" /></p>
+<p>Finally we want to change the text on the Push Button</p>
+<ol class="arabic simple" start="7">
+<li><p><strong>Double-click</strong> on the <strong>Push Button</strong> then type <strong>Click Me</strong></p></li>
+<li><p>Change the font <strong>Point Size</strong> to <strong>12</strong></p></li>
+</ol>
+<p><img alt="button text" src="_images/04_button_text.gif" /></p>
+</section>
+<section id="save-the-ui-file">
+<h3>Save the UI file<a class="headerlink" href="#save-the-ui-file" title="Link to this heading">¶</a></h3>
+<p>The UI is finished so time to save. Remember, it is important to save the UI file in the same directory (folder) as your <strong>main_window.py</strong>.</p>
+<ol class="arabic simple">
+<li><p>Select <strong>Save</strong> from the <strong>File</strong> menu</p></li>
+</ol>
+</section>
+<section id="convert-ui-file">
+<h3>Convert UI file<a class="headerlink" href="#convert-ui-file" title="Link to this heading">¶</a></h3>
+<p>Now we need to convert the UI file to a Python file, and we will do this in VS Code.</p>
+<ol class="arabic simple">
+<li><p>Open VS Code via GitHub Desktop</p></li>
+<li><p>Check that the <strong>tutorial_05.ui</strong> file is in your file panel.</p></li>
+<li><p>Open a new terminal</p></li>
+<li><p>At the prompt, type <code class="docutils literal notranslate"><span class="pre">pyuic6</span> <span class="pre">-o</span> <span class="pre">ui_main_window.py</span> <span class="pre">-x</span> <span class="pre">tutorial_05.ui</span></code></p></li>
+<li><p>Then press enter.</p></li>
+</ol>
+<p>Time to run the app and check that it all works</p>
+<ol class="arabic simple" start="6">
+<li><p>Open the <strong>main_window.py</strong></p></li>
+<li><p>Run the code.</p></li>
+</ol>
+<p>Your UI should look the same as below. Notice that all the usual button behaviour is build it:</p>
 <ul class="simple">
-<li><p>Each cell’s height is resized to fit the maximum height of the window.</p></li>
-<li><p>The entire row’s size takes up the width of the window.</p></li>
-<li><p>The size of each cell is relative to the size of its content.</p></li>
+<li><p>highlights when you mouse over it</p></li>
+<li><p>changes colour to indicate a click</p></li>
+</ul>
+<p>But it doesn’t do anything. That’s where the signals and slots come in.</p>
+</section>
+</section>
+<section id="signals-and-slots">
+<h2>Signals and Slots<a class="headerlink" href="#signals-and-slots" title="Link to this heading">¶</a></h2>
+<p>In Qt, <strong>signals and slots</strong> are a way for different parts of your program to communicate with each other, like sending messages when something happens. A <strong>signal</strong> is emitted (sent) when a specific event occurs, such as a button being clicked or a text field being edited. A <strong>slot</strong> is a function that gets called in response to that signal, allowing you to define what happens next.</p>
+<p>In Qt all widgets have signals. Over the course of these tutorials we will explore the most relevant signals for creating intermediate UI. If you want to explore more, then the best place to start is the <strong><a class="reference external" href="https://doc.qt.io/qt-6/">Qt Documentation</a></strong>.</p>
+<p>Both signals and slots have distinct places in the boilerplate code. Strictly speaking, they can go anywhere, but organising code in this way improve its maintainability.</p>
+<p><img alt="boilerplate" src="_images/06_boilerplate.png" /></p>
+<p>We are going to establish some good programming habit right from the start.</p>
+<p>Since signals call a method, it is best to at least create that method’s name so your IDE can suggest it when you type.</p>
+<div class="hint admonition">
+<p class="admonition-title">Using suggested code</p>
+<p>Using the code your IDE suggest can be helpful. It can speed up your coding, but more importantly it can minimise typo errors. Your IDE will suggest names that exist, therefore preventing you from calling incorrect variables and methods.</p>
+</div>
+<section id="create-slot">
+<h3>Create slot<a class="headerlink" href="#create-slot" title="Link to this heading">¶</a></h3>
+<p>The first thing we will do is define a slot for our signal to call. It won’t do anything. It is a place marker for code that we still need to right. We will use the Python <strong><code class="docutils literal notranslate"><span class="pre">pass</span></code></strong> statement to represent the missing code. It will also prevent your IDE from showing indentation errors due to a missing code block.</p>
+<p>In <strong>main_window.py</strong></p>
+<ol class="arabic simple">
+<li><p>Delete <strong>lines 27 - 29</strong></p></li>
+<li><p>Add the code below</p></li>
+</ol>
+<p><img alt="slot placeholder" src="_images/07_slot_placeholder.png" /></p>
+</section>
+<section id="connect-signal">
+<h3>Connect signal<a class="headerlink" href="#connect-signal" title="Link to this heading">¶</a></h3>
+<p>Now we need to connect the clicked signal to the slot.</p>
+<p>In <strong>signals</strong> method</p>
+<ol class="arabic simple">
+<li><p>Delete <strong>line 24</strong></p></li>
+<li><p>Add the code below</p></li>
+</ol>
+<p><img alt="signal" src="_images/08_signal.png" /></p>
+<p>Lets take a second to understand what that line says.</p>
+<p><img alt="signal breakdown" src="_images/09_signal_breakdown.png" /></p>
+<ul class="simple">
+<li><p><strong>Window name</strong> - the name of our MainWindow that we defined in the <code class="docutils literal notranslate"><span class="pre">__init__</span></code></p></li>
+<li><p><strong>Widget name</strong> - the name of the widget whose signal will trigger the action.</p></li>
+<li><p><strong>Signal name</strong> - the type of signal that will trigger the action.</p></li>
+<li><p><strong>Action</strong> - the type of action that will be triggered (connect → run a slot method).</p></li>
+<li><p><strong>Target of action</strong> - the slot method that will be run</p></li>
 </ul>
 </section>
-<section id="vertical-layout">
-<h3>Vertical Layout<a class="headerlink" href="#vertical-layout" title="Link to this heading">¶</a></h3>
-<p>The <strong>Vertical Layout</strong> stacks widgets one on top of another in a column of cells.</p>
+<section id="complete-slot">
+<h3>Complete slot<a class="headerlink" href="#complete-slot" title="Link to this heading">¶</a></h3>
+<p>Finally we need to complete the slot. In response to the button being clicked we want to change the text of the label above it.</p>
+<p>In the <strong>button_clicked</strong> method</p>
 <ol class="arabic simple">
-<li><p>Undo the horizontal layout application</p></li>
-<li><p>Right-click on the window</p></li>
-<li><p>From the context menu choose <strong>Layout → Lay Out Vertically</strong></p></li>
+<li><p>Delete <strong>line 28</strong> → <code class="docutils literal notranslate"><span class="pre">pass</span></code></p></li>
+<li><p>Add the code below</p></li>
 </ol>
-<p><img alt="vertical layout" src="_images/05_vertical.gif" /></p>
-<p>Note:</p>
-<ul class="simple">
-<li><p>Each cell’s width is resized to fit the maximum width of the window.</p></li>
-<li><p>The entire columns’s size takes up the height of the window.</p></li>
-<li><p>The size of each cell is relative to the size of its content.</p></li>
-</ul>
+<p><img alt="slot completion" src="_images/10_slot_completion.png" /></p>
+<p>In this code we are changing the <strong>text</strong> property of <strong>label_2</strong>.</p>
+<div class="hint admonition">
+<p class="admonition-title">Widget properties</p>
+<p>With PyQt you can programatically change all widget properties. We will look at the most useful ones, but if you want to explore more check out the <strong><a class="reference external" href="https://doc.qt.io/qt-6/">Qt Documentation</a></strong>.</p>
+</div>
 </section>
-<section id="grid-layout">
-<h3>Grid Layout<a class="headerlink" href="#grid-layout" title="Link to this heading">¶</a></h3>
-<p>The <strong>Grid Layout</strong> places widgets in rows and columns, like a table.</p>
+<section id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Link to this heading">¶</a></h3>
+<p>Save and run your code to check that it works.</p>
+<div class="error admonition">
+<p class="admonition-title">Wrong label</p>
+<p>If the wrong label changes when you click the button:</p>
 <ol class="arabic simple">
-<li><p>Undo the vertical layout application</p></li>
-<li><p>Right-click on the window</p></li>
-<li><p>From the context menu choose <strong>Layout → Lay Out in a Grid</strong></p></li>
+<li><p>open your <strong>UI file</strong> in <strong>QT Designer</strong></p></li>
+<li><p>click on the label you want to change</p></li>
+<li><p>check the label name in the <strong>Property Editor</strong></p></li>
 </ol>
-<p><img alt="grid layout" src="_images/06_grid.gif" /></p>
-<p>Note:</p>
-<ul class="simple">
-<li><p>Although it initially looks the same as the vertical layout, you can drag widgets to the sides and top or bottom of other widgets to make a table.</p></li>
-<li><p>Both the cell height and width are dependant upon the window size</p></li>
-<li><p>Cells in the same row, share the same height</p></li>
-<li><p>Cells in the same column, share the same width</p></li>
-</ul>
+<p><img alt="wrong label" src="_images/11_label_name.png" /></p>
+<ol class="arabic simple" start="4">
+<li><p>then in <strong>main_window.py</strong> change the name in your code accordingly</p></li>
+</ol>
+</div>
 </section>
-<section id="adding-subsequent-widgets">
-<h3>Adding subsequent widgets<a class="headerlink" href="#adding-subsequent-widgets" title="Link to this heading">¶</a></h3>
-<p>Adding subsequent widgets simply involves dragging and dropping a widget from the widget library onto a cell in the layout. The widget will inherent the properties (eg. height and width) of that cell.</p>
-<p><img alt="subsequent" src="_images/07_subsequent.gif" /></p>
-<p>Note the red line or box that indicates where the widget will be placed.</p>
-</section>
-</section>
-<section id="nesting-layouts">
-<h2>Nesting Layouts<a class="headerlink" href="#nesting-layouts" title="Link to this heading">¶</a></h2>
-<p>Don’t forget that layouts are also widgets. This means that a layout can be placed inside the cell of another layout. This is how you develop complex UIs, something that we will explore in later tutorials. This is also why it is important to plan out your UIs so you have a good idea of where all your layouts should go.</p>
 </section>
 <section id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h2>
-<p>Layouts are part of making good responsive UI and they are vital for complex UIs. This tutorials we have explored the three main window layouts.</p>
+<p>In this tutorial we learnt how to add <strong>Push Buttons</strong>, as well as furthered our understanding of nested layouts. We then learnt about Qt’s interactivity mechanism, <strong>signals and slots</strong>. We connected a <strong>signal</strong> from the <strong>Push Button</strong> to a <strong>slot</strong> that change the text of a label.</p>
 </section>
 </section>
 
@@ -392,23 +418,15 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="06_tutorial_4.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Tutorial 4 - Complex UIs</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="04_tutorial_2.html">
+          
+          <a class="prev-page" href="06_tutorial_4.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Tutorial 2 - Labels</div>
+                <div class="title">Tutorial 4 - Complex UIs</div>
                 
               </div>
             </a>
@@ -449,25 +467,21 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Tutorial 3 - Layouts</a><ul>
-<li><a class="reference internal" href="#static-vs-dynamic-uis">Static vs Dynamic UIs</a><ul>
-<li><a class="reference internal" href="#which-to-use">Which to use?</a></li>
+<li><a class="reference internal" href="#">Tutorial 5 - Signals and Slots</a><ul>
+<li><a class="reference internal" href="#push-buttons">Push Buttons</a><ul>
+<li><a class="reference internal" href="#tutorial-file">Tutorial file</a></li>
+<li><a class="reference internal" href="#add-a-push-button">Add a Push Button</a></li>
+<li><a class="reference internal" href="#save-the-ui-file">Save the UI file</a></li>
+<li><a class="reference internal" href="#convert-ui-file">Convert UI file</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#what-are-qt-layouts">What are Qt Layouts?</a></li>
-<li><a class="reference internal" href="#applying-layouts-in-qt-designer">Applying Layouts in Qt Designer</a><ul>
-<li><a class="reference internal" href="#initial-layout">Initial Layout</a></li>
-<li><a class="reference internal" href="#subsequent-layouts">Subsequent Layouts</a></li>
+<li><a class="reference internal" href="#signals-and-slots">Signals and Slots</a><ul>
+<li><a class="reference internal" href="#create-slot">Create slot</a></li>
+<li><a class="reference internal" href="#connect-signal">Connect signal</a></li>
+<li><a class="reference internal" href="#complete-slot">Complete slot</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#exploring-qt-layouts">Exploring Qt Layouts</a><ul>
-<li><a class="reference internal" href="#horizontal-layout">Horizontal Layout</a></li>
-<li><a class="reference internal" href="#vertical-layout">Vertical Layout</a></li>
-<li><a class="reference internal" href="#grid-layout">Grid Layout</a></li>
-<li><a class="reference internal" href="#adding-subsequent-widgets">Adding subsequent widgets</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#nesting-layouts">Nesting Layouts</a></li>
 <li><a class="reference internal" href="#conclusion">Conclusion</a></li>
 </ul>
 </li>

@@ -68,7 +68,8 @@ All subsequent layouts can use either method. I prefer the drag-and-drop method,
 To make this quicker, we will start with the UI from last tutorial.
 
 1. Open **tutorial_2.ui** (you should find it in **File &rarr; Recent Forms**)
-2. Save the file as **tutorial_3.ui** (**File &rarr; Save As...**)
+2. Change **windowTitle** to **Tutorial 3**
+3. Save the file as **tutorial_3.ui** (**File &rarr; Save As...**)
 
 Now lets look at the three different layouts.
 
