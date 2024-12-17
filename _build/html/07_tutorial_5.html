@@ -339,16 +339,24 @@
 <p>In Qt all widgets have signals. Over the course of these tutorials we will explore the most relevant signals for creating intermediate UI. If you want to explore more, then the best place to start is the <strong><a class="reference external" href="https://doc.qt.io/qt-6/">Qt Documentation</a></strong>.</p>
 <p>Both signals and slots have distinct places in the boilerplate code. Strictly speaking, they can go anywhere, but organising code in this way improve its maintainability.</p>
 <p><img alt="boilerplate" src="_images/06_boilerplate.png" /></p>
-<p>We are going to establish some good programming habit right from the start.</p>
+<p>We are going to establish some good programming habits right from the start.</p>
 <p>Since signals call a method, it is best to at least create that method’s name so your IDE can suggest it when you type.</p>
 <div class="hint admonition">
 <p class="admonition-title">Using suggested code</p>
 <p>Using the code your IDE suggest can be helpful. It can speed up your coding, but more importantly it can minimise typo errors. Your IDE will suggest names that exist, therefore preventing you from calling incorrect variables and methods.</p>
 </div>
+<section id="copy-main-window-py">
+<h3>Copy main_window.py<a class="headerlink" href="#copy-main-window-py" title="Link to this heading">¶</a></h3>
+<p>Since we want to reuse the boilerplate code in <strong>main_window.py</strong> throughout these tutorials, we want to keep a clean version. From now on, for each tutorial, you will need to copy <strong>main_window.py</strong> and rename it. For this tutorial:</p>
+<ol class="arabic simple">
+<li><p>Copy <strong>main_window.py</strong></p></li>
+<li><p>Rename the copied file <strong>first_program.py</strong></p></li>
+</ol>
+</section>
 <section id="create-slot">
 <h3>Create slot<a class="headerlink" href="#create-slot" title="Link to this heading">¶</a></h3>
 <p>The first thing we will do is define a slot for our signal to call. It won’t do anything. It is a place marker for code that we still need to right. We will use the Python <strong><code class="docutils literal notranslate"><span class="pre">pass</span></code></strong> statement to represent the missing code. It will also prevent your IDE from showing indentation errors due to a missing code block.</p>
-<p>In <strong>main_window.py</strong></p>
+<p>In <strong>first_program.py</strong></p>
 <ol class="arabic simple">
 <li><p>Delete <strong>lines 27 - 29</strong></p></li>
 <li><p>Add the code below</p></li>
@@ -476,6 +484,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#signals-and-slots">Signals and Slots</a><ul>
+<li><a class="reference internal" href="#copy-main-window-py">Copy main_window.py</a></li>
 <li><a class="reference internal" href="#create-slot">Create slot</a></li>
 <li><a class="reference internal" href="#connect-signal">Connect signal</a></li>
 <li><a class="reference internal" href="#complete-slot">Complete slot</a></li>

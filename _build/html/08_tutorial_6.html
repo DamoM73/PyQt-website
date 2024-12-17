@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Introduction" href="01_introduction.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Tutorial 5 - Signals and Slots" href="07_tutorial_5.html" />
 
     <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>PyQt Tutorials</title>
+        <title>Tutorial 6 - Calculator App - PyQt Tutorials</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -170,7 +170,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">PyQt Tutorials</div></a>
+      <a href="index.html"><div class="brand">PyQt Tutorials</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -191,7 +191,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   <div class="sidebar-logo-container">
     <img class="sidebar-logo" src="_static/logo.png" alt="Logo"/>
@@ -206,7 +206,7 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_tutorial_1.html">Tutorial 1 - Creating Apps</a></li>
@@ -214,7 +214,7 @@
 <li class="toctree-l1"><a class="reference internal" href="05_tutorial_3.html">Tutorial 3 - Layouts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_tutorial_4.html">Tutorial 4 - Complex UIs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_tutorial_5.html">Tutorial 5 - Signals and Slots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_tutorial_6.html">Tutorial 6 - Calculator App</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 6 - Calculator App</a></li>
 </ul>
 
 </div>
@@ -235,7 +235,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="_sources/index.md.txt" title="View this page">
+  <a class="muted-link" href="_sources/08_tutorial_6.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -249,28 +249,165 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="pyqt-tutorials">
-<h1>PyQt Tutorials<a class="headerlink" href="#pyqt-tutorials" title="Link to this heading">¶</a></h1>
-<p>This website will provide introductory tutorials for developing applications using PyQt and QT Designer.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_setup.html">Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_tutorial_1.html">Tutorial 1 - Creating Apps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_tutorial_2.html">Tutorial 2 - Labels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_tutorial_3.html">Tutorial 3 - Layouts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_tutorial_4.html">Tutorial 4 - Complex UIs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_tutorial_5.html">Tutorial 5 - Signals and Slots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_tutorial_6.html">Tutorial 6 - Calculator App</a></li>
+          <section id="tutorial-6-calculator-app">
+<h1>Tutorial 6 - Calculator App<a class="headerlink" href="#tutorial-6-calculator-app" title="Link to this heading">¶</a></h1>
+<div class="admonition-in-this-tutorial-you-will admonition">
+<p class="admonition-title">In this tutorial you will:</p>
+<ul class="simple">
+<li><p>apply learnt techiques to develop a calculator app</p></li>
+<li><p>use QT Styles to change the appearance of your app</p></li>
+<li><p>develop the application logic inside the control file</p></li>
 </ul>
 </div>
+<p>Now that we have learn rudimentary input and output widgets, we can develop a calculator application. This is a great starting project since calculators only consist of displays and buttons, and we know how to implement these in PyQt.</p>
+<section id="create-ui">
+<h2>Create UI<a class="headerlink" href="#create-ui" title="Link to this heading">¶</a></h2>
+<p>To start this project we will create the UI file. Launch Qt Designer and create a new <strong>Main Window</strong>.</p>
+<section id="format-the-main-window">
+<h3>Format the Main Window<a class="headerlink" href="#format-the-main-window" title="Link to this heading">¶</a></h3>
+<p>For the <strong>Main Window</strong>:</p>
+<ol class="arabic simple">
+<li><p>Remove the <strong>menu bar</strong></p></li>
+<li><p>Remove the <strong>status bar</strong></p></li>
+<li><p>In the <strong>Properties Editor</strong>, change the <strong>geometry</strong> to:</p>
+<ul class="simple">
+<li><p><strong>width</strong> → <strong>400</strong></p></li>
+<li><p><strong>height</strong> → <strong>500</strong></p></li>
+</ul>
+</li>
+<li><p>Change the <strong>windowTitle</strong> to <strong>Calculator</strong></p></li>
+</ol>
+<p><img alt="setup main window" src="_images/01_setup_main_window.gif" /></p>
+</section>
+<section id="display-label">
+<h3>Display label<a class="headerlink" href="#display-label" title="Link to this heading">¶</a></h3>
+<p>Now we will add the display label:</p>
+<ol class="arabic simple">
+<li><p>In the <strong>Widgets Toolbox</strong> find the <strong>Label</strong> widget</p></li>
+<li><p>Click and drag it onto the <strong>window canvas</strong></p></li>
+<li><p>Then right-click the <strong>window canvas</strong>, choose <strong>Layout</strong> the <strong>Lay Out Vertically</strong></p></li>
+</ol>
+<p><img alt="adding display label" src="_images/02_add_label.gif" /></p>
+<p>In this tutorial we will rename all the widgets so it easier to refer to them in our code:</p>
+<ol class="arabic simple" start="4">
+<li><p>At the top of the <strong>Properties Editor</strong>, find <strong>objectName</strong></p></li>
+<li><p>Change it to <strong>label_display</strong></p></li>
+</ol>
+<p><img alt="rename display label" src="_images/03_rename_label.gif" /></p>
+<div class="hint admonition">
+<p class="admonition-title">Widget Names</p>
+<p>All but the simplest of UIs will contain numerous widgets, so it is important to keep track of them. Here are some suggested conventions to help with naming them:</p>
+<ul class="simple">
+<li><p>only name widgets that your code will interact with:</p>
+<ul>
+<li><p>this mean you program will either get input from the widget or use it to provide output</p></li>
+<li><p>ie. if a label never changes, there is no need to name it</p></li>
+</ul>
+</li>
+<li><p>use prefixes to denote the type of widget:</p>
+<ul>
+<li><p>in your Python code you will not know if you are referring to a label or a button, so it is important to include a description in the name</p></li>
+<li><p>for the purposes of these tutorials, we will just use Qt Designers name as out prefix (in this case <strong>label</strong>)</p></li>
+<li><p>you may choose your own naming convention (eg. lbl for labels), just remember to be consistent</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Finally we will format <strong>label_display</strong>:</p>
+<ol class="arabic simple" start="6">
+<li><p>Change the <strong>font</strong> to:</p>
+<ul class="simple">
+<li><p><strong>Family</strong> → <strong>Consolas</strong> (macOS might need to use <strong>SF Mono</strong>)</p></li>
+<li><p><strong>Point Size</strong> → <strong>40</strong></p></li>
+</ul>
+</li>
+<li><p>Change the <strong>Horizontal</strong> <strong>alignment</strong> → <strong>AlignRight</strong></p></li>
+</ol>
+<p><img alt="format label" src="_images/04_format_label.gif" /></p>
+</section>
+<section id="buttons">
+<h3>Buttons<a class="headerlink" href="#buttons" title="Link to this heading">¶</a></h3>
+<p>Now we have to add the buttons to our calculator. To save time, we will add one button and format it. Then we will copy it for the other buttons, which will also copy the formatting.</p>
+<p>First we need to add a grid layout below the label:</p>
+<ol class="arabic simple">
+<li><p>Locate the <strong>Grid Layout</strong> in the <strong>widget library</strong></p></li>
+<li><p>Drag and drop it onto the <strong>window canvas</strong> under <strong>label_display</strong></p></li>
+</ol>
+<p><img alt="add grid layout" src="_images/05_add_grid_layout.gif" /></p>
+<p>Now to add and format the first button.</p>
+<ol class="arabic simple" start="3">
+<li><p>Find the <strong>Push Button</strong> widget in the <strong>widget library</strong>.</p></li>
+<li><p>Drag and drop it into the red box defining the <strong>Grid Layout</strong></p></li>
+<li><p>Rename the <strong>Push Button</strong> to <strong>pushButton_7</strong></p></li>
+<li><p>Change its <strong>sizePolicy</strong>:</p>
+<ul class="simple">
+<li><p><strong>Horizontal Policy</strong> → <strong>MinimumExpanding</strong></p></li>
+<li><p><strong>Horizontal Policy</strong> → <strong>MinimumExpanding</strong></p></li>
+</ul>
+</li>
+<li><p>Change the font</p>
+<ul class="simple">
+<li><p><strong>Family</strong> → <strong>Consolas</strong> (macOS might need to use <strong>SF Mono</strong>)</p></li>
+<li><p><strong>Point Size</strong> → <strong>20</strong></p></li>
+</ul>
+</li>
+<li><p>Change the text → <strong>7</strong></p></li>
+</ol>
+<p><img alt="add button" src="_images/06_add_button.gif" /></p>
+<div class="hint admonition">
+<p class="admonition-title">Size Policy</p>
+<p>In Qt, the <strong>sizePolicy</strong> of a widget determines how it behaves when a layout tries to resize it. It controls whether the widget can expand, shrink, or stay fixed in both the horizontal and vertical directions. A widget’s size policy is made up of two parts: <strong>horizontal policy</strong> and <strong>vertical policy</strong>.</p>
+<p><strong>Size Policy options</strong></p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Policy</p></th>
+<th class="head text-left"><p>Behaviour</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Fixed</p></td>
+<td class="text-left"><p>Stays the same size. No shrinking or expanding.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Minimum</p></td>
+<td class="text-left"><p>Shrinks to minimum size but doesn’t grow.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Maximum</p></td>
+<td class="text-left"><p>Grows as much as possible but doesn’t shrink.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Preferred</p></td>
+<td class="text-left"><p>Prefers size hint but can shrink or expand.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Expanding</p></td>
+<td class="text-left"><p>Shrinks or grows to use all available space.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>MinimumExpanding</p></td>
+<td class="text-left"><p>Doesn’t shrink below minimum size but expands if needed.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Ignored</p></td>
+<td class="text-left"><p>Ignores size hint and resizes freely.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Since we have finished setting the button’s properties, we can copy it.</p>
+<ol class="arabic simple" start="9">
+<li><p>Ctrl / Cmd click and drag pushButton_7 to copy it</p></li>
+<li><p>Place the new button to the right of pushButton_7</p></li>
+<li><p>Make sure the name is <strong>pushButton_8</strong></p></li>
+<li><p>Change the button text → <strong>8</strong></p></li>
+</ol>
+<p><img alt="copy button" src="_images/06_copy_button.gif" /></p>
+<p>Copy the rest of the buttons so your UI looks like the one below.</p>
+</section>
+</section>
 </section>
 
         </article>
@@ -278,16 +415,18 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="01_introduction.html">
+          
+          <a class="prev-page" href="07_tutorial_5.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
-                  <span>Next</span>
+                  <span>Previous</span>
                 </div>
-                <div class="title">Introduction</div>
+                
+                <div class="title">Tutorial 5 - Signals and Slots</div>
+                
               </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -313,8 +452,32 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Tutorial 6 - Calculator App</a><ul>
+<li><a class="reference internal" href="#create-ui">Create UI</a><ul>
+<li><a class="reference internal" href="#format-the-main-window">Format the Main Window</a></li>
+<li><a class="reference internal" href="#display-label">Display label</a></li>
+<li><a class="reference internal" href="#buttons">Buttons</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

@@ -87,7 +87,7 @@ Both signals and slots have distinct places in the boilerplate code. Strictly sp
 
 ![boilerplate](./assets/img/07/06_boilerplate.png)
 
-We are going to establish some good programming habit right from the start.
+We are going to establish some good programming habits right from the start.
 
 Since signals call a method, it is best to at least create that method's name so your IDE can suggest it when you type.
 
@@ -96,11 +96,18 @@ Since signals call a method, it is best to at least create that method's name so
 Using the code your IDE suggest can be helpful. It can speed up your coding, but more importantly it can minimise typo errors. Your IDE will suggest names that exist, therefore preventing you from calling incorrect variables and methods.
 ```
 
+### Copy main_window.py
+
+Since we want to reuse the boilerplate code in **main_window.py** throughout these tutorials, we want to keep a clean version. From now on, for each tutorial, you will need to copy **main_window.py** and rename it. For this tutorial:
+
+1. Copy **main_window.py**
+2. Rename the copied file **first_program.py**
+
 ### Create slot
 
 The first thing we will do is define a slot for our signal to call. It won't do anything. It is a place marker for code that we still need to right. We will use the Python **`pass`** statement to represent the missing code. It will also prevent your IDE from showing indentation errors due to a missing code block.
 
-In **main_window.py**
+In **first_program.py**
 
 1. Delete **lines 27 - 29**
 2. Add the code below
