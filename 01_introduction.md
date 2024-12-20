@@ -53,4 +53,4 @@ Below are some excellent resources for working with PyQt
 
 - **[Qt 6 Documentation](https://doc.qt.io/qt-6/)** PyQt methods and attributes mostly mirror the underlying Qt methods and attributes. So the official Qt 6 documentation is an excellent way of exploring all possibilities available to you. Its comprehensive, so I would suggest using the search box (you want to look at classes not QML Types).
 - **[PyQt6 Documentation](https://www.riverbankcomputing.com/static/Docs/PyQt6/)** This is the official documentation for PyQt6. It is very dense, and aimed at a professional audience, but you might find useable information through a judicious use of the search bar.
-- **[PythonGUIs](https://www.pythonguis.com/pyqt6-tutorial/)** provides some excellent tutorial on working with PyQt6.
+- provides some excellent tutorial on working with PyQt6.

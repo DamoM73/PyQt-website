@@ -93,7 +93,7 @@ Now to add and format the first button.
 
 ```{admonition} Size Policy
 :class: hint
-In Qt, the **sizePolicy** of a widget determines how it behaves when a layout tries to resize it. It controls whether the widget can expand, shrink, or stay fixed in both the horizontal and vertical directions. A widget's size policy is made up of two parts: **horizontal policy** and **vertical policy**.
+In Qt, the **sizePolicy** determines how a widget behaves when a layout tries to resize it. It controls whether the widget can expand, shrink, or stay fixed in both the horizontal and vertical directions. A widget's size policy is made up of two parts: **horizontal policy** and **vertical policy**.
 
 **Size Policy options**
 
@@ -118,4 +118,90 @@ Since we have finished setting the button's properties, we can copy it.
 ![copy button](./assets/img/08/06_copy_button.gif)
 
 Copy the rest of the buttons so your UI looks like the one below.
+
+![calculator UI](./assets/img/08/07_calculator_UI.png)
+
+#### Button names
+
+Below are name names given to the pushButton widgets.
+
+```{admonition} Special characters in names
+:class: warning
+In Python, operators (**`*`**, **`/`**, **`+`**, **`-`** and **`=`**) cannot be used in names, so you will have to spell out the word in the button names (eg. the **x** button should be named **pushButton_multiply**).
+```
+
+| First Column | Second Column | Third Column | Forth Column |
+| :--- | :--- | :--- | :--- |
+| pushButton_7 | pushButton_8 | pushButton_9 | pushButton_multiply |
+| pushButton_4 | pushButton_5 | pushButton_6 | pushButton_divide |
+| pushButton_1 | pushButton_2 | pushButton_3 | pushButton_add |
+| pushButton_0 | pushButton_decimal | pushButton_equal | pushButton_subtract |
+
+### Final touch
+
+Our UI almost looks like a calculator. The last thing we will do is change the **label_display** widget's text to `0`.
+
+![change display](./assets/img/08/08_change_display.gif)
+
+Now it actually looks like a calculator.
+
+### Save the UI file
+
+The UI is finished so time to save. Remember, it is important to save the UI file in the same directory (folder) as your **main_window.py**.
+
+1. Select **Save** from the **File** menu
+2. Call the file **tutorial_06.ui**
+
+### Convert UI file
+
+Now we need to convert the UI file to a Python file, and we will do this in VS Code, but we are going to do something different. We will give our Python UI file a unique name, one that we won't write over in latter tutorials.
+
+1. Open VS Code via GitHub Desktop
+2. Check that the **tutorial_06.ui** file is in your file panel.
+3. Open a new terminal
+4. At the prompt, type `pyuic6 -o ui_calculator.py -x tutorial_06.ui`
+5. Then press enter.
+
+## Write the code
+
+Now it is time to work on the controller.
+
+### Copy main_window.py
+
+We want to give our controller file a meaningful name:
+
+1. Copy **main_window.py**
+2. Rename the copied file **calculator.py**
+3. Run the code to test the results.
+
+You should see the UI below, which is the wrong UI.
+
+![wrong UI](./assets/img/08/09_wrong_ui.png)
+
+The reason for this is **calculator.py** is still looking for its UI in the **main_window.py** file.
+
+![wrong UI file](./assets/img/08/10_wrong_file.png)
+
+To fix this:
+
+4. change **line 3** to the same as below
+
+![correct Ui file](./assets/img/08/11_correct_ui_file.png)
+
+5. Run the code again to test.
+
+You should now have your calculator UI.
+
+![correct UI](./assets/img/08/12_correct_ui.png)
+
+### Python's eval method
+
+Now that we know that our UI works, we need to discuss how our controller will work. We will leverage an awesome Python built-in function called **eval()**. It takes a string which is a mathematical equation, and calculates the results. For example, the line `print(eval("3+2"))` will print `5`.
+
+This means that we can gradually create a string in response to the button clicks, and the use `eval()` to work out the answer when **pushButton_equal** is clicked. It will get a little bit more complicated, but this is a good starting point.
+
+```{admonition} String methods
+:class: hint
+Strings are super important in Python programming, so it pays to know all the ways you can manipulate them. **[w3schools' Python String Methods page](https://www.w3schools.com/python/python_ref_string.asp)** shows you all the built-in methods available in the Python Standard Library.
+```
 

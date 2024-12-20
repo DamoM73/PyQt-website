@@ -362,7 +362,7 @@
 <p><img alt="add button" src="_images/06_add_button.gif" /></p>
 <div class="hint admonition">
 <p class="admonition-title">Size Policy</p>
-<p>In Qt, the <strong>sizePolicy</strong> of a widget determines how it behaves when a layout tries to resize it. It controls whether the widget can expand, shrink, or stay fixed in both the horizontal and vertical directions. A widget’s size policy is made up of two parts: <strong>horizontal policy</strong> and <strong>vertical policy</strong>.</p>
+<p>In Qt, the <strong>sizePolicy</strong> determines how a widget behaves when a layout tries to resize it. It controls whether the widget can expand, shrink, or stay fixed in both the horizontal and vertical directions. A widget’s size policy is made up of two parts: <strong>horizontal policy</strong> and <strong>vertical policy</strong>.</p>
 <p><strong>Size Policy options</strong></p>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
@@ -406,6 +406,109 @@
 </ol>
 <p><img alt="copy button" src="_images/06_copy_button.gif" /></p>
 <p>Copy the rest of the buttons so your UI looks like the one below.</p>
+<p><img alt="calculator UI" src="_images/07_calculator_UI.png" /></p>
+<section id="button-names">
+<h4>Button names<a class="headerlink" href="#button-names" title="Link to this heading">¶</a></h4>
+<p>Below are name names given to the pushButton widgets.</p>
+<div class="warning admonition">
+<p class="admonition-title">Special characters in names</p>
+<p>In Python, operators (<strong><code class="docutils literal notranslate"><span class="pre">*</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">/</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">+</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">-</span></code></strong> and <strong><code class="docutils literal notranslate"><span class="pre">=</span></code></strong>) cannot be used in names, so you will have to spell out the word in the button names (eg. the <strong>x</strong> button should be named <strong>pushButton_multiply</strong>).</p>
+</div>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>First Column</p></th>
+<th class="head text-left"><p>Second Column</p></th>
+<th class="head text-left"><p>Third Column</p></th>
+<th class="head text-left"><p>Forth Column</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>pushButton_7</p></td>
+<td class="text-left"><p>pushButton_8</p></td>
+<td class="text-left"><p>pushButton_9</p></td>
+<td class="text-left"><p>pushButton_multiply</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>pushButton_4</p></td>
+<td class="text-left"><p>pushButton_5</p></td>
+<td class="text-left"><p>pushButton_6</p></td>
+<td class="text-left"><p>pushButton_divide</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>pushButton_1</p></td>
+<td class="text-left"><p>pushButton_2</p></td>
+<td class="text-left"><p>pushButton_3</p></td>
+<td class="text-left"><p>pushButton_add</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>pushButton_0</p></td>
+<td class="text-left"><p>pushButton_decimal</p></td>
+<td class="text-left"><p>pushButton_equal</p></td>
+<td class="text-left"><p>pushButton_subtract</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="final-touch">
+<h3>Final touch<a class="headerlink" href="#final-touch" title="Link to this heading">¶</a></h3>
+<p>Our UI almost looks like a calculator. The last thing we will do is change the <strong>label_display</strong> widget’s text to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p><img alt="change display" src="_images/08_change_display.gif" /></p>
+<p>Now it actually looks like a calculator.</p>
+</section>
+<section id="save-the-ui-file">
+<h3>Save the UI file<a class="headerlink" href="#save-the-ui-file" title="Link to this heading">¶</a></h3>
+<p>The UI is finished so time to save. Remember, it is important to save the UI file in the same directory (folder) as your <strong>main_window.py</strong>.</p>
+<ol class="arabic simple">
+<li><p>Select <strong>Save</strong> from the <strong>File</strong> menu</p></li>
+<li><p>Call the file <strong>tutorial_06.ui</strong></p></li>
+</ol>
+</section>
+<section id="convert-ui-file">
+<h3>Convert UI file<a class="headerlink" href="#convert-ui-file" title="Link to this heading">¶</a></h3>
+<p>Now we need to convert the UI file to a Python file, and we will do this in VS Code, but we are going to do something different. We will give our Python UI file a unique name, one that we won’t write over in latter tutorials.</p>
+<ol class="arabic simple">
+<li><p>Open VS Code via GitHub Desktop</p></li>
+<li><p>Check that the <strong>tutorial_06.ui</strong> file is in your file panel.</p></li>
+<li><p>Open a new terminal</p></li>
+<li><p>At the prompt, type <code class="docutils literal notranslate"><span class="pre">pyuic6</span> <span class="pre">-o</span> <span class="pre">ui_calculator.py</span> <span class="pre">-x</span> <span class="pre">tutorial_06.ui</span></code></p></li>
+<li><p>Then press enter.</p></li>
+</ol>
+</section>
+</section>
+<section id="write-the-code">
+<h2>Write the code<a class="headerlink" href="#write-the-code" title="Link to this heading">¶</a></h2>
+<p>Now it is time to work on the controller.</p>
+<section id="copy-main-window-py">
+<h3>Copy main_window.py<a class="headerlink" href="#copy-main-window-py" title="Link to this heading">¶</a></h3>
+<p>We want to give our controller file a meaningful name:</p>
+<ol class="arabic simple">
+<li><p>Copy <strong>main_window.py</strong></p></li>
+<li><p>Rename the copied file <strong>calculator.py</strong></p></li>
+<li><p>Run the code to test the results.</p></li>
+</ol>
+<p>You should see the UI below, which is the wrong UI.</p>
+<p><img alt="wrong UI" src="_images/09_wrong_ui.png" /></p>
+<p>The reason for this is <strong>calculator.py</strong> is still looking for its UI in the <strong>main_window.py</strong> file.</p>
+<p><img alt="wrong UI file" src="_images/10_wrong_file.png" /></p>
+<p>To fix this:</p>
+<ol class="arabic simple" start="4">
+<li><p>change <strong>line 3</strong> to the same as below</p></li>
+</ol>
+<p><img alt="correct Ui file" src="_images/11_correct_ui_file.png" /></p>
+<ol class="arabic simple" start="5">
+<li><p>Run the code again to test.</p></li>
+</ol>
+<p>You should now have your calculator UI.</p>
+<p><img alt="correct UI" src="_images/12_correct_ui.png" /></p>
+</section>
+<section id="python-s-eval-method">
+<h3>Python’s eval method<a class="headerlink" href="#python-s-eval-method" title="Link to this heading">¶</a></h3>
+<p>Now that we know that our UI works, we need to discuss how our controller will work. We will leverage an awesome Python built-in function called <strong>eval()</strong>. It takes a string which is a mathematical equation, and calculates the results. For example, the line <code class="docutils literal notranslate"><span class="pre">print(eval(&quot;3+2&quot;))</span></code> will print <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p>
+<p>This means that we can gradually create a string in response to the button clicks, and the use <code class="docutils literal notranslate"><span class="pre">eval()</span></code> to work out the answer when <strong>pushButton_equal</strong> is clicked. It will get a little bit more complicated, but this is a good starting point.</p>
+<div class="hint admonition">
+<p class="admonition-title">String methods</p>
+<p>Strings are super important in Python programming, so it pays to know all the ways you can manipulate them. <strong><a class="reference external" href="https://www.w3schools.com/python/python_ref_string.asp">w3schools’ Python String Methods page</a></strong> shows you all the built-in methods available in the Python Standard Library.</p>
+</div>
 </section>
 </section>
 </section>
@@ -468,7 +571,18 @@
 <li><a class="reference internal" href="#create-ui">Create UI</a><ul>
 <li><a class="reference internal" href="#format-the-main-window">Format the Main Window</a></li>
 <li><a class="reference internal" href="#display-label">Display label</a></li>
-<li><a class="reference internal" href="#buttons">Buttons</a></li>
+<li><a class="reference internal" href="#buttons">Buttons</a><ul>
+<li><a class="reference internal" href="#button-names">Button names</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#final-touch">Final touch</a></li>
+<li><a class="reference internal" href="#save-the-ui-file">Save the UI file</a></li>
+<li><a class="reference internal" href="#convert-ui-file">Convert UI file</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#write-the-code">Write the code</a><ul>
+<li><a class="reference internal" href="#copy-main-window-py">Copy main_window.py</a></li>
+<li><a class="reference internal" href="#python-s-eval-method">Python’s eval method</a></li>
 </ul>
 </li>
 </ul>
