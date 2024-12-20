@@ -198,10 +198,122 @@ You should now have your calculator UI.
 
 Now that we know that our UI works, we need to discuss how our controller will work. We will leverage an awesome Python built-in function called **eval()**. It takes a string which is a mathematical equation, and calculates the results. For example, the line `print(eval("3+2"))` will print `5`.
 
-This means that we can gradually create a string in response to the button clicks, and the use `eval()` to work out the answer when **pushButton_equal** is clicked. It will get a little bit more complicated, but this is a good starting point.
+This means that we can gradually build an equation string in response to the button clicks, and the use `eval()` to work out the answer when **pushButton_equal** is clicked. It will get a little bit more complicated, but this is a good starting point.
 
 ```{admonition} String methods
 :class: hint
 Strings are super important in Python programming, so it pays to know all the ways you can manipulate them. **[w3schools' Python String Methods page](https://www.w3schools.com/python/python_ref_string.asp)** shows you all the built-in methods available in the Python Standard Library.
 ```
 
+### Create equation variable
+
+To achieve this we will need to variable to store our equation string as we build it. The `__init__` in our boilerplate code has section for variables, so lets put it in there.
+
+1. Open **calculator.py**
+2. Go to **`__init__`**
+3. Add the code in **line 16**
+
+![equation variable](./assets/img/08/13_equation_variable.png)
+
+```{admonition} Code explaination
+:class: seealso
+**`self.equation = ""`** simply creates an empty string variable. We will add charactes to this variable as the user clicks on buttons
+```
+
+### Handle signals and slots
+
+We are now at the point of coding our signals and slots, so we're going to follow the same process we used in the last tutorial.
+
+```{admonition} Handling signals and slots
+:class: hint
+Our three step process for handling slots and signals in PyQt:
+
+1. Create slot placeholder
+2. Connect signal to the slot
+3. Complete the logic of the slot
+```
+
+The slot logic for all buttons, except the equal button, will involve adding the appropriate character to the `self.equation` string. Let's see how to do this for the **9 button**
+
+First we create the slot placeholder
+
+1. In **calculator.py** find the **slots** section.
+2. Add the code from **lines 31 and 32** below.
+
+![slot placeholder](./assets/img/08/14_slot_placeholder.png)
+
+```{admonition} Code explaination
+:class: seealso
+The place holder will help with your IDE autocomplete.
+```
+
+3. Navigate up to the **signals** method
+4. Replace **line 25** with the **line 25** below.
+
+![nine signal](./assets/img/08/15_button_9_signal.png)
+
+```{admonition} Code explaination
+:class: seealso
+This code connects the **pushButton_9** click signal to our **nine_clicked** method
+```
+
+6. Now return to the **nine_clicked** method,
+7. replace the **pass** with the code in **line 32** below.
+
+![slot logic](./assets/img/08/16_slot_logic.png)
+
+```{admonition} Code explaination
+:class: seealso
+When the nine button is clicked, the `9` character will be added to the end of the `self.equation` string.
+```
+
+Time to test.
+
+8. Launch your app.
+9. Click on the 9 button.
+
+```{admonition} No UI response
+:class: error
+When you click the 9, nothing will happen with the UI. Why? Well, we haven't updated the display to show the new value of `self.equation`
+```
+
+### Update the display
+
+Since we will need to update the display after every button click, we will make a separate function to call from each button slot.
+
+1. Under the **nine_clicked** method, make a new section for `# ---- OTHER FUNCTIONS ---- #`
+2. Then add the code below from **lines 35 and 36** 
+
+![update display](./assets/img/08/17_update_display.png)
+
+```{admonition} Code explaination
+:class: seealso
+This code will change the text value of the label_display to the current value of `self.equation`
+```
+
+3. Now from your **nine_clicked** method, call your **update_display** method.
+4. Add **line 33** from below
+
+![call update display](./assets/img/08/18_call_update_display.png)
+
+Time to test again.
+
+Clicking the 9 button should now change the display, like below.
+
+![button nine test](./assets/img/08/19_button_nine_test.gif)
+
+### The other buttons
+
+You need to repeat the process for every other button, except the **equal button**.
+
+Remember:
+
+- follow our three step process for handling slots and signals
+- call **update_display** at the end of each of your slots
+- test your code each time you finish with a button.
+
+## Conclusion
+
+In this tutorial we started creating a calculator app. We created a more complex UI using nested layout widgets. We then created the code to handle the signals from all but one of our buttons. By the end of the tutorial, your UI should work like the example below.
+
+![finished example](./assets/img/08/20_finished_example.gif)

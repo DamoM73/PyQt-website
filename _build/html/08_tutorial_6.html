@@ -504,12 +504,113 @@
 <section id="python-s-eval-method">
 <h3>Python’s eval method<a class="headerlink" href="#python-s-eval-method" title="Link to this heading">¶</a></h3>
 <p>Now that we know that our UI works, we need to discuss how our controller will work. We will leverage an awesome Python built-in function called <strong>eval()</strong>. It takes a string which is a mathematical equation, and calculates the results. For example, the line <code class="docutils literal notranslate"><span class="pre">print(eval(&quot;3+2&quot;))</span></code> will print <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p>
-<p>This means that we can gradually create a string in response to the button clicks, and the use <code class="docutils literal notranslate"><span class="pre">eval()</span></code> to work out the answer when <strong>pushButton_equal</strong> is clicked. It will get a little bit more complicated, but this is a good starting point.</p>
+<p>This means that we can gradually build an equation string in response to the button clicks, and the use <code class="docutils literal notranslate"><span class="pre">eval()</span></code> to work out the answer when <strong>pushButton_equal</strong> is clicked. It will get a little bit more complicated, but this is a good starting point.</p>
 <div class="hint admonition">
 <p class="admonition-title">String methods</p>
 <p>Strings are super important in Python programming, so it pays to know all the ways you can manipulate them. <strong><a class="reference external" href="https://www.w3schools.com/python/python_ref_string.asp">w3schools’ Python String Methods page</a></strong> shows you all the built-in methods available in the Python Standard Library.</p>
 </div>
 </section>
+<section id="create-equation-variable">
+<h3>Create equation variable<a class="headerlink" href="#create-equation-variable" title="Link to this heading">¶</a></h3>
+<p>To achieve this we will need to variable to store our equation string as we build it. The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> in our boilerplate code has section for variables, so lets put it in there.</p>
+<ol class="arabic simple">
+<li><p>Open <strong>calculator.py</strong></p></li>
+<li><p>Go to <strong><code class="docutils literal notranslate"><span class="pre">__init__</span></code></strong></p></li>
+<li><p>Add the code in <strong>line 16</strong></p></li>
+</ol>
+<p><img alt="equation variable" src="_images/13_equation_variable.png" /></p>
+<div class="seealso admonition">
+<p class="admonition-title">Code explaination</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">self.equation</span> <span class="pre">=</span> <span class="pre">&quot;&quot;</span></code></strong> simply creates an empty string variable. We will add charactes to this variable as the user clicks on buttons</p>
+</div>
+</section>
+<section id="handle-signals-and-slots">
+<h3>Handle signals and slots<a class="headerlink" href="#handle-signals-and-slots" title="Link to this heading">¶</a></h3>
+<p>We are now at the point of coding our signals and slots, so we’re going to follow the same process we used in the last tutorial.</p>
+<div class="hint admonition">
+<p class="admonition-title">Handling signals and slots</p>
+<p>Our three step process for handling slots and signals in PyQt:</p>
+<ol class="arabic simple">
+<li><p>Create slot placeholder</p></li>
+<li><p>Connect signal to the slot</p></li>
+<li><p>Complete the logic of the slot</p></li>
+</ol>
+</div>
+<p>The slot logic for all buttons, except the equal button, will involve adding the appropriate character to the <code class="docutils literal notranslate"><span class="pre">self.equation</span></code> string. Let’s see how to do this for the <strong>9 button</strong></p>
+<p>First we create the slot placeholder</p>
+<ol class="arabic simple">
+<li><p>In <strong>calculator.py</strong> find the <strong>slots</strong> section.</p></li>
+<li><p>Add the code from <strong>lines 31 and 32</strong> below.</p></li>
+</ol>
+<p><img alt="slot placeholder" src="_images/14_slot_placeholder.png" /></p>
+<div class="seealso admonition">
+<p class="admonition-title">Code explaination</p>
+<p>The place holder will help with your IDE autocomplete.</p>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Navigate up to the <strong>signals</strong> method</p></li>
+<li><p>Replace <strong>line 25</strong> with the <strong>line 25</strong> below.</p></li>
+</ol>
+<p><img alt="nine signal" src="_images/15_button_9_signal.png" /></p>
+<div class="seealso admonition">
+<p class="admonition-title">Code explaination</p>
+<p>This code connects the <strong>pushButton_9</strong> click signal to our <strong>nine_clicked</strong> method</p>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Now return to the <strong>nine_clicked</strong> method,</p></li>
+<li><p>replace the <strong>pass</strong> with the code in <strong>line 32</strong> below.</p></li>
+</ol>
+<p><img alt="slot logic" src="_images/16_slot_logic.png" /></p>
+<div class="seealso admonition">
+<p class="admonition-title">Code explaination</p>
+<p>When the nine button is clicked, the <code class="docutils literal notranslate"><span class="pre">9</span></code> character will be added to the end of the <code class="docutils literal notranslate"><span class="pre">self.equation</span></code> string.</p>
+</div>
+<p>Time to test.</p>
+<ol class="arabic simple" start="8">
+<li><p>Launch your app.</p></li>
+<li><p>Click on the 9 button.</p></li>
+</ol>
+<div class="error admonition">
+<p class="admonition-title">No UI response</p>
+<p>When you click the 9, nothing will happen with the UI. Why? Well, we haven’t updated the display to show the new value of <code class="docutils literal notranslate"><span class="pre">self.equation</span></code></p>
+</div>
+</section>
+<section id="update-the-display">
+<h3>Update the display<a class="headerlink" href="#update-the-display" title="Link to this heading">¶</a></h3>
+<p>Since we will need to update the display after every button click, we will make a separate function to call from each button slot.</p>
+<ol class="arabic simple">
+<li><p>Under the <strong>nine_clicked</strong> method, make a new section for <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">----</span> <span class="pre">OTHER</span> <span class="pre">FUNCTIONS</span> <span class="pre">----</span> <span class="pre">#</span></code></p></li>
+<li><p>Then add the code below from <strong>lines 35 and 36</strong></p></li>
+</ol>
+<p><img alt="update display" src="_images/17_update_display.png" /></p>
+<div class="seealso admonition">
+<p class="admonition-title">Code explaination</p>
+<p>This code will change the text value of the label_display to the current value of <code class="docutils literal notranslate"><span class="pre">self.equation</span></code></p>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Now from your <strong>nine_clicked</strong> method, call your <strong>update_display</strong> method.</p></li>
+<li><p>Add <strong>line 33</strong> from below</p></li>
+</ol>
+<p><img alt="call update display" src="_images/18_call_update_display.png" /></p>
+<p>Time to test again.</p>
+<p>Clicking the 9 button should now change the display, like below.</p>
+<p><img alt="button nine test" src="_images/19_button_nine_test.gif" /></p>
+</section>
+<section id="the-other-buttons">
+<h3>The other buttons<a class="headerlink" href="#the-other-buttons" title="Link to this heading">¶</a></h3>
+<p>You need to repeat the process for every other button, except the <strong>equal button</strong>.</p>
+<p>Remember:</p>
+<ul class="simple">
+<li><p>follow our three step process for handling slots and signals</p></li>
+<li><p>call <strong>update_display</strong> at the end of each of your slots</p></li>
+<li><p>test your code each time you finish with a button.</p></li>
+</ul>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h2>
+<p>In this tutorial we started creating a calculator app. We created a more complex UI using nested layout widgets. We then created the code to handle the signals from all but one of our buttons. By the end of the tutorial, your UI should work like the example below.</p>
+<p><img alt="finished example" src="_images/20_finished_example.gif" /></p>
 </section>
 </section>
 
@@ -583,8 +684,13 @@
 <li><a class="reference internal" href="#write-the-code">Write the code</a><ul>
 <li><a class="reference internal" href="#copy-main-window-py">Copy main_window.py</a></li>
 <li><a class="reference internal" href="#python-s-eval-method">Python’s eval method</a></li>
+<li><a class="reference internal" href="#create-equation-variable">Create equation variable</a></li>
+<li><a class="reference internal" href="#handle-signals-and-slots">Handle signals and slots</a></li>
+<li><a class="reference internal" href="#update-the-display">Update the display</a></li>
+<li><a class="reference internal" href="#the-other-buttons">The other buttons</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
 </ul>
 </li>
 </ul>
