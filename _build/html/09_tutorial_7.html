@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Introduction" href="01_introduction.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Tutorial 6 - Create Calculator App" href="08_tutorial_6.html" />
 
     <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>PyQt Tutorials</title>
+        <title>Tutorial 7 - Refine Calculator App - PyQt Tutorials</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -170,7 +170,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">PyQt Tutorials</div></a>
+      <a href="index.html"><div class="brand">PyQt Tutorials</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -191,7 +191,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   <div class="sidebar-logo-container">
     <img class="sidebar-logo" src="_static/logo.png" alt="Logo"/>
@@ -206,7 +206,7 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_tutorial_1.html">Tutorial 1 - Creating Apps</a></li>
@@ -215,7 +215,7 @@
 <li class="toctree-l1"><a class="reference internal" href="06_tutorial_4.html">Tutorial 4 - Complex UIs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_tutorial_5.html">Tutorial 5 - Signals and Slots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_tutorial_6.html">Tutorial 6 - Create Calculator App</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_tutorial_7.html">Tutorial 7 - Refine Calculator App</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 7 - Refine Calculator App</a></li>
 </ul>
 
 </div>
@@ -236,7 +236,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="_sources/index.md.txt" title="View this page">
+  <a class="muted-link" href="_sources/09_tutorial_7.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -250,29 +250,115 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="pyqt-tutorials">
-<h1>PyQt Tutorials<a class="headerlink" href="#pyqt-tutorials" title="Link to this heading">¶</a></h1>
-<p>This website will provide introductory tutorials for developing applications using PyQt and QT Designer.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_setup.html">Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_tutorial_1.html">Tutorial 1 - Creating Apps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_tutorial_2.html">Tutorial 2 - Labels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_tutorial_3.html">Tutorial 3 - Layouts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_tutorial_4.html">Tutorial 4 - Complex UIs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_tutorial_5.html">Tutorial 5 - Signals and Slots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_tutorial_6.html">Tutorial 6 - Create Calculator App</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_tutorial_7.html">Tutorial 7 - Refine Calculator App</a></li>
+          <section id="tutorial-7-refine-calculator-app">
+<h1>Tutorial 7 - Refine Calculator App<a class="headerlink" href="#tutorial-7-refine-calculator-app" title="Link to this heading">¶</a></h1>
+<div class="admonition-in-this-tutorial-you-will admonition">
+<p class="admonition-title">In this tutorial you will:</p>
+<ul class="simple">
+<li><p>make the calculator app perform calculations</p></li>
 </ul>
 </div>
+<p>In the previous tutorial we created a calculator UI. Now it is time to make it work.</p>
+<section id="equals-button">
+<h2>Equals button<a class="headerlink" href="#equals-button" title="Link to this heading">¶</a></h2>
+<p>We mention in the previous tutorial that we will use Python’s <strong>eval()</strong> function to calculate the value of the string equation that our calculator has created. We also did not assign a signal and slot to the equal button. Well it is time address both of these.</p>
+<section id="equals-signals-and-slots">
+<h3>Equals signals and slots<a class="headerlink" href="#equals-signals-and-slots" title="Link to this heading">¶</a></h3>
+<p>Just like all the other buttons, first we will create the equals_clicked slot.</p>
+<ol class="arabic simple">
+<li><p>Go to the bottom of your slots section</p></li>
+<li><p>Add the code on <strong>line 105</strong> and <strong>line 106</strong> below.</p></li>
+</ol>
+<p><img alt="equals clicked slot" src="_images/01_equals_clicked.png" /></p>
+<p>Now we need to add the signal.</p>
+<ol class="arabic simple" start="3">
+<li><p>Go to the bottom of the <strong>signals</strong> method.</p></li>
+<li><p>Add the code on <strong>line 40</strong>.</p></li>
+</ol>
+<p><img alt="equals signal" src="_images/02_equals_signal.png" /></p>
+<p>Finally complete the equals slot.</p>
+<ol class="arabic simple" start="5">
+<li><p>Return to the <strong>equals_clicked</strong> slot</p></li>
+<li><p>Replace the <code class="docutils literal notranslate"><span class="pre">pass</span></code> with the code from <strong>lines 107 to 109</strong> below.</p></li>
+</ol>
+<p><img alt="equals slot finished" src="_images/03_equals_slot_complete.png" /></p>
+</section>
+<section id="testing-equals">
+<h3>Testing Equals<a class="headerlink" href="#testing-equals" title="Link to this heading">¶</a></h3>
+<p>Time to run your program and see if it works. At the moment it is very rudimentary, but it will work with simple calculations. So run your calculator and trying a simple equation.</p>
+<p>It won’t take you long to see that there are many problems with our simple calculator. The rest of this tutorial is about fixing those problems.</p>
+</section>
+</section>
+<section id="after-clicking-equals">
+<h2>After Clicking Equals<a class="headerlink" href="#after-clicking-equals" title="Link to this heading">¶</a></h2>
+<p>After we click the equals button, the calculator returns the result of the calculation. That is good. The problem occurs when we click the next button. It’s value gets added to the calculation result on the screen.</p>
+<ul class="simple">
+<li><p>If that button is an operator (+, -, / or *) then this is normal operation of a calculator, and that’s ok.</p></li>
+<li><p>If that button is a number, then that is not how a calculator works. A normal calculator removes the result and starts a new calculation.</p></li>
+</ul>
+<p>How are we going to solve this?</p>
+<p>The problem is that the calculator needs to know whether the previous button click was the <strong>equals</strong> button, that way it know how to respond to our number clicks. To record if the equals button has been clicked, we will use a flag variable.</p>
+<div class="hint admonition">
+<p class="admonition-title">Flag Variables</p>
+<p>A <strong>flag variable</strong> is a boolean used to indicate when a specific condition has been met in a program. It is typically set to <code class="docutils literal notranslate"><span class="pre">True</span></code> when an event occurs and reset to <code class="docutils literal notranslate"><span class="pre">False</span></code> when the condition is no longer valid. Flag variables are commonly used in loops, decision-making, and event handling to control program flow efficiently.</p>
+</div>
+<section id="create-flag-variable">
+<h3>Create Flag Variable<a class="headerlink" href="#create-flag-variable" title="Link to this heading">¶</a></h3>
+<p>The first step is creating the flag variable, we need to do this in <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.</p>
+<ol class="arabic simple">
+<li><p>Go to the <strong>initialise variables</strong> section of the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method</p></li>
+<li><p>Add the line of code in <strong>line 17 below</strong></p></li>
+</ol>
+<p><img alt="equals flag" src="_images/04_equals_flag.png" /></p>
+<div class="hint admonition">
+<p class="admonition-title">Naming Flag Variables</p>
+<p>When naming flag variables, it is best to name them as a statement, so their value of <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> makes sense.</p>
+</div>
+</section>
+<section id="set-flag-variable">
+<h3>Set Flag Variable<a class="headerlink" href="#set-flag-variable" title="Link to this heading">¶</a></h3>
+<p>Now we need to set the flag variable. We want to set it to <code class="docutils literal notranslate"><span class="pre">True</span></code> when the <strong>equal</strong> button is pressed, but reset it to <code class="docutils literal notranslate"><span class="pre">False</span></code> if any other button is pressed.</p>
+<p>First lets focus on setting the flag to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<ol class="arabic simple">
+<li><p>Go to the <strong>equals_clicked</strong> slot</p></li>
+<li><p>Add the code in <strong>line 108</strong> below</p></li>
+</ol>
+<p><img alt="equal flag true" src="_images/05_equal_flag_true.png" /></p>
+<p>Now to work on when the flag gets set to <code class="docutils literal notranslate"><span class="pre">False</span></code>, which is every other button. Lets start on <strong>button 9</strong>.</p>
+<ol class="arabic simple" start="3">
+<li><p>Go to the <strong>nine_clicked</strong> slot</p></li>
+<li><p>Add the code in <strong>line 48</strong> below.</p></li>
+</ol>
+<p><img alt="equal flag false" src="_images/06_equal_flag_false.png" /></p>
+<p>Now <strong>repeat this for all the other buttons</strong>, except the equals button.</p>
+</section>
+<section id="use-flag-variable">
+<h3>Use Flag Variable<a class="headerlink" href="#use-flag-variable" title="Link to this heading">¶</a></h3>
+<p>Now that the flag variable is set for each button, time to use it to influence the behaviour of our calculator app.</p>
+<p>What we want to do is for each of the <strong>number buttons and the decimal button</strong>:</p>
+<ul class="simple">
+<li><p>check if the previous button was equals</p></li>
+<li><p>if it was, reset <code class="docutils literal notranslate"><span class="pre">self.equation</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> before appending the number to it.</p></li>
+</ul>
+<p>Again we will start with <strong>button 9</strong></p>
+<ol class="arabic simple">
+<li><p>Go to the <strong>nine_clicked</strong> slot</p></li>
+<li><p>At the top (this is important) of the method add the code in <strong>line 48</strong> and <strong>line 49</strong>.</p></li>
+</ol>
+<p><img alt="flag being used" src="_images/07_use_flag.png" /></p>
+<p>Again repeat this for all the other numbers and the decimal button.</p>
+</section>
+<section id="testing-flag">
+<h3>Testing Flag<a class="headerlink" href="#testing-flag" title="Link to this heading">¶</a></h3>
+<p>Time to test that the flag works. Launch your app and check what happens after you click the equals button.</p>
+</section>
+</section>
 </section>
 
         </article>
@@ -280,16 +366,18 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="01_introduction.html">
+          
+          <a class="prev-page" href="08_tutorial_6.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
-                  <span>Next</span>
+                  <span>Previous</span>
                 </div>
-                <div class="title">Introduction</div>
+                
+                <div class="title">Tutorial 6 - Create Calculator App</div>
+                
               </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -315,8 +403,38 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Tutorial 7 - Refine Calculator App</a><ul>
+<li><a class="reference internal" href="#equals-button">Equals button</a><ul>
+<li><a class="reference internal" href="#equals-signals-and-slots">Equals signals and slots</a></li>
+<li><a class="reference internal" href="#testing-equals">Testing Equals</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#after-clicking-equals">After Clicking Equals</a><ul>
+<li><a class="reference internal" href="#create-flag-variable">Create Flag Variable</a></li>
+<li><a class="reference internal" href="#set-flag-variable">Set Flag Variable</a></li>
+<li><a class="reference internal" href="#use-flag-variable">Use Flag Variable</a></li>
+<li><a class="reference internal" href="#testing-flag">Testing Flag</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

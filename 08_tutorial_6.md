@@ -1,4 +1,4 @@
-# Tutorial 6 - Calculator App
+# Tutorial 6 - Create Calculator App
 
 ```{admonition} In this tutorial you will:
 - apply learnt techiques to develop a calculator app
