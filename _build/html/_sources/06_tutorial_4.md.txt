@@ -88,7 +88,7 @@ Note: the spacer compresses the labels to their minimal size, and then shows the
 
 ## Preview window
 
-To preview the window, click **Form &rarr; Preview** or press **ctrl** / **cmd** + **P** keys.
+To preview the window, click **Form &rarr; Preview** or press **ctrl** / **cmd** + **R** keys.
 
 Now resize the window, and you will notice that the labels remain at their smallest size, but remain in the middle top of the window.
 

@@ -359,6 +359,254 @@
 <p>Time to test that the flag works. Launch your app and check what happens after you click the equals button.</p>
 </section>
 </section>
+<section id="multiple-operators">
+<h2>Multiple Operators<a class="headerlink" href="#multiple-operators" title="Link to this heading">¶</a></h2>
+<p>The next problem that we have is that our calculator allows the user to enter multiple operators. Is this a problem?</p>
+<section id="multiple-operators-planning">
+<h3>Multiple Operators Planning<a class="headerlink" href="#multiple-operators-planning" title="Link to this heading">¶</a></h3>
+<p>Use your calculator to test the possible combinations of operators. The table below is a summary of the testing.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Operators</p></th>
+<th class="head text-left"><p>Example</p></th>
+<th class="head text-left"><p>Result</p></th>
+<th class="head text-left"><p>Analysis</p></th>
+<th class="head text-left"><p>Verdict</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">++</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5++2</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">7</span></code></p></td>
+<td class="text-left"><p>This works as the first <code class="docutils literal notranslate"><span class="pre">+</span></code> is the addition operator and the second <code class="docutils literal notranslate"><span class="pre">+</span></code> indicates <code class="docutils literal notranslate"><span class="pre">+2</span></code>. Although it works it is unnecessary since it is the same as using <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p></td>
+<td class="text-left"><p>Prevent</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">+-</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5+-2</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">3</span></code></p></td>
+<td class="text-left"><p>This works as the <code class="docutils literal notranslate"><span class="pre">+</span></code> is the addition operator and the <code class="docutils literal notranslate"><span class="pre">-</span></code> indicates <code class="docutils literal notranslate"><span class="pre">-2</span></code>. Although it could be replaced with just <code class="docutils literal notranslate"><span class="pre">-</span></code> allowing <code class="docutils literal notranslate"><span class="pre">+-</span></code> will make it easier for the user.</p></td>
+<td class="text-left"><p>Allow</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">+*</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5+*2</span></code></p></td>
+<td class="text-left"><p>Error raised</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">+*</span></code> is invalid syntax</p></td>
+<td class="text-left"><p>Prevent</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">+/</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5+/2</span></code></p></td>
+<td class="text-left"><p>Error raised</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">+/</span></code> is invalid syntax</p></td>
+<td class="text-left"><p>Prevent</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">-+</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5-+2</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">3</span></code></p></td>
+<td class="text-left"><p>This works as the <code class="docutils literal notranslate"><span class="pre">-</span></code> is the subtraction operator and the <code class="docutils literal notranslate"><span class="pre">+</span></code> indicates <code class="docutils literal notranslate"><span class="pre">+2</span></code>. Although it works it is unnecessary since <code class="docutils literal notranslate"><span class="pre">-+</span></code> is the same as using <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p></td>
+<td class="text-left"><p>Prevent</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">--</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5--2</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">7</span></code></p></td>
+<td class="text-left"><p>This works as the first <code class="docutils literal notranslate"><span class="pre">-</span></code> is the subtraction operator and the second <code class="docutils literal notranslate"><span class="pre">-</span></code> indicates <code class="docutils literal notranslate"><span class="pre">-2</span></code>. Although it could be replaced with just <code class="docutils literal notranslate"><span class="pre">+</span></code> allowing <code class="docutils literal notranslate"><span class="pre">--</span></code> will make it easier for the user.</p></td>
+<td class="text-left"><p>Allow</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">-*</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5-*2</span></code></p></td>
+<td class="text-left"><p>Error raised</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">-*</span></code> is invalid syntax</p></td>
+<td class="text-left"><p>Prevent</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">-/</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5-/2</span></code></p></td>
+<td class="text-left"><p>Error raised</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">-/</span></code> is invalid syntax</p></td>
+<td class="text-left"><p>Prevent</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">*+</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5*+2</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">10</span></code></p></td>
+<td class="text-left"><p>This works as the <code class="docutils literal notranslate"><span class="pre">*</span></code> is the multiplication operator and the <code class="docutils literal notranslate"><span class="pre">+</span></code> indicates <code class="docutils literal notranslate"><span class="pre">+2</span></code>. Although it works it is unnecessary since <code class="docutils literal notranslate"><span class="pre">*+</span></code> is the same as using <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p></td>
+<td class="text-left"><p>Prevent</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">*-</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5*-2</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">-10</span></code></p></td>
+<td class="text-left"><p>This is correct and required as there is no other way to represent this equation</p></td>
+<td class="text-left"><p>Allow</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5**2</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">25</span></code></p></td>
+<td class="text-left"><p>This works since <code class="docutils literal notranslate"><span class="pre">**</span></code> is the Python expediential operator. The result provided is <code class="docutils literal notranslate"><span class="pre">5</span></code> to the power of <code class="docutils literal notranslate"><span class="pre">2</span></code>. Our calculator is not performing expediential operations.</p></td>
+<td class="text-left"><p>Prevent</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">*/</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5*/2</span></code></p></td>
+<td class="text-left"><p>Error raised</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">*/</span></code> is invalid syntax</p></td>
+<td class="text-left"><p>Prevent</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">/+</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5/+2</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">2.5</span></code></p></td>
+<td class="text-left"><p>This works as the <code class="docutils literal notranslate"><span class="pre">/</span></code> is the division operator and the <code class="docutils literal notranslate"><span class="pre">+</span></code> indicates <code class="docutils literal notranslate"><span class="pre">+2</span></code>. Although it works it is unnecessary since <code class="docutils literal notranslate"><span class="pre">/+</span></code> is the same as using <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p></td>
+<td class="text-left"><p>Prevent</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">/-</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5/-2</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">-2.5</span></code></p></td>
+<td class="text-left"><p>This is correct and required as there is no other way to represent this equation</p></td>
+<td class="text-left"><p>Allow</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">/*</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5/*2</span></code></p></td>
+<td class="text-left"><p>Error raised</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">/*</span></code> is invalid syntax</p></td>
+<td class="text-left"><p>Prevent</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5//2</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td class="text-left"><p>This works since <code class="docutils literal notranslate"><span class="pre">//</span></code> is the Python floor division operator. The result provided is integer component of <code class="docutils literal notranslate"><span class="pre">5/2</span></code>. Our calculator is not performing floor division operations.</p></td>
+<td class="text-left"><p>Prevent</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Systematic Testing</p>
+<p>You will notice with the table above, the testing is being systematic. It first tests all the possible combinations of the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator, then the <code class="docutils literal notranslate"><span class="pre">-</span></code> operator etc. Being systematic in your testing makes sure that is tests all possible pathways that your program can take, this improves <strong>test coverage</strong> and helps to ensure the reliablity of your code.</p>
+</div>
+<p>Looking at the testing table we can determine the behaviour of our calculator when an operation button is clicked. This will be determined by a combination of the last character in the <code class="docutils literal notranslate"><span class="pre">self.equation</span></code> string and which button has been clicked.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Button</p></th>
+<th class="head text-left"><p>Last Equation Character</p></th>
+<th class="head text-left"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>+</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">-</span></code> <code class="docutils literal notranslate"><span class="pre">*</span></code> or <code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td class="text-left"><p>Do not add <code class="docutils literal notranslate"><span class="pre">+</span></code> to the equation</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>+</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">.</span></code> or any digit</p></td>
+<td class="text-left"><p>Add <code class="docutils literal notranslate"><span class="pre">+</span></code> to the equation</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>-</p></td>
+<td class="text-left"><p>Any character</p></td>
+<td class="text-left"><p>Add <code class="docutils literal notranslate"><span class="pre">-</span></code> to the equation</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>x</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">-</span></code> <code class="docutils literal notranslate"><span class="pre">*</span></code> or <code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td class="text-left"><p>Do not add <code class="docutils literal notranslate"><span class="pre">*</span></code> to the equation</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>x</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">.</span></code> or any digit</p></td>
+<td class="text-left"><p>Add <code class="docutils literal notranslate"><span class="pre">*</span></code> to the equation</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>/</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">-</span></code> <code class="docutils literal notranslate"><span class="pre">*</span></code> or <code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td class="text-left"><p>Do not add <code class="docutils literal notranslate"><span class="pre">/</span></code> to the equation</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>/</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">.</span></code> or any digit</p></td>
+<td class="text-left"><p>Add <code class="docutils literal notranslate"><span class="pre">/</span></code> to the equation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This can be distilled down to three simple rules:</p>
+<ul class="simple">
+<li><p>for the <strong>-</strong> button → nothing changes</p></li>
+<li><p>for the <strong>+</strong> <strong>x</strong> and <strong>/</strong> buttons:</p>
+<ul>
+<li><p>if the last <code class="docutils literal notranslate"><span class="pre">self.equation</span></code> character is a digit or <code class="docutils literal notranslate"><span class="pre">.</span></code> add the symbol.</p></li>
+<li><p>otherwise, do nothing</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="multiple-operators-code">
+<h3>Multiple Operators Code<a class="headerlink" href="#multiple-operators-code" title="Link to this heading">¶</a></h3>
+<p>Lets implement these into code.</p>
+<ol class="arabic simple">
+<li><p>Go to the <strong>multiplied_clicked</strong> slot</p></li>
+<li><p>Add the <strong>line 126</strong> below</p></li>
+<li><p>Make sure that you add and indent to <strong>line 127</strong></p></li>
+</ol>
+<p><img alt="check operator code" src="_images/08_operator_check.png" /></p>
+<div class="see also admonition">
+<p class="admonition-title">Code explination</p>
+<p>Looking at <strong>line 126</strong> and there are two important tools we are using to manipulate strings — referencing string characters and string methods.</p>
+<p><strong>Referencing characters</strong></p>
+<p>In Python strings are actually a special type of list, therefore every character is assigned an index. This means that you can <strong><a class="reference external" href="https://www.geeksforgeeks.org/python-string/">refernce characters</a></strong> and <strong><a class="reference external" href="https://www.geeksforgeeks.org/string-slicing-in-python/">slice strings</a></strong> the same way you can refernce elements in a list and slice lists.</p>
+<p>The code <code class="docutils literal notranslate"><span class="pre">self.equation[-1]</span></code> is an example of referencing characters via the index. Indexes can run both backwards, so the index -1 always refers to the last character in a string.</p>
+<p><strong>String methods</strong></p>
+<p><strong><a class="reference external" href="https://www.programiz.com/python-programming/methods/string">String methods</a></strong> are built-in functions that you can use to manipulate and work with strings. These is extremely useful since strings comprise much of the data program deal with.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.isdigit()</span></code> method checks to see if the string consists of only digits (ie. 0-9). In our code the string we are checking is <code class="docutils literal notranslate"><span class="pre">self.equation[-1]</span></code> — the last character of the equation string.</p>
+<p>Since <code class="docutils literal notranslate"><span class="pre">.</span></code> is not a character, we needed to add <code class="docutils literal notranslate"><span class="pre">or</span> <span class="pre">self.equaltion[-1]</span> <span class="pre">=</span> <span class="pre">&quot;.&quot;</span> <span class="pre">to</span> <span class="pre">allow</span> <span class="pre">operators</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">added</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">string</span> <span class="pre">that</span> <span class="pre">ends</span> <span class="pre">with</span> </code>.`.</p>
+</div>
+<p>Now repeat the same changes in <strong>divide_clicked</strong> and <strong>add_clicked</strong> slots.</p>
+</section>
+<section id="test-multiple-operators">
+<h3>Test Multiple Operators<a class="headerlink" href="#test-multiple-operators" title="Link to this heading">¶</a></h3>
+<p>Finally you need to test that this has solved the problem. Use the summary table above and make sure that all the combinations our code prevents and allows the correct combination of operators.</p>
+</section>
+</section>
+<section id="operator-first">
+<h2>Operator First<a class="headerlink" href="#operator-first" title="Link to this heading">¶</a></h2>
+<p>Launch your calculator and click on the <strong>x</strong> button. It will raise the error below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;d:\GIT\PyQt6-website-tutorials\calculator.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">126</span><span class="p">,</span> <span class="ow">in</span> <span class="n">multipy_clicked</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">equation</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">equation</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span><span class="p">:</span>
+       <span class="o">~~~~~~~~~~~~~^^^^</span>
+<span class="ne">IndexError</span><span class="p">:</span> <span class="n">string</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
+</pre></div>
+</div>
+<p>You can see that the Traceback points to the line we just added to our code. In correcting our last problem, we have introduced another. Lets fix that.</p>
+<section id="operator-first-planning">
+<h3>Operator First Planning<a class="headerlink" href="#operator-first-planning" title="Link to this heading">¶</a></h3>
+<p>First we need to work out why this error occurred. The error is <code class="docutils literal notranslate"><span class="pre">IndexError:</span> <span class="pre">string</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code> which means that our index `self.equation[-1] doesn’t exist. Why is that?</p>
+<p>Looking back at the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method and we see that <code class="docutils literal notranslate"><span class="pre">self.equation</span> <span class="pre">=</span> <span class="pre">&quot;&quot;</span></code>. This means that when the program starts, the value of <code class="docutils literal notranslate"><span class="pre">self.equation</span></code> is an empty string. We cannot refer to the last character, because there are no characters.</p>
+<p>So we also need to include an exception for <code class="docutils literal notranslate"><span class="pre">self.equation</span></code> being <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement.</p>
+</section>
+<section id="operator-first-code">
+<h3>Operator First Code<a class="headerlink" href="#operator-first-code" title="Link to this heading">¶</a></h3>
+<p>To fix the error:</p>
+<ol class="arabic simple">
+<li><p>Go to <strong>multiply_clicked</strong> slot</p></li>
+<li><p>Add the new <code class="docutils literal notranslate"><span class="pre">if</span></code> statement in <strong>line 126</strong> of the code below.</p></li>
+<li><p>Make sure you add an indent to <strong>line 127</strong> and <strong>line 128</strong></p></li>
+</ol>
+<p><img alt="Operator first code" src="_images/09_operator_first.png" /></p>
+<div class="admonition-code-explination admonition">
+<p class="admonition-title">Code explination</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement on line 126 guards against the error we introduced with our previous change. If <code class="docutils literal notranslate"><span class="pre">self.equation</span></code> is an empty string, then the program will never test the last character.</p>
+</div>
+<p>Make the same changes in <strong>divide_clicked</strong> and <strong>add_clicked</strong> slots.</p>
+</section>
+<section id="test-operator-first">
+<h3>Test Operator First<a class="headerlink" href="#test-operator-first" title="Link to this heading">¶</a></h3>
+<p>Launch your calculator and check that clicking the <strong>x</strong> button doesn’t cause an error.</p>
+<p>Good news, is no error has been raised. Bad news is that the 0 on our calculator has disappeared.</p>
+</section>
+</section>
+<section id="prevent-blank-display">
+<h2>Prevent Blank Display<a class="headerlink" href="#prevent-blank-display" title="Link to this heading">¶</a></h2>
+<p>The reason the 0 disappears is that we run the <code class="docutils literal notranslate"><span class="pre">update_display</span></code> method at the end of every slot. This normally isn’t a problem because <code class="docutils literal notranslate"><span class="pre">self.equation</span></code> has a value in it. But now we have a situation where the user can click a button and the <code class="docutils literal notranslate"><span class="pre">self.equation</span></code> is still <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> when the <code class="docutils literal notranslate"><span class="pre">update_display</span></code> is called.</p>
+<p>This is a simple fix:</p>
+<ol class="arabic simple">
+<li><p>Go to the <code class="docutils literal notranslate"><span class="pre">update_display</span></code> method</p></li>
+<li><p>Add the code on <strong>line 159</strong> below</p></li>
+<li><p>Make sure you add an indentation to <strong>line 160</strong></p></li>
+</ol>
+<p><img alt="Prevent blank display code" src="_images/10_no_blanmk_display.png" /></p>
+</section>
 </section>
 
         </article>
@@ -428,6 +676,19 @@
 <li><a class="reference internal" href="#testing-flag">Testing Flag</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#multiple-operators">Multiple Operators</a><ul>
+<li><a class="reference internal" href="#multiple-operators-planning">Multiple Operators Planning</a></li>
+<li><a class="reference internal" href="#multiple-operators-code">Multiple Operators Code</a></li>
+<li><a class="reference internal" href="#test-multiple-operators">Test Multiple Operators</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#operator-first">Operator First</a><ul>
+<li><a class="reference internal" href="#operator-first-planning">Operator First Planning</a></li>
+<li><a class="reference internal" href="#operator-first-code">Operator First Code</a></li>
+<li><a class="reference internal" href="#test-operator-first">Test Operator First</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#prevent-blank-display">Prevent Blank Display</a></li>
 </ul>
 </li>
 </ul>

@@ -110,3 +110,145 @@ Again repeat this for all the other numbers and the decimal button.
 ### Testing Flag
 
 Time to test that the flag works. Launch your app and check what happens after you click the equals button.
+
+## Multiple Operators
+
+The next problem that we have is that our calculator allows the user to enter multiple operators. Is this a problem? 
+
+### Multiple Operators Planning
+
+Use your calculator to test the possible combinations of operators. The table below is a summary of the testing.
+
+| Operators | Example | Result | Analysis | Verdict |
+| :--- | :--- | :--- | :--- | :--- |
+| `++` | `5++2` | `7` | This works as the first `+` is the addition operator and the second `+` indicates `+2`. Although it works it is unnecessary since it is the same as using `+`. | Prevent |
+| `+-` | `5+-2` | `3` | This works as the `+` is the addition operator and the `-` indicates `-2`. Although it could be replaced with just `-` allowing `+-` will make it easier for the user. | Allow |
+| `+*` | `5+*2` | Error raised | `+*` is invalid syntax | Prevent |
+| `+/` | `5+/2` | Error raised | `+/` is invalid syntax | Prevent |
+| `-+` | `5-+2` | `3` | This works as the `-` is the subtraction operator and the `+` indicates `+2`. Although it works it is unnecessary since `-+` is the same as using `-`. | Prevent |
+| `--` | `5--2` | `7` | This works as the first `-` is the subtraction operator and the second `-` indicates `-2`. Although it could be replaced with just `+` allowing `--` will make it easier for the user. | Allow |
+| `-*` | `5-*2` | Error raised | `-*` is invalid syntax | Prevent |
+| `-/` | `5-/2` | Error raised | `-/` is invalid syntax | Prevent |
+| `*+` | `5*+2` | `10` | This works as the `*` is the multiplication operator and the `+` indicates `+2`. Although it works it is unnecessary since `*+` is the same as using `*`. | Prevent |
+| `*-` | `5*-2` | `-10` | This is correct and required as there is no other way to represent this equation | Allow |
+| `**` | `5**2` | `25` | This works since `**` is the Python expediential operator. The result provided is `5` to the power of `2`. Our calculator is not performing expediential operations. | Prevent |
+| `*/` | `5*/2` | Error raised | `*/` is invalid syntax | Prevent |
+| `/+` | `5/+2` | `2.5` | This works as the `/` is the division operator and the `+` indicates `+2`. Although it works it is unnecessary since `/+` is the same as using `/`. | Prevent |
+| `/-` | `5/-2` | `-2.5` | This is correct and required as there is no other way to represent this equation | Allow |
+| `/*` | `5/*2` | Error raised | `/*` is invalid syntax | Prevent |
+| `//` | `5//2` | `2` | This works since `//` is the Python floor division operator. The result provided is integer component of `5/2`. Our calculator is not performing floor division operations. | Prevent |
+
+```{admonition} Systematic Testing
+:class: hint
+You will notice with the table above, the testing is being systematic. It first tests all the possible combinations of the `+` operator, then the `-` operator etc. Being systematic in your testing makes sure that is tests all possible pathways that your program can take, this improves **test coverage** and helps to ensure the reliablity of your code.
+```
+
+Looking at the testing table we can determine the behaviour of our calculator when an operation button is clicked. This will be determined by a combination of the last character in the `self.equation` string and which button has been clicked.
+
+| Button | Last Equation Character | Action |
+| :--- | :--- | :--- |
+| + | `+` `-` `*` or `/` | Do not add `+` to the equation |
+| + | `.` or any digit | Add `+` to the equation |
+| - | Any character | Add `-` to the equation |
+| x | `+` `-` `*` or `/` | Do not add `*` to the equation |
+| x | `.` or any digit | Add `*` to the equation |
+| / | `+` `-` `*` or `/` | Do not add `/` to the equation |
+| / | `.` or any digit | Add `/` to the equation |
+
+This can be distilled down to three simple rules:
+
+- for the **-** button &rarr; nothing changes
+- for the **+** **x** and **/** buttons:
+  - if the last `self.equation` character is a digit or `.` add the symbol.
+  - otherwise, do nothing
+
+### Multiple Operators Code
+
+Lets implement these into code.
+
+1. Go to the **multiplied_clicked** slot
+2. Add the **line 126** below
+3. Make sure that you add and indent to **line 127**
+
+![check operator code](./assets/img/09/08_operator_check.png)
+
+```{admonition} Code explination
+:class: see also
+Looking at **line 126** and there are two important tools we are using to manipulate strings &mdash; referencing string characters and string methods.
+
+**Referencing characters**
+
+In Python strings are actually a special type of list, therefore every character is assigned an index. This means that you can **[refernce characters](https://www.geeksforgeeks.org/python-string/)** and **[slice strings](https://www.geeksforgeeks.org/string-slicing-in-python/)** the same way you can refernce elements in a list and slice lists.
+
+The code `self.equation[-1]` is an example of referencing characters via the index. Indexes can run both backwards, so the index -1 always refers to the last character in a string.
+
+**String methods**
+
+**[String methods](https://www.programiz.com/python-programming/methods/string)** are built-in functions that you can use to manipulate and work with strings. These is extremely useful since strings comprise much of the data program deal with.
+
+The `.isdigit()` method checks to see if the string consists of only digits (ie. 0-9). In our code the string we are checking is `self.equation[-1]` &mdash; the last character of the equation string.
+
+Since `.` is not a character, we needed to add `or self.equaltion[-1] = "." to allow operators to be added to a string that ends with `.`.
+```
+
+Now repeat the same changes in **divide_clicked** and **add_clicked** slots.
+
+### Test Multiple Operators 
+
+Finally you need to test that this has solved the problem. Use the summary table above and make sure that all the combinations our code prevents and allows the correct combination of operators.
+
+## Operator First
+
+Launch your calculator and click on the **x** button. It will raise the error below.
+
+```
+Traceback (most recent call last):
+  File "d:\GIT\PyQt6-website-tutorials\calculator.py", line 126, in multipy_clicked
+    if self.equation[-1].isdigit() or self.equation[-1] == ".":
+       ~~~~~~~~~~~~~^^^^
+IndexError: string index out of range
+```
+
+You can see that the Traceback points to the line we just added to our code. In correcting our last problem, we have introduced another. Lets fix that.
+
+### Operator First Planning
+
+First we need to work out why this error occurred. The error is `IndexError: string index out of range` which means that our index `self.equation[-1] doesn't exist. Why is that?
+
+Looking back at the `__init__` method and we see that `self.equation = ""`. This means that when the program starts, the value of `self.equation` is an empty string. We cannot refer to the last character, because there are no characters.
+
+So we also need to include an exception for `self.equation` being `""` the `if` statement.
+
+### Operator First Code
+
+To fix the error:
+
+1. Go to **multiply_clicked** slot
+2. Add the new `if` statement in **line 126** of the code below.
+3. Make sure you add an indent to **line 127** and **line 128**
+
+![Operator first code](./assets/img/09/09_operator_first.png)
+
+```{admonition} Code explination
+The `if` statement on line 126 guards against the error we introduced with our previous change. If `self.equation` is an empty string, then the program will never test the last character.
+```
+
+Make the same changes in **divide_clicked** and **add_clicked** slots.
+
+### Test Operator First
+
+Launch your calculator and check that clicking the **x** button doesn't cause an error.
+
+Good news, is no error has been raised. Bad news is that the 0 on our calculator has disappeared.
+
+## Prevent Blank Display
+
+The reason the 0 disappears is that we run the `update_display` method at the end of every slot. This normally isn't a problem because `self.equation` has a value in it. But now we have a situation where the user can click a button and the `self.equation` is still `""` when the `update_display` is called.
+
+This is a simple fix:
+
+1. Go to the `update_display` method
+2. Add the code on **line 159** below
+3. Make sure you add an indentation to **line 160**
+
+![Prevent blank display code](./assets/img/09/10_no_blanmk_display.png)
