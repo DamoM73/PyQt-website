@@ -172,7 +172,7 @@ Lets implement these into code.
 
 ![check operator code](./assets/img/09/08_operator_check.png)
 
-```{admonition} Code explination
+```{admonition} Code explanation
 :class: see also
 Looking at **line 126** and there are two important tools we are using to manipulate strings &mdash; referencing string characters and string methods.
 
@@ -193,7 +193,7 @@ Since `.` is not a character, we needed to add `or self.equaltion[-1] = "." to a
 
 Now repeat the same changes in **divide_clicked** and **add_clicked** slots.
 
-### Test Multiple Operators 
+### Test Multiple Operators
 
 Finally you need to test that this has solved the problem. Use the summary table above and make sure that all the combinations our code prevents and allows the correct combination of operators.
 
