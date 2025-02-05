@@ -1,16 +1,16 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="./">
+<html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Tutorial 4 - Complex UIs" href="06_tutorial_4.html" /><link rel="prev" title="Tutorial 2 - Labels" href="04_tutorial_2.html" />
 
-    <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
+    <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 4.5.0 and Furo 2022.12.07 -->
         <title>Tutorial 3 - Layouts - PyQt Tutorials</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
     
@@ -72,7 +72,7 @@
   <symbol id="svg-sun" viewBox="0 0 24 24">
     <title>Light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
       <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -87,63 +87,22 @@
   <symbol id="svg-moon" viewBox="0 0 24 24">
     <title>Dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
   </symbol>
-  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
-    <title>Auto light/dark, in light mode</title>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
-      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
-      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
-      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
-      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
-      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
-      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
-      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
-      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
-      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
-      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
-      <circle cx="14.5" cy="9.55" r="3.6"/>
-    </svg>
-  </symbol>
-  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
-    <title>Auto light/dark, in dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
-      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
-      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
-      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
-      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
-      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
-      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
-      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
-      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
-      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
-      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
-      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
-    </svg>
-  </symbol>
-  <symbol id="svg-pencil" viewBox="0 0 24 24">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
-      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-      <path d="M13.5 6.5l4 4" />
-      <path d="M20 21l2 -2l-2 -2" />
-      <path d="M17 17l-2 2l2 2" />
-    </svg>
-  </symbol>
-  <symbol id="svg-eye" viewBox="0 0 24 24">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-      <path
-        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
-      <path d="M20 21l2 -2l-2 -2" />
-      <path d="M17 17l-2 2l2 2" />
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
     </svg>
   </symbol>
 </svg>
@@ -156,8 +115,6 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
-
-<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -176,8 +133,7 @@
       <div class="theme-toggle-container theme-toggle-header">
         <button class="theme-toggle">
           <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
-          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
           <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
@@ -191,7 +147,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
   
   <div class="sidebar-logo-container">
     <img class="sidebar-logo" src="_static/logo.png" alt="Logo"/>
@@ -214,6 +170,8 @@
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 3 - Layouts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_tutorial_4.html">Tutorial 4 - Complex UIs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_tutorial_5.html">Tutorial 5 - Signals and Slots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_tutorial_6.html">Tutorial 6 - Create Calculator App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_tutorial_7.html">Tutorial 7 - Refine Calculator App</a></li>
 </ul>
 
 </div>
@@ -233,17 +191,11 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="view-this-page">
-  <a class="muted-link" href="_sources/05_tutorial_3.md.txt" title="View this page">
-    <svg><use href="#svg-eye"></use></svg>
-    <span class="visually-hidden">View this page</span>
-  </a>
-</div>
+          
 <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
-              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
               <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
@@ -253,9 +205,9 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main" id="furo-main-content">
-          <section id="tutorial-3-layouts">
-<h1>Tutorial 3 - Layouts<a class="headerlink" href="#tutorial-3-layouts" title="Link to this heading">¶</a></h1>
+        <article role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="tutorial-3-layouts">
+<h1>Tutorial 3 - Layouts<a class="headerlink" href="#tutorial-3-layouts" title="Permalink to this headline">#</a></h1>
 <div class="admonition-in-this-tutorial-you-will admonition">
 <p class="admonition-title">In this tutorial you will:</p>
 <ul class="simple">
@@ -265,7 +217,7 @@
 </ul>
 </div>
 <section id="static-vs-dynamic-uis">
-<h2>Static vs Dynamic UIs<a class="headerlink" href="#static-vs-dynamic-uis" title="Link to this heading">¶</a></h2>
+<h2>Static vs Dynamic UIs<a class="headerlink" href="#static-vs-dynamic-uis" title="Permalink to this headline">#</a></h2>
 <p>Static UI’s don’t change in response to the size of the window. For example, if you launch the window we created in tutorial 2, you will notice that the labels do not respond to resizing of the window.</p>
 <p><img alt="window resizing example" src="_images/01_resizing.gif" /></p>
 <p>Notice how all three labels:</p>
@@ -275,12 +227,12 @@
 </ul>
 <p>A dynamic UI changes in response to the window size.</p>
 <section id="which-to-use">
-<h3>Which to use?<a class="headerlink" href="#which-to-use" title="Link to this heading">¶</a></h3>
+<h3>Which to use?<a class="headerlink" href="#which-to-use" title="Permalink to this headline">#</a></h3>
 <p><strong>Static</strong> can be used where the window does not need to change. The use for this is less than it first seems. Even when the window fill the screen, its size is dependant upon the resolution of the screen. Therefore, for most applications, <strong>dynamic</strong> UI are the best option.</p>
 </section>
 </section>
 <section id="what-are-qt-layouts">
-<h2>What are Qt Layouts?<a class="headerlink" href="#what-are-qt-layouts" title="Link to this heading">¶</a></h2>
+<h2>What are Qt Layouts?<a class="headerlink" href="#what-are-qt-layouts" title="Permalink to this headline">#</a></h2>
 <p><strong>Qt layouts</strong> are tools in the Qt framework that help organise how widgets appear in a window or application. Instead of manually setting the size and position of each widget, layouts automatically arrange them in a neat and logical way, even if the window is resized.</p>
 <p>There are different types of layouts you can use in Qt:</p>
 <ul class="simple">
@@ -293,7 +245,7 @@
 <p>In this tutorial we will focus on the first three of these. Form layouts we will explore in a later tutorial.</p>
 </section>
 <section id="applying-layouts-in-qt-designer">
-<h2>Applying Layouts in Qt Designer<a class="headerlink" href="#applying-layouts-in-qt-designer" title="Link to this heading">¶</a></h2>
+<h2>Applying Layouts in Qt Designer<a class="headerlink" href="#applying-layouts-in-qt-designer" title="Permalink to this headline">#</a></h2>
 <p>In Qt Designer there are two ways to apply layouts to a window:</p>
 <ul class="simple">
 <li><p>right-click on a widget and then choose the layout</p></li>
@@ -301,7 +253,7 @@
 </ul>
 <p>The best way to apply layouts is reliant upon which layout it is (initial  layout or subsequent layouts). The first layout is applied to the window, while subsequent layouts are nested inside this first layout.</p>
 <section id="initial-layout">
-<h3>Initial Layout<a class="headerlink" href="#initial-layout" title="Link to this heading">¶</a></h3>
+<h3>Initial Layout<a class="headerlink" href="#initial-layout" title="Permalink to this headline">#</a></h3>
 <p>If you drag-and-drop the initial layout, then it will not apply the resizing settings (see below).</p>
 <p><img alt="drag-and-drop initial layout" src="_images/02_drag_n_drop_initial.gif" /></p>
 <p>But Qt Designer will not allow you to right-click either (the options are greyed out).</p>
@@ -309,23 +261,23 @@
 <p>The trick is to have some widgets already in the window before you right-click and access the context menu.</p>
 </section>
 <section id="subsequent-layouts">
-<h3>Subsequent Layouts<a class="headerlink" href="#subsequent-layouts" title="Link to this heading">¶</a></h3>
+<h3>Subsequent Layouts<a class="headerlink" href="#subsequent-layouts" title="Permalink to this headline">#</a></h3>
 <p>All subsequent layouts can use either method. I prefer the drag-and-drop method, so that is what we will use in these tutorials, but feel free to explore the right-click approach.</p>
 </section>
 </section>
 <section id="exploring-qt-layouts">
-<h2>Exploring Qt Layouts<a class="headerlink" href="#exploring-qt-layouts" title="Link to this heading">¶</a></h2>
+<h2>Exploring Qt Layouts<a class="headerlink" href="#exploring-qt-layouts" title="Permalink to this headline">#</a></h2>
 <p>To make this quicker, we will start with the UI from last tutorial.</p>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>Open <strong>tutorial_2.ui</strong> (you should find it in <strong>File → Recent Forms</strong>)</p></li>
 <li><p>Change <strong>windowTitle</strong> to <strong>Tutorial 3</strong></p></li>
 <li><p>Save the file as <strong>tutorial_3.ui</strong> (<strong>File → Save As…</strong>)</p></li>
 </ol>
 <p>Now lets look at the three different layouts.</p>
 <section id="horizontal-layout">
-<h3>Horizontal Layout<a class="headerlink" href="#horizontal-layout" title="Link to this heading">¶</a></h3>
+<h3>Horizontal Layout<a class="headerlink" href="#horizontal-layout" title="Permalink to this headline">#</a></h3>
 <p>The <strong>Horizontal Layout</strong> arranges widgets in a row of cells from left to right.</p>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>Right-click on the window</p></li>
 <li><p>From the context menu choose <strong>Layout → Lay Out Horizontally</strong></p></li>
 </ol>
@@ -338,9 +290,9 @@
 </ul>
 </section>
 <section id="vertical-layout">
-<h3>Vertical Layout<a class="headerlink" href="#vertical-layout" title="Link to this heading">¶</a></h3>
+<h3>Vertical Layout<a class="headerlink" href="#vertical-layout" title="Permalink to this headline">#</a></h3>
 <p>The <strong>Vertical Layout</strong> stacks widgets one on top of another in a column of cells.</p>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>Undo the horizontal layout application</p></li>
 <li><p>Right-click on the window</p></li>
 <li><p>From the context menu choose <strong>Layout → Lay Out Vertically</strong></p></li>
@@ -354,9 +306,9 @@
 </ul>
 </section>
 <section id="grid-layout">
-<h3>Grid Layout<a class="headerlink" href="#grid-layout" title="Link to this heading">¶</a></h3>
+<h3>Grid Layout<a class="headerlink" href="#grid-layout" title="Permalink to this headline">#</a></h3>
 <p>The <strong>Grid Layout</strong> places widgets in rows and columns, like a table.</p>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>Undo the vertical layout application</p></li>
 <li><p>Right-click on the window</p></li>
 <li><p>From the context menu choose <strong>Layout → Lay Out in a Grid</strong></p></li>
@@ -371,18 +323,18 @@
 </ul>
 </section>
 <section id="adding-subsequent-widgets">
-<h3>Adding subsequent widgets<a class="headerlink" href="#adding-subsequent-widgets" title="Link to this heading">¶</a></h3>
+<h3>Adding subsequent widgets<a class="headerlink" href="#adding-subsequent-widgets" title="Permalink to this headline">#</a></h3>
 <p>Adding subsequent widgets simply involves dragging and dropping a widget from the widget library onto a cell in the layout. The widget will inherent the properties (eg. height and width) of that cell.</p>
 <p><img alt="subsequent" src="_images/07_subsequent.gif" /></p>
 <p>Note the red line or box that indicates where the widget will be placed.</p>
 </section>
 </section>
 <section id="nesting-layouts">
-<h2>Nesting Layouts<a class="headerlink" href="#nesting-layouts" title="Link to this heading">¶</a></h2>
+<h2>Nesting Layouts<a class="headerlink" href="#nesting-layouts" title="Permalink to this headline">#</a></h2>
 <p>Don’t forget that layouts are also widgets. This means that a layout can be placed inside the cell of another layout. This is how you develop complex UIs, something that we will explore in later tutorials. This is also why it is important to plan out your UIs so you have a good idea of where all your layouts should go.</p>
 </section>
 <section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h2>
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
 <p>Layouts are part of making good responsive UI and they are vital for complex UIs. This tutorials we have explored the three main window layouts.</p>
 </section>
 </section>
@@ -480,11 +432,12 @@
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=cb975c41"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     </body>
 </html>

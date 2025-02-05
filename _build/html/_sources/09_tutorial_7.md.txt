@@ -172,7 +172,7 @@ Lets implement these into code.
 
 ![check operator code](./assets/img/09/08_operator_check.png)
 
-```{admonition} Code explination
+```{admonition} Code explanation
 :class: see also
 Looking at **line 126** and there are two important tools we are using to manipulate strings &mdash; referencing string characters and string methods.
 
@@ -193,7 +193,7 @@ Since `.` is not a character, we needed to add `or self.equaltion[-1] = "." to a
 
 Now repeat the same changes in **divide_clicked** and **add_clicked** slots.
 
-### Test Multiple Operators 
+### Test Multiple Operators
 
 Finally you need to test that this has solved the problem. Use the summary table above and make sure that all the combinations our code prevents and allows the correct combination of operators.
 
@@ -252,3 +252,149 @@ This is a simple fix:
 3. Make sure you add an indentation to **line 160**
 
 ![Prevent blank display code](./assets/img/09/10_no_blanmk_display.png)
+
+## Double Decimal
+
+The next problem is that when you can click on the decimal button twice in a row, and it will display `..` which a calculator should not do.
+
+So lets look at solving that problem.
+
+### Double Decimal Planning
+
+The error occurs because the no number contains two decimal points, but `self.equation` can contain multiple decimal points, as long as each number only has one. We need to prevent a decimal point from being added to a number, if that number already has a decimal point. Therefore we need to identify each number in `self.equation`.
+
+Fortunately there is a simple way to do this. Each number in `self.equation` is separated by an operator. So we can use a flag system, similar to our double equals solution, which will record if there is a decimal point in the current number. Clicking the decimal button will set it to `True` and then clicking an operator will set it to `False`.
+
+equals_clicked
+
+First we need to create the flag variable.
+
+1. Go to the `__init__` method
+2. Move to the **initialise variables** section
+3. Add the code from **line 18** below.
+
+![double decimal code](./assets/img/09/11_double_decimal.png)
+
+We need to change the **decimal_clicked** slot so it sets the `self.number_has_decimal` to `True` when clicked.
+
+4. Go to the **decimal_clicked** slot
+5. Add **line 123** in the code below
+
+![double decimal code 2](./assets/img/09/12_double_decimal_2.png)
+
+Now we need prevent a decimal being added to `self.equation` when `self.number_has_decimal` is `True`.
+
+6. Still in the **decimal_clicked** slot
+7. Add the code in **line 122** below
+8. Make sure you increase the indent of **line 123** and **line 124**
+
+![double decimal code 3](./assets/img/09/13_double_decimal_3.png)
+
+Finally we need to adjust the operators slots to make flag `False` when they are clicked.
+
+9. Go to the **multipy_clicked** slot
+10. Add the code in **line 132**
+
+![double decimal code 4](./assets/img/09/14_double_decimal_4.png)
+
+Note that the code needs to go after the code that changes `self.equation` and at the same indentation level.
+
+Add the same code to the:
+
+- **divide_clicked** slot
+- **add_clicked** slot
+- **subtract_clicked** slot
+- **equals_clicked** slot
+
+### Double Decimal Testing
+
+Launch your calculator and test that the decimal button behaves the way you want it to.
+
+## Leading Zeroes
+
+In our calculator zero works like any other number, but it shouldn't. We can create numbers that have leading zeroes. We need to stop this from happening.
+
+### Leading Zeroes Planning
+
+Lets look at when we want prevent `0` from being added to `self.equation`.
+
+| Possible equation | Valid | When detect | How to detect |
+| :--- | :--- | :--- | :--- |
+| 09 | No | `0` clicked | self.equation = "" |
+| 909 | Yes | `0` clicked | `self.equation[-1]` is digit |
+| +0 | Yes | `0` clicked |`self.equation[-1]` is operator |
+| +09 | No | digit clicked | `self.equation[-1]` is `0` and <br>`self.equation[-2]` is operator |
+
+From this table we can create two simple rules:
+
+- When the zero button is clicked:
+  - if `self.equation = ""` don't add `0`
+- When a digit button is clicked:
+  - if `self.equation[-1] = 0 and self.equation[-2] in ["+", "-", "*" "/"]` remove the `0` at `self.equation[-1]`.
+
+Ok let's put that into code:
+
+### Leading Zeroes Code
+
+Lets deal with the first rule
+
+1. Go to the **zero_clicked** slot
+2. Add the code in **line 115**
+3. Increase the indent for **line 116**
+
+![leading zero code 1](./assets/img/09/15_leadin_zero_code_1.png)
+
+Now the second rule
+
+4. Go to the **nine_clicked** slot
+5. Add the code in **lines 52 to 54** below make sure you match the indentation.
+
+![leading zero code 2](./assets/img/09/16_leading_zeros_code_2.png)
+
+```{admonition} Code explanation
+:class: see also
+`self.equation = self.equation[:-1]` uses string slicing to remove the last character in the `self.equation` string
+```
+
+### Leading Zeroes Testing
+
+Launch your calculator and check that the zero button behaves as you intended.
+
+## Divide by Zero
+
+On other calculators, dividing by zero presents a error message. In our calculator it crashes the program. We need to change that.
+
+### Divide by Zero Planning
+
+Since dividing by zero is mathematically impossible, Python will raise a `ZeroDivisionError: division by zero` error. We can use this to identify when this problem occurs then deal with it using Python's `try-except` block.
+
+```{admonition} Flag Variables
+:class: hint
+In Python, a `try-except` block is used to handle errors (exceptions) and prevent a program from crashing. The `try` block contains the code that might raise an exception, and the `except` block catches and handles the error if it occurs. This allows the program to continue running instead of terminating unexpectedly.
+
+**[Try Except tutorials](https://www.w3schools.com/python/python_try_except.asp)**
+```
+
+We can use try-except when evaluate `self.equation` to catch and deal with any `ZeroDivisionError` exceptions.
+
+### Divide by Zero Code
+
+So let's put that plan to code.
+
+Let capture the `ZeroDivisionError` exception and change `result` so the calculator displays a message when the screen is updated
+
+1. Go to the **equals_clicked** slot
+2. Replace the current **line 163** with the code from **lines 163 to 166**
+
+![divide by zero code 1](./assets/img/09/17_divide_by_zero.png)
+
+This now presents a problem, that `self.equation` is now words. Our calculator is not designed to deal with that, so we need to return `self.equation` to a useable value after updating the screen.
+
+3. At the bottom of the **equals_clicked** slot
+4. Add the code from **lines 170 and 171** below.
+
+![divide by zero code 2](./assets/img/09/18_divide_by_zero_2.png)
+
+### Divide by Zero Testing
+
+Launch your calculator and then attempt to divide by zero.

@@ -1,16 +1,16 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="./">
+<html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Tutorial 4 - Complex UIs" href="06_tutorial_4.html" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Tutorial 6 - Create Calculator App" href="08_tutorial_6.html" /><link rel="prev" title="Tutorial 4 - Complex UIs" href="06_tutorial_4.html" />
 
-    <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
+    <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 4.5.0 and Furo 2022.12.07 -->
         <title>Tutorial 5 - Signals and Slots - PyQt Tutorials</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
     
@@ -72,7 +72,7 @@
   <symbol id="svg-sun" viewBox="0 0 24 24">
     <title>Light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
       <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -87,63 +87,22 @@
   <symbol id="svg-moon" viewBox="0 0 24 24">
     <title>Dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
   </symbol>
-  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
-    <title>Auto light/dark, in light mode</title>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
-      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
-      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
-      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
-      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
-      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
-      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
-      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
-      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
-      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
-      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
-      <circle cx="14.5" cy="9.55" r="3.6"/>
-    </svg>
-  </symbol>
-  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
-    <title>Auto light/dark, in dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
-      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
-      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
-      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
-      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
-      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
-      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
-      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
-      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
-      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
-      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
-      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
-    </svg>
-  </symbol>
-  <symbol id="svg-pencil" viewBox="0 0 24 24">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
-      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-      <path d="M13.5 6.5l4 4" />
-      <path d="M20 21l2 -2l-2 -2" />
-      <path d="M17 17l-2 2l2 2" />
-    </svg>
-  </symbol>
-  <symbol id="svg-eye" viewBox="0 0 24 24">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-      <path
-        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
-      <path d="M20 21l2 -2l-2 -2" />
-      <path d="M17 17l-2 2l2 2" />
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
     </svg>
   </symbol>
 </svg>
@@ -156,8 +115,6 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
-
-<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -176,8 +133,7 @@
       <div class="theme-toggle-container theme-toggle-header">
         <button class="theme-toggle">
           <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
-          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
           <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
@@ -191,7 +147,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
   
   <div class="sidebar-logo-container">
     <img class="sidebar-logo" src="_static/logo.png" alt="Logo"/>
@@ -214,6 +170,8 @@
 <li class="toctree-l1"><a class="reference internal" href="05_tutorial_3.html">Tutorial 3 - Layouts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_tutorial_4.html">Tutorial 4 - Complex UIs</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 5 - Signals and Slots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_tutorial_6.html">Tutorial 6 - Create Calculator App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_tutorial_7.html">Tutorial 7 - Refine Calculator App</a></li>
 </ul>
 
 </div>
@@ -233,17 +191,11 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="view-this-page">
-  <a class="muted-link" href="_sources/07_tutorial_5.md.txt" title="View this page">
-    <svg><use href="#svg-eye"></use></svg>
-    <span class="visually-hidden">View this page</span>
-  </a>
-</div>
+          
 <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
-              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
               <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
@@ -253,9 +205,9 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main" id="furo-main-content">
-          <section id="tutorial-5-signals-and-slots">
-<h1>Tutorial 5 - Signals and Slots<a class="headerlink" href="#tutorial-5-signals-and-slots" title="Link to this heading">¶</a></h1>
+        <article role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="tutorial-5-signals-and-slots">
+<h1>Tutorial 5 - Signals and Slots<a class="headerlink" href="#tutorial-5-signals-and-slots" title="Permalink to this headline">#</a></h1>
 <div class="admonition-in-this-tutorial-you-will admonition">
 <p class="admonition-title">In this tutorial you will:</p>
 <ul class="simple">
@@ -265,55 +217,55 @@
 </div>
 <p>So far out tutorials have been focusing on how to make an responsive UI.  While this is an important foundation, all we can do is display information. In this tutorial we will start learning about how to make out UI interactive and respond to the user.</p>
 <section id="push-buttons">
-<h2>Push Buttons<a class="headerlink" href="#push-buttons" title="Link to this heading">¶</a></h2>
+<h2>Push Buttons<a class="headerlink" href="#push-buttons" title="Permalink to this headline">#</a></h2>
 <p>The first input widget that we will explore is the <strong>Push Button</strong>. It simply registers when a user clicks on it. Push Buttons are probably the most common components in UIs.</p>
 <section id="tutorial-file">
-<h3>Tutorial file<a class="headerlink" href="#tutorial-file" title="Link to this heading">¶</a></h3>
+<h3>Tutorial file<a class="headerlink" href="#tutorial-file" title="Permalink to this headline">#</a></h3>
 <p>Again we will use a previous UI file to introduce the Push Button.</p>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>Open <strong>tutorial_4.ui</strong> (you should find it in <strong>File → Recent Forms</strong>)</p></li>
 <li><p>Change <strong>windowTitle</strong> to <strong>Tutorial 5</strong></p></li>
 <li><p>Save the file as <strong>tutorial_5.ui</strong> (<strong>File → Save As…</strong>)</p></li>
 </ol>
 </section>
 <section id="add-a-push-button">
-<h3>Add a Push Button<a class="headerlink" href="#add-a-push-button" title="Link to this heading">¶</a></h3>
+<h3>Add a Push Button<a class="headerlink" href="#add-a-push-button" title="Permalink to this headline">#</a></h3>
 <p>We want the Push Button to be on the right of the screen, so first we need to add a horizontal layout.</p>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>From the <strong>Widgets Library</strong>, click and drag a <strong>Horizontal Layout</strong></p></li>
 <li><p>Place it at the bottom of the <strong>Vertical Layout</strong> on the <strong>window canvas</strong></p></li>
 </ol>
 <p><img alt="Add Horizontal Layout" src="_images/01_add_hlayout.gif" /></p>
 <p>We now need add the Push Button, but the Horizontal Layout is compressed. This means we will need to use the <strong>Object Inspector</strong>.</p>
-<ol class="arabic simple" start="3">
+<ol class="simple">
 <li><p>In the <strong>Widgets Library</strong> locate and click and drag the <strong>Push Button</strong></p></li>
 <li><p>Drag it over to the <strong>Object Inspector</strong> onto the <strong>Horizontal Layout</strong> we just added.</p></li>
 </ol>
 <p><img alt="Add Button" src="_images/02_add_button.gif" /></p>
 <p>Notice the Push Button expands to fill the available space. We want use a Horizontal Spacer to compress it.</p>
-<ol class="arabic simple" start="5">
+<ol class="simple">
 <li><p>Grab a <strong>Horizontal Spacer</strong> from the <strong>Widgets Library</strong></p></li>
 <li><p>Drag it to the left of the <strong>Push Button</strong></p></li>
 </ol>
 <p><img alt="Horizontal Spacer" src="_images/03_hspacer.gif" /></p>
 <p>Finally we want to change the text on the Push Button</p>
-<ol class="arabic simple" start="7">
+<ol class="simple">
 <li><p><strong>Double-click</strong> on the <strong>Push Button</strong> then type <strong>Click Me</strong></p></li>
 <li><p>Change the font <strong>Point Size</strong> to <strong>12</strong></p></li>
 </ol>
 <p><img alt="button text" src="_images/04_button_text.gif" /></p>
 </section>
 <section id="save-the-ui-file">
-<h3>Save the UI file<a class="headerlink" href="#save-the-ui-file" title="Link to this heading">¶</a></h3>
+<h3>Save the UI file<a class="headerlink" href="#save-the-ui-file" title="Permalink to this headline">#</a></h3>
 <p>The UI is finished so time to save. Remember, it is important to save the UI file in the same directory (folder) as your <strong>main_window.py</strong>.</p>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>Select <strong>Save</strong> from the <strong>File</strong> menu</p></li>
 </ol>
 </section>
 <section id="convert-ui-file">
-<h3>Convert UI file<a class="headerlink" href="#convert-ui-file" title="Link to this heading">¶</a></h3>
+<h3>Convert UI file<a class="headerlink" href="#convert-ui-file" title="Permalink to this headline">#</a></h3>
 <p>Now we need to convert the UI file to a Python file, and we will do this in VS Code.</p>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>Open VS Code via GitHub Desktop</p></li>
 <li><p>Check that the <strong>tutorial_05.ui</strong> file is in your file panel.</p></li>
 <li><p>Open a new terminal</p></li>
@@ -321,7 +273,7 @@
 <li><p>Then press enter.</p></li>
 </ol>
 <p>Time to run the app and check that it all works</p>
-<ol class="arabic simple" start="6">
+<ol class="simple">
 <li><p>Open the <strong>main_window.py</strong></p></li>
 <li><p>Run the code.</p></li>
 </ol>
@@ -334,7 +286,7 @@
 </section>
 </section>
 <section id="signals-and-slots">
-<h2>Signals and Slots<a class="headerlink" href="#signals-and-slots" title="Link to this heading">¶</a></h2>
+<h2>Signals and Slots<a class="headerlink" href="#signals-and-slots" title="Permalink to this headline">#</a></h2>
 <p>In Qt, <strong>signals and slots</strong> are a way for different parts of your program to communicate with each other, like sending messages when something happens. A <strong>signal</strong> is emitted (sent) when a specific event occurs, such as a button being clicked or a text field being edited. A <strong>slot</strong> is a function that gets called in response to that signal, allowing you to define what happens next.</p>
 <p>In Qt all widgets have signals. Over the course of these tutorials we will explore the most relevant signals for creating intermediate UI. If you want to explore more, then the best place to start is the <strong><a class="reference external" href="https://doc.qt.io/qt-6/">Qt Documentation</a></strong>.</p>
 <p>Both signals and slots have distinct places in the boilerplate code. Strictly speaking, they can go anywhere, but organising code in this way improve its maintainability.</p>
@@ -346,28 +298,28 @@
 <p>Using the code your IDE suggest can be helpful. It can speed up your coding, but more importantly it can minimise typo errors. Your IDE will suggest names that exist, therefore preventing you from calling incorrect variables and methods.</p>
 </div>
 <section id="copy-main-window-py">
-<h3>Copy main_window.py<a class="headerlink" href="#copy-main-window-py" title="Link to this heading">¶</a></h3>
+<h3>Copy main_window.py<a class="headerlink" href="#copy-main-window-py" title="Permalink to this headline">#</a></h3>
 <p>Since we want to reuse the boilerplate code in <strong>main_window.py</strong> throughout these tutorials, we want to keep a clean version. From now on, for each tutorial, you will need to copy <strong>main_window.py</strong> and rename it. For this tutorial:</p>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>Copy <strong>main_window.py</strong></p></li>
 <li><p>Rename the copied file <strong>first_program.py</strong></p></li>
 </ol>
 </section>
 <section id="create-slot">
-<h3>Create slot<a class="headerlink" href="#create-slot" title="Link to this heading">¶</a></h3>
+<h3>Create slot<a class="headerlink" href="#create-slot" title="Permalink to this headline">#</a></h3>
 <p>The first thing we will do is define a slot for our signal to call. It won’t do anything. It is a place marker for code that we still need to right. We will use the Python <strong><code class="docutils literal notranslate"><span class="pre">pass</span></code></strong> statement to represent the missing code. It will also prevent your IDE from showing indentation errors due to a missing code block.</p>
 <p>In <strong>first_program.py</strong></p>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>Delete <strong>lines 27 - 29</strong></p></li>
 <li><p>Add the code below</p></li>
 </ol>
 <p><img alt="slot placeholder" src="_images/07_slot_placeholder.png" /></p>
 </section>
 <section id="connect-signal">
-<h3>Connect signal<a class="headerlink" href="#connect-signal" title="Link to this heading">¶</a></h3>
+<h3>Connect signal<a class="headerlink" href="#connect-signal" title="Permalink to this headline">#</a></h3>
 <p>Now we need to connect the clicked signal to the slot.</p>
 <p>In <strong>signals</strong> method</p>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>Delete <strong>line 24</strong></p></li>
 <li><p>Add the code below</p></li>
 </ol>
@@ -383,10 +335,10 @@
 </ul>
 </section>
 <section id="complete-slot">
-<h3>Complete slot<a class="headerlink" href="#complete-slot" title="Link to this heading">¶</a></h3>
+<h3>Complete slot<a class="headerlink" href="#complete-slot" title="Permalink to this headline">#</a></h3>
 <p>Finally we need to complete the slot. In response to the button being clicked we want to change the text of the label above it.</p>
 <p>In the <strong>button_clicked</strong> method</p>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>Delete <strong>line 28</strong> → <code class="docutils literal notranslate"><span class="pre">pass</span></code></p></li>
 <li><p>Add the code below</p></li>
 </ol>
@@ -398,25 +350,25 @@
 </div>
 </section>
 <section id="testing">
-<h3>Testing<a class="headerlink" href="#testing" title="Link to this heading">¶</a></h3>
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">#</a></h3>
 <p>Save and run your code to check that it works.</p>
 <div class="error admonition">
 <p class="admonition-title">Wrong label</p>
 <p>If the wrong label changes when you click the button:</p>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>open your <strong>UI file</strong> in <strong>QT Designer</strong></p></li>
 <li><p>click on the label you want to change</p></li>
 <li><p>check the label name in the <strong>Property Editor</strong></p></li>
 </ol>
 <p><img alt="wrong label" src="_images/11_label_name.png" /></p>
-<ol class="arabic simple" start="4">
+<ol class="simple">
 <li><p>then in <strong>main_window.py</strong> change the name in your code accordingly</p></li>
 </ol>
 </div>
 </section>
 </section>
 <section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h2>
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
 <p>In this tutorial we learnt how to add <strong>Push Buttons</strong>, as well as furthered our understanding of nested layouts. We then learnt about Qt’s interactivity mechanism, <strong>signals and slots</strong>. We connected a <strong>signal</strong> from the <strong>Push Button</strong> to a <strong>slot</strong> that change the text of a label.</p>
 </section>
 </section>
@@ -426,7 +378,15 @@
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="08_tutorial_6.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Tutorial 6 - Create Calculator App</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
           <a class="prev-page" href="06_tutorial_4.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
@@ -503,11 +463,12 @@
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=cb975c41"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     </body>
 </html>
