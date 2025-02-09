@@ -31,7 +31,7 @@ Now we will add the display label:
 
 1. In the **Widgets Toolbox** find the **Label** widget
 2. Click and drag it onto the **window canvas**
-3. Then right-click the **window canvas**, choose **Layout** the **Lay Out Vertically**
+3. Then right-click the **window canvas**, choose **Layout** then **Lay Out Vertically**
 
 ![adding display label](./assets/img/08/02_add_label.gif)
 

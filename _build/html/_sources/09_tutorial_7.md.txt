@@ -1,7 +1,11 @@
 # Tutorial 7 - Refine Calculator App
 
 ```{admonition} In this tutorial you will:
-- make the calculator app perform calculations
+- Enhance the calculator application to perform basic arithmetic operations using Python's eval() function.
+- Assign appropriate signals and slots to the equals button to handle user input effectively.
+- Utilize a flag variable to track when the equals button has been pressed, ensuring correct behavior for subsequent number and operator inputs.
+- Modify slot methods for number and decimal buttons to incorporate the flag variable, resetting the equation as needed to maintain accurate calculations.
+- Run the refined calculator application to identify and resolve issues, ensuring it handles simple calculations correctly and mimics standard calculator behavior.
 ```
 
 In the previous tutorial we created a calculator UI. Now it is time to make it work.
