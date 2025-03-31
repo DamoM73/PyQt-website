@@ -1,7 +1,8 @@
 # Tutorial 9 - Using loadUi
 
 ```{admonition} In this tutorial you will:
-- TBA
+- Learn how to load a `.ui` file using the `loadUi` method
+- Create a new boilerplate file which uses `loadUi`
 ```
 
 ## New Boilerplate
