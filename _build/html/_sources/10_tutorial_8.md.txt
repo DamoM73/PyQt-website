@@ -1,7 +1,9 @@
-# Tutorial 8 - Timer App UI
+# Tutorial 8 - Time Machine UI
 
 ```{admonition} In this tutorial you will:
-- stuff
+- Understand Tabbed Layouts in PyQt
+- Design User Interfaces with Tabs
+- Implement a QTabWidget in Qt Designer
 ```
 
 To introduce more QT features we are going to make a new app, a clock/stopwatch/timer app.
