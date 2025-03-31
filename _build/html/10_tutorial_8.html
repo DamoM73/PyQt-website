@@ -5,9 +5,9 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Tutorial 7 - Refine Calculator App" href="09_tutorial_7.html" />
 
-    <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Tutorial 8 - Create Timer App - PyQt Tutorials</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Tutorial 8 - Timer App UI - PyQt Tutorials</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
@@ -216,7 +216,7 @@
 <li class="toctree-l1"><a class="reference internal" href="07_tutorial_5.html">Tutorial 5 - Signals and Slots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_tutorial_6.html">Tutorial 6 - Create Calculator App</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_tutorial_7.html">Tutorial 7 - Refine Calculator App</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 8 - Create Timer App</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 8 - Timer App UI</a></li>
 </ul>
 
 </div>
@@ -257,8 +257,8 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="tutorial-8-create-timer-app">
-<h1>Tutorial 8 - Create Timer App<a class="headerlink" href="#tutorial-8-create-timer-app" title="Link to this heading">¶</a></h1>
+          <section id="tutorial-8-timer-app-ui">
+<h1>Tutorial 8 - Timer App UI<a class="headerlink" href="#tutorial-8-timer-app-ui" title="Link to this heading">¶</a></h1>
 <div class="admonition-in-this-tutorial-you-will admonition">
 <p class="admonition-title">In this tutorial you will:</p>
 <ul class="simple">
@@ -266,11 +266,9 @@
 </ul>
 </div>
 <p>To introduce more QT features we are going to make a new app, a clock/stopwatch/timer app.</p>
-<section id="create-ui">
-<h2>Create UI<a class="headerlink" href="#create-ui" title="Link to this heading">¶</a></h2>
 <p>To start this project we will create the UI file. Launch Qt Designer and create a new <strong>Main Window</strong>.</p>
 <section id="format-the-main-window">
-<h3>Format the Main Window<a class="headerlink" href="#format-the-main-window" title="Link to this heading">¶</a></h3>
+<h2>Format the Main Window<a class="headerlink" href="#format-the-main-window" title="Link to this heading">¶</a></h2>
 <p>For the <strong>Main Window</strong>:</p>
 <ol class="arabic simple">
 <li><p>Remove the <strong>menu bar</strong></p></li>
@@ -286,7 +284,7 @@
 <p><img alt="main window setup" src="_images/01_main_window_setup.gif" /></p>
 </section>
 <section id="add-the-tab-widget">
-<h3>Add the Tab Widget<a class="headerlink" href="#add-the-tab-widget" title="Link to this heading">¶</a></h3>
+<h2>Add the Tab Widget<a class="headerlink" href="#add-the-tab-widget" title="Link to this heading">¶</a></h2>
 <p>The <strong>tab widget</strong> is a container widget which is used to create multi-page UIs navigated using tabs.</p>
 <div class="hint admonition">
 <p class="admonition-title">Container Widgets</p>
@@ -310,7 +308,7 @@
 <p><img alt="add tabs" src="_images/02_add_tabs.gif" /></p>
 </section>
 <section id="organise-the-tabs">
-<h3>Organise the tabs<a class="headerlink" href="#organise-the-tabs" title="Link to this heading">¶</a></h3>
+<h2>Organise the tabs<a class="headerlink" href="#organise-the-tabs" title="Link to this heading">¶</a></h2>
 <p>We will three tabs - <strong>Time</strong>, <strong>Stopwatch</strong> and <strong>Timer</strong>, so we need to add a tab.</p>
 <ol class="arabic simple">
 <li><p>Go to the <strong>Object Inspector</strong></p></li>
@@ -339,7 +337,7 @@
 <p><img alt="font size" src="_images/05_font_size.gif" /></p>
 </section>
 <section id="populate-the-clock-tab">
-<h3>Populate the Clock tab<a class="headerlink" href="#populate-the-clock-tab" title="Link to this heading">¶</a></h3>
+<h2>Populate the Clock tab<a class="headerlink" href="#populate-the-clock-tab" title="Link to this heading">¶</a></h2>
 <p>Now to add the required elements onto the Clock tab.</p>
 <ol class="arabic simple">
 <li><p>Click on the <strong>Clock</strong> tab</p></li>
@@ -357,7 +355,7 @@
 <p><img alt="format clock" src="_images/07_format_clock.gif" /></p>
 </section>
 <section id="populate-the-stopwatch-tab">
-<h3>Populate the Stopwatch tab<a class="headerlink" href="#populate-the-stopwatch-tab" title="Link to this heading">¶</a></h3>
+<h2>Populate the Stopwatch tab<a class="headerlink" href="#populate-the-stopwatch-tab" title="Link to this heading">¶</a></h2>
 <p>On to adding elements to the Stopwatch tab.</p>
 <ol class="arabic simple">
 <li><p>Click on the <strong>Stopwatch</strong> tab</p></li>
@@ -388,12 +386,112 @@
 <li><p>Then scroll down and find <strong>alignment Horizontal</strong> and change it to <strong>AlignHCenter</strong></p></li>
 <li><p>Change the <strong>font Point Size</strong> of all the Push Buttons → 30</p></li>
 </ol>
-<p><img alt="stopwatch format" src="assets/img/10/11_stop_watch%20_format.gif" /></p>
+<p><img alt="stopwatch format" src="_images/11_stop_watch_format.gif" /></p>
 <ol class="arabic simple" start="19">
 <li><p>Find the <strong>sizePolicy</strong> and change the <strong>Vertical Policy</strong> to <strong>MinimumExpanding</strong> for <strong>label_stopwatch</strong> and all the Push Buttons.</p></li>
 </ol>
 <p><img alt="set size policy" src="_images/12_stopwatch_size_policy.gif" /></p>
 </section>
+<section id="populate-the-timer-tab">
+<h2>Populate the Timer tab<a class="headerlink" href="#populate-the-timer-tab" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Click on the <strong>Stopwatch</strong> tab</p></li>
+<li><p>Drag the <strong>Label Widget</strong> from the <strong>Widgets Toolbox</strong> to the top half of the <strong>windows canvas</strong></p></li>
+<li><p>Locate the <strong>Grid Layout</strong> and drag it to under the <strong>Label Widget</strong></p></li>
+<li><p>Locate the <strong>Horizontal Layout</strong> and drag it under the <strong>Grid Layout</strong></p></li>
+<li><p>Then right-click the <strong>window canvas</strong>, choose <strong>Layout</strong> then <strong>Lay Out Vertically</strong></p></li>
+</ol>
+<p><img alt="adding label to timer" src="_images/13_add_timer_label.gif" /></p>
+<ol class="arabic simple" start="6">
+<li><p>Drag three <strong>Labels</strong> side-by-side in the <strong>Grid Layout</strong></p></li>
+<li><p>Change the first label:</p>
+<ul class="simple">
+<li><p>text → <strong>Hours</strong></p></li>
+<li><p>horizontal alignment → <strong>AlignVCenter</strong></p></li>
+</ul>
+</li>
+<li><p>Change the second label:</p>
+<ul class="simple">
+<li><p>text → <strong>Minutes</strong></p></li>
+<li><p>horizontal alignment → <strong>AlignVCenter</strong></p></li>
+</ul>
+</li>
+<li><p>Change the third label:</p>
+<ul class="simple">
+<li><p>text → <strong>Seconds</strong></p></li>
+<li><p>horizontal alignment → <strong>AlignVCenter</strong></p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="Spin box labels" src="_images/14__timer_spin_labels.gif" /></p>
+<ol class="arabic simple" start="10">
+<li><p>Add a spinbox under each of the labels</p></li>
+<li><p>Name the first spinbox → <strong>spinBox_hours</strong></p></li>
+<li><p>Name the second spinbox → <strong>spinBox_minutes</strong></p></li>
+<li><p>Name the third spinbox → <strong>spinBox_seconds</strong></p></li>
+</ol>
+<p><img alt="add spinboxes" src="_images/15__timer_spin_boxes.gif" /></p>
+<ol class="arabic simple" start="14">
+<li><p>For each spinbox:</p>
+<ul class="simple">
+<li><p>change font <strong>Point Size</strong> → <strong>30</strong></p></li>
+<li><p>change <strong>Horizontal</strong> alignment → <strong>AlignRight</strong></p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="format spin boxes" src="_images/16_format_spin_boxes.gif" /></p>
+<ol class="arabic simple" start="15">
+<li><p>Drag four <strong>Push Buttons</strong> into the <strong>Horizontal Layout</strong></p></li>
+</ol>
+<p><img alt="add timer buttons" src="_images/17_add_timer_buttons.gif" /></p>
+<ol class="arabic simple" start="16">
+<li><p>For the first button:</p>
+<ul class="simple">
+<li><p>text → <strong>Start</strong></p></li>
+<li><p>font <strong>Point Size</strong> → <strong>30</strong></p></li>
+</ul>
+</li>
+<li><p>For the first button:</p>
+<ul class="simple">
+<li><p>text → <strong>Stop</strong></p></li>
+<li><p>font <strong>Point Size</strong> → <strong>30</strong></p></li>
+</ul>
+</li>
+<li><p>For the first button:</p>
+<ul class="simple">
+<li><p>text → <strong>Pause</strong></p></li>
+<li><p>font <strong>Point Size</strong> → <strong>30</strong></p></li>
+</ul>
+</li>
+<li><p>For the first button:</p>
+<ul class="simple">
+<li><p>text → <strong>Reset</strong></p></li>
+<li><p>font <strong>Point Size</strong> → <strong>30</strong></p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="format timer buttons" src="_images/18_format_timer_buttons.gif" /></p>
+<ol class="arabic simple" start="20">
+<li><p>Name the start button → <strong>pushButton_tm_start</strong></p></li>
+<li><p>Name the stop button → <strong>pushButton_tm_stop</strong></p></li>
+<li><p>Name the pause button → <strong>pushButton_tm_pause</strong></p></li>
+<li><p>Name the reset button → <strong>pushButton_tm_reset</strong></p></li>
+</ol>
+<p><img alt="format timer buttons" src="_images/18_format_timer_buttons.gif" /></p>
+<ol class="arabic simple" start="24">
+<li><p>Change the name of the top table → <strong>label_tm_time</strong></p></li>
+<li><p>Change font <strong>Point Size</strong> → <strong>100</strong></p></li>
+<li><p>Change the <strong>Horizontal</strong> alignment → <strong>AlignHCenter</strong></p></li>
+<li><p>Add a <strong>Vertical Spacer</strong> above and below the label</p></li>
+</ol>
+<p><img alt="format timer time label" src="_images/19_format_timer_time_label.gif" /></p>
+<p>That the UI done. Make sure you save before testing.</p>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">¶</a></h2>
+<p>Time to make sure that everything is working as we designed.</p>
+<p>Launch the preview with Ctrl-R</p>
+<p>Check all the tabs, buttons and spinboxes. They won’t do muck yet, but make sure that they are there.</p>
 </section>
 </section>
 
@@ -451,15 +549,14 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Tutorial 8 - Create Timer App</a><ul>
-<li><a class="reference internal" href="#create-ui">Create UI</a><ul>
+<li><a class="reference internal" href="#">Tutorial 8 - Timer App UI</a><ul>
 <li><a class="reference internal" href="#format-the-main-window">Format the Main Window</a></li>
 <li><a class="reference internal" href="#add-the-tab-widget">Add the Tab Widget</a></li>
 <li><a class="reference internal" href="#organise-the-tabs">Organise the tabs</a></li>
 <li><a class="reference internal" href="#populate-the-clock-tab">Populate the Clock tab</a></li>
 <li><a class="reference internal" href="#populate-the-stopwatch-tab">Populate the Stopwatch tab</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#populate-the-timer-tab">Populate the Timer tab</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
 </ul>
 </li>
 </ul>

@@ -1,12 +1,10 @@
-# Tutorial 8 - Create Timer App
+# Tutorial 8 - Timer App UI
 
 ```{admonition} In this tutorial you will:
 - stuff
 ```
 
 To introduce more QT features we are going to make a new app, a clock/stopwatch/timer app.
-
-## Create UI
 
 To start this project we will create the UI file. Launch Qt Designer and create a new **Main Window**.
 
@@ -130,9 +128,87 @@ On to adding elements to the Stopwatch tab.
 17. Then scroll down and find **alignment Horizontal** and change it to **AlignHCenter**
 18. Change the **font Point Size** of all the Push Buttons &rarr; 30
 
-![stopwatch format](./assets/img/10/11_stop_watch%20_format.gif)
+![stopwatch format](./assets/img/10/11_stop_watch_format.gif)
 
 19. Find the **sizePolicy** and change the **Vertical Policy** to **MinimumExpanding** for **label_stopwatch** and all the Push Buttons.
 
 ![set size policy](./assets/img/10/12_stopwatch_size_policy.gif)
 
+### Populate the Timer tab
+
+1. Click on the **Stopwatch** tab
+2. Drag the **Label Widget** from the **Widgets Toolbox** to the top half of the **windows canvas**
+3. Locate the **Grid Layout** and drag it to under the **Label Widget**
+4. Locate the **Horizontal Layout** and drag it under the **Grid Layout**
+5. Then right-click the **window canvas**, choose **Layout** then **Lay Out Vertically**
+
+![adding label to timer](./assets/img/10/13_add_timer_label.gif)
+
+6. Drag three **Labels** side-by-side in the **Grid Layout**
+7. Change the first label:
+   - text &rarr; **Hours**
+   - horizontal alignment &rarr; **AlignVCenter**
+8. Change the second label: 
+   - text &rarr; **Minutes**
+   - horizontal alignment &rarr; **AlignVCenter**
+9.  Change the third label:
+    - text &rarr; **Seconds**
+    - horizontal alignment &rarr; **AlignVCenter**
+
+![Spin box labels](./assets/img/10/14__timer_spin_labels.gif)
+
+10. Add a spinbox under each of the labels
+11. Name the first spinbox &rarr; **spinBox_hours**
+12. Name the second spinbox &rarr; **spinBox_minutes**
+13. Name the third spinbox &rarr; **spinBox_seconds**
+
+![add spinboxes](./assets/img/10/15__timer_spin_boxes.gif)
+
+14. For each spinbox:
+    - change font **Point Size** &rarr; **30**
+    - change **Horizontal** alignment &rarr; **AlignRight**
+
+![format spin boxes](./assets/img/10/16_format_spin_boxes.gif)
+
+15. Drag four **Push Buttons** into the **Horizontal Layout**
+
+![add timer buttons](./assets/img/10/17_add_timer_buttons.gif)
+
+16. For the first button:
+    - text &rarr; **Start**
+    - font **Point Size** &rarr; **30**
+17. For the first button:
+    - text &rarr; **Stop**
+    - font **Point Size** &rarr; **30**
+18. For the first button:
+    - text &rarr; **Pause**
+    - font **Point Size** &rarr; **30**
+19. For the first button:
+    - text &rarr; **Reset**
+    - font **Point Size** &rarr; **30**
+
+![format timer buttons](./assets/img/10/18_format_timer_buttons.gif)
+
+20. Name the start button &rarr; **pushButton_tm_start**
+21. Name the stop button &rarr; **pushButton_tm_stop**
+22. Name the pause button &rarr; **pushButton_tm_pause**
+23. Name the reset button &rarr; **pushButton_tm_reset**
+
+![format timer buttons](./assets/img/10/18_format_timer_buttons.gif)
+
+24. Change the name of the top table &rarr; **label_tm_time**
+25. Change font **Point Size** &rarr; **100**
+26. Change the **Horizontal** alignment &rarr; **AlignHCenter**
+27. Add a **Vertical Spacer** above and below the label
+
+![format timer time label](./assets/img/10/19_format_timer_time_label.gif)
+
+That the UI done. Make sure you save before testing.
+
+## Testing
+
+Time to make sure that everything is working as we designed.
+
+Launch the preview with Ctrl-R
+
+Check all the tabs, buttons and spinboxes. They won't do muck yet, but make sure that they are there.
