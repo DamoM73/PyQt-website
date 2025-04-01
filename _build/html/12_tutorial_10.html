@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -253,7 +253,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -267,6 +267,77 @@
 <li><p>Learn about using QTimers</p></li>
 </ul>
 </div>
+<p>The traditional way of dealing with time in Python is to use <code class="docutils literal notranslate"><span class="pre">sleep</span></code>. However, using <code class="docutils literal notranslate"><span class="pre">sleep</span></code> in a UI doesn’t work well because it stops everything in the program while it waits. When <code class="docutils literal notranslate"><span class="pre">sleep</span></code> is used, the entire application pauses, including the user interface, so buttons won’t respond, animations will freeze, and the app may appear stuck.</p>
+<p>This happens because most UIs rely on something called an event loop, which constantly checks for things like user actions or updates. <code class="docutils literal notranslate"><span class="pre">sleep</span></code> blocks this loop, preventing it from handling those tasks. Instead of using <code class="docutils literal notranslate"><span class="pre">sleep</span></code>, developers use timers or asynchronous functions, which allow the app to keep responding while performing tasks in the background.</p>
+<p>In this lesson you will learn to how to use Qt’s built-in timer class.</p>
+<div class="hint admonition">
+<p class="admonition-title">Flag Variables</p>
+<p>Qt provides powerful timer classes that allow developers to manage time-based events in their applications. The primary class is QTimer, which can emit signals at specified intervals, making it useful for tasks like animations, updates, or periodic checks. It operates using the event loop, ensuring efficient and non-blocking execution. Developers can configure timers to be single-shot, firing only once, or to repeat at regular intervals.</p>
+<p>You can find more details on the <strong><a class="reference external" href="https://doc.qt.io/qt-6/qtimer.html">Official Qt Documentation</a></strong></p>
+</div>
+<section id="create-the-time-machine-py">
+<h2>Create the time_machine.py<a class="headerlink" href="#create-the-time-machine-py" title="Link to this heading">¶</a></h2>
+<p>Copy the boilerplate that you created in the last tutorial and call it <code class="docutils literal notranslate"><span class="pre">time_machine.py</span></code>.</p>
+</section>
+<section id="planning-the-clock-code">
+<h2>Planning the Clock Code<a class="headerlink" href="#planning-the-clock-code" title="Link to this heading">¶</a></h2>
+<p>Now lets make the clock work. In Qt timers have a signal called <code class="docutils literal notranslate"><span class="pre">timeout</span></code> that triggers when the set time has expired. We will use that make the clock update the display every second.</p>
+<p>To achieve that we need to:</p>
+<ol class="arabic simple">
+<li><p>Create a timer</p></li>
+<li><p>Display the current time when the app starts</p></li>
+<li><p>Set the timer to give a signal every 1000ms</p></li>
+<li><p>When the time timer runs out, update the displayed time</p></li>
+</ol>
+</section>
+<section id="implementing-the-clock-code">
+<h2>Implementing the Clock Code<a class="headerlink" href="#implementing-the-clock-code" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Import the Qt time modules that we will use for the clock.</p></li>
+</ol>
+<p><img alt="import modules" src="_images/01_import.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>The clock timer needs to be created when the app launches, so we include it in the <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.</p></li>
+</ol>
+<p><img alt="clock timer" src="_images/02_clock_timer.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>We then need a slot that displays the current time.</p></li>
+</ol>
+<p><img alt="show time slot" src="_images/03_show_time.png" /></p>
+<div class="hint admonition">
+<p class="admonition-title">Formatting time</p>
+<p>There are so many different ways to display time. Qt’s <code class="docutils literal notranslate"><span class="pre">toString</span></code> method allows you to determine the format of the time you display. We will look at some of the formatting methods in these tutorials, but if you want to explore your options you can look at the <strong><a class="reference external" href="https://doc.qt.io/qt-6/qtime.html#toString-1">Official Qt Documentaion</a></strong></p>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>We want the time to be displayed the instant the app starts, so we should call <code class="docutils literal notranslate"><span class="pre">show_time</span></code> in the <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.</p></li>
+</ol>
+<p><img alt="call show time" src="_images/04_call_show_time.png" /></p>
+<ol class="arabic simple" start="5">
+<li><p>Now set and start the timer when the app launches.</p></li>
+</ol>
+<p><img alt="start timer" src="_images/05_start_timer.png" /></p>
+<ol class="arabic simple" start="6">
+<li><p>Finally connect the timer signal to the <code class="docutils literal notranslate"><span class="pre">show_time</span></code> slot.</p></li>
+</ol>
+<p><img alt="connect signal to slot" src="_images/06_connect_timer_signal_to_slot.png" /></p>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">¶</a></h2>
+<p>Run your app and navigate to the clock tab.</p>
+<p>Check that:</p>
+<ul class="simple">
+<li><p>That the time is correct.</p></li>
+<li><p>That the clock ticks over every second.</p></li>
+</ul>
+</section>
+<section id="exploration">
+<h2>Exploration<a class="headerlink" href="#exploration" title="Link to this heading">¶</a></h2>
+<p>Try a bit of exploring the code:</p>
+<ul class="simple">
+<li><p>What happens if you change the timer value from <code class="docutils literal notranslate"><span class="pre">1000</span></code></p></li>
+<li><p>Can you change the time format to display differently?</p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -311,8 +382,31 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Tutorial 10 - Clock</a><ul>
+<li><a class="reference internal" href="#create-the-time-machine-py">Create the time_machine.py</a></li>
+<li><a class="reference internal" href="#planning-the-clock-code">Planning the Clock Code</a></li>
+<li><a class="reference internal" href="#implementing-the-clock-code">Implementing the Clock Code</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#exploration">Exploration</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
