@@ -264,7 +264,10 @@
 <div class="admonition-in-this-tutorial-you-will admonition">
 <p class="admonition-title">In this tutorial you will:</p>
 <ul class="simple">
-<li><p>Learn about using QTimers</p></li>
+<li><p>Learn how to use <strong>QTimers</strong> to manage time-based events and update the displayed time every second.</p></li>
+<li><p>Create and configure a timer to emit signals at regular intervals using the <strong>timeout</strong> signal.</p></li>
+<li><p>Display and format the current time using Qt’s <strong>toString</strong> method.</p></li>
+<li><p>Test and experiment with timer intervals and time display customisation.</p></li>
 </ul>
 </div>
 <p>The traditional way of dealing with time in Python is to use <code class="docutils literal notranslate"><span class="pre">sleep</span></code>. However, using <code class="docutils literal notranslate"><span class="pre">sleep</span></code> in a UI doesn’t work well because it stops everything in the program while it waits. When <code class="docutils literal notranslate"><span class="pre">sleep</span></code> is used, the entire application pauses, including the user interface, so buttons won’t respond, animations will freeze, and the app may appear stuck.</p>

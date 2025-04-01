@@ -1,7 +1,10 @@
 # Tutorial 10 - Clock
 
 ```{admonition} In this tutorial you will:
-- Learn about using QTimers
+- Learn how to use **QTimers** to manage time-based events and update the displayed time every second.  
+- Create and configure a timer to emit signals at regular intervals using the **timeout** signal.  
+- Display and format the current time using Qt’s **toString** method.  
+- Test and experiment with timer intervals and time display customisation.
 ```
 
 The traditional way of dealing with time in Python is to use `sleep`. However, using `sleep` in a UI doesn't work well because it stops everything in the program while it waits. When `sleep` is used, the entire application pauses, including the user interface, so buttons won’t respond, animations will freeze, and the app may appear stuck. 
