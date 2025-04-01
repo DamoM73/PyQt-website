@@ -1,7 +1,10 @@
 # Tutorial 11 - Stopwatch
 
 ```{admonition} In this tutorial you will:
-TBA
+- Plan and implement a user interface with Start, Stop, Pause, and Reset buttons, each managing the stopwatch's state.
+- Utilise flag variables to track whether the stopwatch is running or paused, ensuring accurate control over its operation.
+- Set up a timer that triggers every 100 milliseconds to update the stopwatch's time display, reflecting elapsed time accurately.
+- Establish connections between user interactions (button presses) and corresponding functions to control the stopwatch's behaviour effectively.
 ```
 
 Now to work on the next tab, the stopwatch. The stopwatch will also use a timer. Qt allows the running of numerous timers, so we can create a independent timer for the stopwatch. The big difference, is this time we are interested in the value of the timer.
