@@ -47,7 +47,7 @@ A flag is a simple variable, typically set to `True` or `False`, to indicate whe
 
 Before we can code the signals, we need slots to point the signals towards.
 
-1. First we need to add the stopwatch slots starting with the slot to display the stopwatch time.
+1. First we need to add the slot to display the stopwatch time.
 
 ![show stopwatch time](./assets/img/13/02_show_sw_time.png)
 
