@@ -1,7 +1,11 @@
 # Tutorial 13 - To Do List UI
 
-```{admonition} In this tutorial you will:
-TBA
+```{admonition} In this tutorial, you will:
+- Design a user interface for a to-do list using PyQt and Qt Designer.
+- Configure the main window's size and title to suit the application's requirements.
+- Add 'File' menu options such as New, Open, and Save to manage to-do lists.
+- Incorporate widgets like Line Edit, List Widget, Push Button, and Horizontal Spacer, and adjust their properties for optimal functionality.
+- Use vertical and horizontal layouts to structure the application's interface effectively.
 ```
 
 The next app that we will create is a To Do List. Through this you will learn to use Qt's menu system, Line Edit, List widgets and Dialogue Boxes. 
