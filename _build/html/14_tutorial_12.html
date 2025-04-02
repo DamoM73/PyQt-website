@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Tutorial 11 - Stopwatch" href="13_tutorial_11.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Tutorial 13 - To Do List" href="15_tutorial_13.html" /><link rel="prev" title="Tutorial 11 - Time Machine Stopwatch" href="13_tutorial_11.html" />
 
     <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Tutorial 12 - Timer - PyQt Tutorials</title>
+        <title>Tutorial 12 - Time Machine Timer - PyQt Tutorials</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -218,9 +218,10 @@
 <li class="toctree-l1"><a class="reference internal" href="09_tutorial_7.html">Tutorial 7 - Refine Calculator App</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_tutorial_8.html">Tutorial 8 - Time Machine UI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11_tutorial_9.html">Tutorial 9 - Using loadUi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_tutorial_10.html">Tutorial 10 - Clock</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_tutorial_11.html">Tutorial 11 - Stopwatch</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 12 - Timer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_tutorial_10.html">Tutorial 10 - Time Machine Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_tutorial_11.html">Tutorial 11 - Time Machine Stopwatch</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 12 - Time Machine Timer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_tutorial_13.html">Tutorial 13 - To Do List</a></li>
 </ul>
 
 </div>
@@ -261,11 +262,17 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="tutorial-12-timer">
-<h1>Tutorial 12 - Timer<a class="headerlink" href="#tutorial-12-timer" title="Link to this heading">¶</a></h1>
+          <section id="tutorial-12-time-machine-timer">
+<h1>Tutorial 12 - Time Machine Timer<a class="headerlink" href="#tutorial-12-time-machine-timer" title="Link to this heading">¶</a></h1>
 <div class="admonition-in-this-tutorial-you-will admonition">
 <p class="admonition-title">In this tutorial you will:</p>
-<p>TBA</p>
+<ul class="simple">
+<li><p>Implement a user interface featuring spinboxes to set the starting time and buttons to control the timer’s operation.</p></li>
+<li><p>Develop the logic to convert spinbox values into a countdown timer, manage time subtraction, and handle timer updates.</p></li>
+<li><p>Utilise variables to track the timer’s status, ensuring accurate control over start, stop, pause, and reset actions.</p></li>
+<li><p>Establish connections between user interactions (e.g., button presses) and corresponding functions to control the timer’s behaviour effectively.</p></li>
+<li><p>Incorporate sound notifications that trigger when the timer reaches zero, enhancing the timer’s functionality.</p></li>
+</ul>
 </div>
 <p>In this tutorial, we will finish the final tab of the Time Machine App, the Timer.</p>
 <section id="timer-planning">
@@ -358,7 +365,15 @@
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="15_tutorial_13.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Tutorial 13 - To Do List</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
           <a class="prev-page" href="13_tutorial_11.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
@@ -366,7 +381,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Tutorial 11 - Stopwatch</div>
+                <div class="title">Tutorial 11 - Time Machine Stopwatch</div>
                 
               </div>
             </a>
@@ -407,7 +422,7 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Tutorial 12 - Timer</a><ul>
+<li><a class="reference internal" href="#">Tutorial 12 - Time Machine Timer</a><ul>
 <li><a class="reference internal" href="#timer-planning">Timer Planning</a></li>
 <li><a class="reference internal" href="#timer-coding">Timer Coding</a><ul>
 <li><a class="reference internal" href="#adding-variables">Adding variables</a></li>

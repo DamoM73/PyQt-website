@@ -1,4 +1,4 @@
-# Tutorial 10 - Clock
+# Tutorial 10 - Time Machine Clock
 
 ```{admonition} In this tutorial you will:
 - Learn how to use **QTimers** to manage time-based events and update the displayed time every second.  

@@ -1,4 +1,4 @@
-# Tutorial 11 - Stopwatch
+# Tutorial 11 - Time Machine Stopwatch
 
 ```{admonition} In this tutorial you will:
 - Plan and implement a user interface with Start, Stop, Pause, and Reset buttons, each managing the stopwatch's state.

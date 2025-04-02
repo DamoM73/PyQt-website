@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Tutorial 12 - Time Machine Timer" href="14_tutorial_12.html" /><link rel="prev" title="Tutorial 10 - Time Machine Clock" href="12_tutorial_10.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Tutorial 12 - Time Machine Timer" href="14_tutorial_12.html" />
 
     <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Tutorial 11 - Time Machine Stopwatch - PyQt Tutorials</title>
+        <title>Tutorial 13 - To Do List UI - PyQt Tutorials</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -219,8 +219,9 @@
 <li class="toctree-l1"><a class="reference internal" href="10_tutorial_8.html">Tutorial 8 - Time Machine UI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11_tutorial_9.html">Tutorial 9 - Using loadUi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_tutorial_10.html">Tutorial 10 - Time Machine Clock</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 11 - Time Machine Stopwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_tutorial_11.html">Tutorial 11 - Time Machine Stopwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="14_tutorial_12.html">Tutorial 12 - Time Machine Timer</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 13 - To Do List UI</a></li>
 </ul>
 
 </div>
@@ -241,7 +242,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="_sources/13_tutorial_11.md.txt" title="View this page">
+  <a class="muted-link" href="_sources/15_tutorial_13.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -261,103 +262,88 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="tutorial-11-time-machine-stopwatch">
-<h1>Tutorial 11 - Time Machine Stopwatch<a class="headerlink" href="#tutorial-11-time-machine-stopwatch" title="Link to this heading">¶</a></h1>
+          <section id="tutorial-13-to-do-list-ui">
+<h1>Tutorial 13 - To Do List UI<a class="headerlink" href="#tutorial-13-to-do-list-ui" title="Link to this heading">¶</a></h1>
 <div class="admonition-in-this-tutorial-you-will admonition">
 <p class="admonition-title">In this tutorial you will:</p>
-<ul class="simple">
-<li><p>Plan and implement a user interface with Start, Stop, Pause, and Reset buttons, each managing the stopwatch’s state.</p></li>
-<li><p>Utilise flag variables to track whether the stopwatch is running or paused, ensuring accurate control over its operation.</p></li>
-<li><p>Set up a timer that triggers every 100 milliseconds to update the stopwatch’s time display, reflecting elapsed time accurately.</p></li>
-<li><p>Establish connections between user interactions (button presses) and corresponding functions to control the stopwatch’s behaviour effectively.</p></li>
-</ul>
+<p>TBA</p>
 </div>
-<p>Now to work on the next tab, the stopwatch. The stopwatch will also use a timer. Qt allows the running of numerous timers, so we can create a independent timer for the stopwatch. The big difference, is this time we are interested in the value of the timer.</p>
-<section id="stopwatch-planning">
-<h2>Stopwatch planning<a class="headerlink" href="#stopwatch-planning" title="Link to this heading">¶</a></h2>
-<p>For our stopwatch we have to consider actions for four buttons:</p>
-<ul class="simple">
-<li><p>Start button → starts the time going</p></li>
-<li><p>Stop button → stops the time going</p></li>
-<li><p>Pause button → stops the time if the time is going, or starts the time is the time is stopped.</p></li>
-<li><p>Reset button → returns the time to 0.</p></li>
-</ul>
-<p>So our plan will to have a variable that stores the current stopwatch time value and a timer the triggers every 100ms. When the timer triggers and the stopwatch is going, add 100ms to the stopwatch time.</p>
-</section>
-<section id="stopwatch-code">
-<h2>Stopwatch code<a class="headerlink" href="#stopwatch-code" title="Link to this heading">¶</a></h2>
-<p>Time to put those plans into action.</p>
-<section id="variables">
-<h3>Variables<a class="headerlink" href="#variables" title="Link to this heading">¶</a></h3>
+<p>The next app that we will create is a To Do List. Through this you will learn to use Qt’s menu system, Line Edit and List widgets.</p>
+<section id="window-settings">
+<h2>Window Settings<a class="headerlink" href="#window-settings" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
-<li><p>Create the required stopwatch variables.</p></li>
-</ol>
-<p><img alt="stopwatch variables" src="_images/01_vairables.png" /></p>
-<p>Lets look at this code a bit:</p>
+<li><p>Create a new main window in QT Designer</p></li>
+<li><p>Change the geometry:</p>
 <ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">self.sw_timer</span></code></strong> → the independent timer for the stopwatch</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">self.sw_time</span></code></strong> → the current value for the stopwatch (currently 0 hours, 0 minutes, 0 seconds and 0 tenths of a second)</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">self.sw_running</span></code></strong> a flag variable showing the state of the stopwatch (running or not running)</p></li>
+<li><p><strong>Width</strong> → <strong>400</strong></p></li>
+<li><p><strong>Height</strong> → <strong>600</strong></p></li>
 </ul>
-<div class="hint admonition">
-<p class="admonition-title">State machines</p>
-<p>A state machine is a way to organize a program so it is in one specific state at a time, like <code class="docutils literal notranslate"><span class="pre">&quot;waiting&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;running&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;finished&quot;</span></code>. The program moves between these states based on conditions or events, making it easier to manage complex tasks. Flag variables are often used to keep track of these states.</p>
-<p>A flag is a simple variable, typically set to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, to indicate whether something is happening or has finished. For example, a flag called <code class="docutils literal notranslate"><span class="pre">is_running</span></code> might be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> when a process starts and <code class="docutils literal notranslate"><span class="pre">False</span></code> when it ends. State machines and flags help ensure the program behaves correctly by making decisions based on its current state.</p>
-</div>
+</li>
+<li><p>Change the <strong>windowtitle</strong> → <strong>To Do List</strong></p></li>
+</ol>
+<p><img alt="window geometry" src="_images/01_window_geometry.gif" /></p>
 </section>
-<section id="slots">
-<h3>Slots<a class="headerlink" href="#slots" title="Link to this heading">¶</a></h3>
-<p>Before we can code the signals, we need slots to point the signals towards.</p>
+<section id="menu">
+<h2>Menu<a class="headerlink" href="#menu" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
-<li><p>First we need to add the slot to display the stopwatch time.</p></li>
+<li><p>Click on the Menu <strong>Type Here</strong></p></li>
+<li><p>Type <strong>File</strong> and then return / enter</p></li>
+<li><p>Click on the first <strong>Type Here</strong> in the new File menu</p></li>
+<li><p>Type <strong>New</strong> and then return / enter</p></li>
+<li><p>Click on the next <strong>Type Here</strong> in the new File menu</p></li>
+<li><p>Type <strong>Open</strong> and then return / enter</p></li>
+<li><p>Click on the next <strong>Type Here</strong> in the new File menu</p></li>
+<li><p>Type <strong>Save</strong> and then return / enter</p></li>
 </ol>
-<p><img alt="show stopwatch time" src="_images/02_show_sw_time.png" /></p>
-<ol class="arabic simple" start="2">
-<li><p>Next the slot for the starting the stopwatch, which will set the timer to trigger every 100ms and sets the flag variable to <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<p><img alt="menu" src="_images/02_menu.gif" /></p>
+</section>
+<section id="workspace">
+<h2>Workspace<a class="headerlink" href="#workspace" title="Link to this heading">¶</a></h2>
+<section id="add-components">
+<h3>Add Components<a class="headerlink" href="#add-components" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Find the <strong>Line Edit</strong> widget and drag it onto the window canvas</p></li>
+<li><p>Find the <strong>List Widget</strong> (not the List View) and drag it below the <strong>Line Edit</strong></p></li>
+<li><p>Drag the <strong>Horizontal Layout</strong> below the <strong>List Widget</strong></p></li>
+<li><p>Right click on the window canvas → <strong>Lay out</strong> → <strong>Lay Out Vertically</strong></p></li>
 </ol>
-<p><img alt="start stopwatch" src="_images/03_sw_start_slot.png" /></p>
-<ol class="arabic simple" start="3">
-<li><p>Now the slot that pauses the stopwatch</p></li>
-</ol>
-<p><img alt="pause stopwatch" src="_images/04_sw_pause_slot.png" /></p>
-<p>This code is quite eloquent in that is simply reverses the current state of the flag variable (ie. <code class="docutils literal notranslate"><span class="pre">True</span></code> → <code class="docutils literal notranslate"><span class="pre">False</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> → <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p>
-<ol class="arabic simple" start="4">
-<li><p>We need to add the stop stopwatch slot</p></li>
-</ol>
-<p><img alt="stop stopwatch" src="_images/05_sw_stop_slot.png" /></p>
+<p><img alt="main window" src="_images/03_working_space.gif" /></p>
 <ol class="arabic simple" start="5">
-<li><p>The reset slot will stop the stopwatch from running and set the time back to the starting values.</p></li>
+<li><p>Use the <strong>Object Inspector</strong> to place a <strong>Push Button</strong> in the <strong>Horizontal Layout</strong></p></li>
+<li><p>Then drag a <strong>Horizontal Spacer</strong> to the left of the <strong>Push Button</strong></p></li>
 </ol>
-<p><img alt="reset stopwatch" src="_images/06_sw_reset.png" /></p>
+<p><img alt="add button" src="_images/04_adding_button.gif" /></p>
+</section>
+<section id="component-properties">
+<h3>Component Properties<a class="headerlink" href="#component-properties" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Select the <strong>QLineEdit</strong> widget</p></li>
+<li><p>Change the <strong>objectName</strong> → <strong>lineEdit_list_name</strong></p></li>
+<li><p>Change the font <strong>Point Size</strong> → <strong>20</strong></p></li>
+<li><p>Change the alignment <strong>Horizontal</strong> → <strong>AlignHCenter</strong></p></li>
+<li><p>Make <strong>placeholderText</strong> → List name</p></li>
+</ol>
+<p><img alt="list name" src="_images/05_list_name.gif" /></p>
 <ol class="arabic simple" start="6">
-<li><p>Finally the slot for updating the stopwatch time. If the stopwatch is running, it will add 100ms and then refresh the display.</p></li>
+<li><p>Select the <strong>QListWidget</strong> widget</p></li>
+<li><p>Change the <strong>objectName</strong> → <strong>listWidget_items</strong></p></li>
+<li><p>Change the font <strong>Point Size</strong> → <strong>12</strong></p></li>
 </ol>
-<p><img alt="update stopwatch" src="_images/07_sw_update_time.png" /></p>
-</section>
-<section id="signals">
-<h3>Signals<a class="headerlink" href="#signals" title="Link to this heading">¶</a></h3>
-<p>Time to connect all our signals to slots:</p>
-<p><img alt="connect signals" src="_images/08_signals.png" /></p>
-</section>
-<section id="initial-value">
-<h3>Initial value<a class="headerlink" href="#initial-value" title="Link to this heading">¶</a></h3>
-<p>Finally we want to stopwatch to display the initial value of 0:00:00:0.</p>
-<p>Previously we did a similar thing with <code class="docutils literal notranslate"><span class="pre">show_time</span></code> and placed it before the initialising the variables. Since <code class="docutils literal notranslate"><span class="pre">show_sw_time</span></code> uses the <code class="docutils literal notranslate"><span class="pre">sw_time</span></code> variable we place it before that variable is created.</p>
-<p>To keep our code clean, we will create a new section at the bottom of the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> and put both <code class="docutils literal notranslate"><span class="pre">show_time</span></code> and <code class="docutils literal notranslate"><span class="pre">show_sw_time</span></code> in it.</p>
-<p><img alt="show stopwatch time" src="_images/10_show_sw_time.png" /></p>
+<p><img alt="list widget" src="_images/06_list_widget.gif" /></p>
+<ol class="arabic simple" start="9">
+<li><p>Select the <strong>QPushButton</strong> widget</p></li>
+<li><p>Change the <strong>objectName</strong> → <strong>pushButton_add</strong></p></li>
+<li><p>Change sizePolicy <strong>Horizontal Policy</strong> → <strong>MinimumExpanding</strong></p></li>
+<li><p>Change the font <strong>Point Size</strong> → <strong>12</strong></p></li>
+<li><p>Change <strong>text</strong> → <strong>Add item</strong></p></li>
+</ol>
+<p><img alt="add button" src="_images/07_add_button.gif" /></p>
 </section>
 </section>
-<section id="testing">
-<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">¶</a></h2>
-<p>Time to run your app and test that it works.</p>
-<p>Check:</p>
-<ul class="simple">
-<li><p>Is the initial stopwatch time <code class="docutils literal notranslate"><span class="pre">0:00:00:0</span></code>?</p></li>
-<li><p>Does the start button work?</p></li>
-<li><p>Does the pause button pause and unpause the time?</p></li>
-<li><p>Does the stop button work?</p></li>
-<li><p>Does the reset button work?</p></li>
-</ul>
+<section id="test-and-save">
+<h2>Test and Save<a class="headerlink" href="#test-and-save" title="Link to this heading">¶</a></h2>
+<p>Preview the UI using <strong>Ctrl/Command + R</strong>.</p>
+<p>If all is as expected, save the file into your repo as <strong>to_do_list.ui</strong></p>
 </section>
 </section>
 
@@ -366,23 +352,15 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="14_tutorial_12.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Tutorial 12 - Time Machine Timer</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="12_tutorial_10.html">
+          
+          <a class="prev-page" href="14_tutorial_12.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Tutorial 10 - Time Machine Clock</div>
+                <div class="title">Tutorial 12 - Time Machine Timer</div>
                 
               </div>
             </a>
@@ -423,16 +401,15 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Tutorial 11 - Time Machine Stopwatch</a><ul>
-<li><a class="reference internal" href="#stopwatch-planning">Stopwatch planning</a></li>
-<li><a class="reference internal" href="#stopwatch-code">Stopwatch code</a><ul>
-<li><a class="reference internal" href="#variables">Variables</a></li>
-<li><a class="reference internal" href="#slots">Slots</a></li>
-<li><a class="reference internal" href="#signals">Signals</a></li>
-<li><a class="reference internal" href="#initial-value">Initial value</a></li>
+<li><a class="reference internal" href="#">Tutorial 13 - To Do List UI</a><ul>
+<li><a class="reference internal" href="#window-settings">Window Settings</a></li>
+<li><a class="reference internal" href="#menu">Menu</a></li>
+<li><a class="reference internal" href="#workspace">Workspace</a><ul>
+<li><a class="reference internal" href="#add-components">Add Components</a></li>
+<li><a class="reference internal" href="#component-properties">Component Properties</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#test-and-save">Test and Save</a></li>
 </ul>
 </li>
 </ul>

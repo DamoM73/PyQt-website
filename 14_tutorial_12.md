@@ -1,7 +1,11 @@
-# Tutorial 12 - Timer
+# Tutorial 12 - Time Machine Timer
 
 ```{admonition} In this tutorial you will:
-TBA
+- Implement a user interface featuring spinboxes to set the starting time and buttons to control the timer's operation.
+- Develop the logic to convert spinbox values into a countdown timer, manage time subtraction, and handle timer updates.
+- Utilise variables to track the timer's status, ensuring accurate control over start, stop, pause, and reset actions.
+- Establish connections between user interactions (e.g., button presses) and corresponding functions to control the timer's behaviour effectively.
+- Incorporate sound notifications that trigger when the timer reaches zero, enhancing the timer's functionality.
 ```
 
 In this tutorial, we will finish the final tab of the Time Machine App, the Timer.
