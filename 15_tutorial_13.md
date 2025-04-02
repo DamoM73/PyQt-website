@@ -4,7 +4,9 @@
 TBA
 ```
 
-The next app that we will create is a To Do List. Through this you will learn to use Qt's menu system, Line Edit and List widgets. 
+The next app that we will create is a To Do List. Through this you will learn to use Qt's menu system, Line Edit, List widgets and Dialogue Boxes. 
+
+Before we get into the code, we need to create the UI in QT Designer.
 
 ## Window Settings
 
