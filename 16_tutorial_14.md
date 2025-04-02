@@ -1,7 +1,10 @@
 # Tutorial 14 - Basic To Do
 
 ```{admonition} In this tutorial, you will:
-TBA
+- Utilise a QLineEdit widget to set and display the to-do list's title.
+- Implement a QPushButton that, when clicked, opens an input dialog box for entering new tasks.
+- Use a QListWidget to show all added tasks, ensuring they are visible and organised.
+- Enable item removal from the list by connecting the QListWidget's itemClicked signal to a function that deletes the selected task.
 ```
 
 In this tutorial we will implement the basic features of our To Do App:
