@@ -18,7 +18,7 @@ Before we get into the code, we need to create the UI in QT Designer.
 2. Change the geometry:
    - **Width** &rarr; **400**
    - **Height** &rarr; **600**
-3. Change the **windowtitle** &rarr; **To Do List**
+3. Change the **windowTitle** &rarr; **To Do List**
 
 ![window geometry](./assets/img/15/01_window_geometry.gif)
 
