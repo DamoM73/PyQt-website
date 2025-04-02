@@ -17,7 +17,7 @@ How can we achieve the objective above?
 
 Naming the list is already taken care of since the user can type in the QLineEdit widget. So we only have to plan the implementation of adding and subtracting items.
 
-Fortunately Python has a collection data structure called a `list` which will be perfect for this, so we will use a `list` to store all the items. The **listWidget** will display all the items in this `list`.
+We are going to use the **QWidgetList** as the data structure for storing our tasks.
 
 We will use the **pushButton_add** to add items. It will launch a Input Dialogue Box where the user can type in their new item. The item will then be added to our list.
 
