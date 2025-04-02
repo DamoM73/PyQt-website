@@ -1,4 +1,4 @@
-# Tutorial 13 - To Do List UI
+# Tutorial 13 - To Do UI
 
 ```{admonition} In this tutorial, you will:
 - Design a user interface for a to-do list using PyQt and Qt Designer.
