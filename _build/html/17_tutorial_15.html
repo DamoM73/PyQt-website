@@ -2,10 +2,12 @@
 <html class="no-js" lang="en" data-content_root="./">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Tutorial 14 - Basic To Do" href="16_tutorial_14.html" />
 
-    <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 --><title>Index - PyQt Tutorials</title>
-<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Tutorial 15 - Advanced To Do - PyQt Tutorials</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
@@ -180,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -204,7 +206,7 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_tutorial_1.html">Tutorial 1 - Creating Apps</a></li>
@@ -221,7 +223,7 @@
 <li class="toctree-l1"><a class="reference internal" href="14_tutorial_12.html">Tutorial 12 - Time Machine Timer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="15_tutorial_13.html">Tutorial 13 - To Do UI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="16_tutorial_14.html">Tutorial 14 - Basic To Do</a></li>
-<li class="toctree-l1"><a class="reference internal" href="17_tutorial_15.html">Tutorial 15 - Advanced To Do</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 15 - Advanced To Do</a></li>
 </ul>
 
 </div>
@@ -241,7 +243,13 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/17_tutorial_15.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -250,16 +258,103 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          
-<section class="genindex-section">
-  <h1 id="index">Index</h1>
-  <div class="genindex-jumpbox"></div>
+          <section id="tutorial-15-advanced-to-do">
+<h1>Tutorial 15 - Advanced To Do<a class="headerlink" href="#tutorial-15-advanced-to-do" title="Link to this heading">¶</a></h1>
+<div class="admonition-in-this-tutorial-you-will admonition">
+<p class="admonition-title">In this tutorial, you will:</p>
+<p>TBA</p>
+</div>
+<p>In this tutorial we will allow the user to save and load their to do lists. We will use the menu to:</p>
+<ul class="simple">
+<li><p>Create a new list</p></li>
+<li><p>Open a saved list</p></li>
+<li><p>Save the current list</p></li>
+</ul>
+<section id="advanced-to-do-planning">
+<h2>Advanced To Do Planning<a class="headerlink" href="#advanced-to-do-planning" title="Link to this heading">¶</a></h2>
+<p>Qt menus signals are called actions. If you look at the <code class="docutils literal notranslate"><span class="pre">.ui</span></code> file in QT Designer you will notice that the menu names are <strong>actionNew</strong>, <strong>actionOpen</strong> and <strong>actionSave</strong>. They are all <strong>QActions</strong>, which have different triggers.</p>
+<div class="hint admonition">
+<p class="admonition-title">QActions</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">QAction</span></code> lets you reuse the same action (like opening a file) in multiple places—like menus, toolbars, or shortcuts—without writing the code again. To explore QActions more, check out the <strong><a class="reference external" href="https://doc.qt.io/qt-6/qaction.html">Qt Documentations</a></strong></p>
+</div>
+<p>We also need to think about how we will save our data to a file. We will use a JSON file to save the data. You don’t need to know many details about the JSON format, except that their structure is equivalent to a Python dictionary.</p>
+<div class="hint admonition">
+<p class="admonition-title">JSON files</p>
+<p>JSON (JavaScript Object Notation) files are a simple way to store and share data in a format that’s easy for both people and computers to understand. They look like a list of things (called arrays) or a bunch of labels with values (called objects), kind of like a digital version of organizing your stuff in labeled boxes. For example, you might have a “name” label with the value “Alex” or a list of your favorite games.</p>
+<p>JSON is used a lot in apps and websites to send information back and forth, like saving your profile or showing search results.</p>
+</div>
+</section>
+<section id="advance-to-do-coding">
+<h2>Advance To Do Coding<a class="headerlink" href="#advance-to-do-coding" title="Link to this heading">¶</a></h2>
+<p>Just like the Basic To Do code, we will work on this code in signal/slot pairs.</p>
+<section id="save-to-do-list">
+<h3>Save To Do List<a class="headerlink" href="#save-to-do-list" title="Link to this heading">¶</a></h3>
+<p>We will start with saving signal/slot pair, because we can’t open a list until one is saved. We need to use the <strong>json</strong> library and the <strong>QFileDialog</strong> from the <strong>QWidgets</strong> library, so we better import these.</p>
+<p><img alt="import" src="_images/00_import.png" /></p>
+<ol class="arabic simple">
+<li><p>At the bottom of the slot section add the following code.</p></li>
+</ol>
+<p><img alt="save list" src="_images/01_save_list.png" /></p>
+<p>This step collects the elements to make a dictionary.</p>
+<ul class="simple">
+<li><p>The first element is the list name taken from <code class="docutils literal notranslate"><span class="pre">lineEdit_name</span></code>.</p></li>
+<li><p>The second element is a list of all the tasks. We need to iterate over the <strong>listWidget</strong> and append each element to the task list.</p>
+<ul>
+<li><p>Note: we have to use <strong>index</strong> to iterate over the <strong>listWidget</strong> since it does not act like a Python list.</p></li>
+</ul>
+</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Now the second part of <strong>save_list</strong> which uses the <strong>QFileDialog</strong> for the user to choose the file name and save location, and then <strong>json.dump</strong> to save the dictionary as a json file.</p></li>
+</ol>
+<p><img alt="save list 2" src="_images/03_save_list_2.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>Finally we need to connect the signal to the slot we just created</p></li>
+</ol>
+<p><img alt="save file signal" src="_images/04_save_file_signal.png" /></p>
+<p>Run the app, create a to do list and save it.</p>
+<ol class="arabic simple">
+<li><p>Does the file appear where you saved it?</p></li>
+<li><p>Open the file in VS Code, does it contain the details from your to do list?</p></li>
+</ol>
+</section>
+<section id="open-to-do-list">
+<h3>Open To Do List<a class="headerlink" href="#open-to-do-list" title="Link to this heading">¶</a></h3>
+<p>Now that we have a saved to do list file, we can create the open file signal/slot pair.</p>
+<ol class="arabic simple">
+<li><p>At the bottom of the slots section, use the <strong>QFileDialog</strong> to allow users to select their saved to do list file.</p></li>
+</ol>
+<p><img alt="open file dialog" src="_images/05_open_file_dialog.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>If the user selects a file, load the json file into the To Do List UI.</p></li>
+</ol>
+<p><img alt="load file" src="_images/06_load_file.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>Connect the slot to the actionOpen signal</p></li>
+</ol>
+<p><img alt="open action signal" src="_images/07_openaction_signal.png" /></p>
+<p>Now test your code, by opening the file you previously saved.</p>
+</section>
+<section id="new-to-do-list">
+<h3>New To Do List<a class="headerlink" href="#new-to-do-list" title="Link to this heading">¶</a></h3>
+<p>The final feature we need to add is for the New List signal/slot pair. This is quite simple: clear everything and return the focus to <strong>lineEdit_list_name</strong></p>
+<ol class="arabic simple">
+<li><p>At the bottom of the slots section add:</p></li>
+</ol>
+<p><img alt="new list slot" src="_images/08_new_list_slot.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Then connect the signal</p></li>
+</ol>
+<p><img alt="new list signal" src="_images/09_new_list_signal.png" /></p>
+<p>Now load a saved list and then create a new list and ensure that everything works.</p>
+</section>
+</section>
 </section>
 
         </article>
@@ -268,7 +363,17 @@
         
         <div class="related-pages">
           
-          
+          <a class="prev-page" href="16_tutorial_14.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Tutorial 14 - Basic To Do</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -294,8 +399,33 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Tutorial 15 - Advanced To Do</a><ul>
+<li><a class="reference internal" href="#advanced-to-do-planning">Advanced To Do Planning</a></li>
+<li><a class="reference internal" href="#advance-to-do-coding">Advance To Do Coding</a><ul>
+<li><a class="reference internal" href="#save-to-do-list">Save To Do List</a></li>
+<li><a class="reference internal" href="#open-to-do-list">Open To Do List</a></li>
+<li><a class="reference internal" href="#new-to-do-list">New To Do List</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
