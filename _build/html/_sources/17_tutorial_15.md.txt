@@ -1,7 +1,11 @@
 # Tutorial 15 - Advanced To Do
 
 ```{admonition} In this tutorial, you will:
-TBA
+- Implement functionality to start a fresh to-do list by clearing existing tasks and setting a new title.
+- Utilise JSON files to store the to-do list's name and tasks, allowing for data persistence.
+- Load previously saved to-do lists from JSON files to continue managing tasks.
+- Learn about QActions to manage menu signals like New, Open, and Save for efficient menu handling.
+- Implement QFileDialog to enable users to select file locations for saving and opening to-do lists.
 ```
 
 In this tutorial we will allow the user to save and load their to do lists. We will use the menu to:
