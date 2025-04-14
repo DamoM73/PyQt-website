@@ -10,7 +10,7 @@ To introduce more QT features we are going to make a new app, a clock/stopwatch/
 
 To start this project we will create the UI file. Launch Qt Designer and create a new **Main Window**.
 
-### Format the Main Window
+## Format the Main Window
 
 For the **Main Window**:
 
@@ -23,7 +23,7 @@ For the **Main Window**:
 
 ![main window setup](./assets/img/10/01_main_window_setup.gif)
 
-### Add the Tab Widget
+## Add the Tab Widget
 
 The **tab widget** is a container widget which is used to create multi-page UIs navigated using tabs.
 
@@ -48,7 +48,7 @@ Common Container Widgets:
 
 ![add tabs](./assets/img/10/02_add_tabs.gif)
 
-### Organise the tabs
+## Organise the tabs
 
 We will three tabs - **Time**, **Stopwatch** and **Timer**, so we need to add a tab.
 
@@ -79,7 +79,7 @@ To make the tabs easier to read, resize the font
 
 ![font size](./assets/img/10/05_font_size.gif)
 
-### Populate the Clock tab
+## Populate the Clock tab
 
 Now to add the required elements onto the Clock tab.
 
@@ -98,7 +98,7 @@ Now to format the **clock_label**
 
 ![format clock](./assets/img/10/07_format_clock.gif)
 
-### Populate the Stopwatch tab
+## Populate the Stopwatch tab
 
 On to adding elements to the Stopwatch tab.
 
@@ -136,7 +136,7 @@ On to adding elements to the Stopwatch tab.
 
 ![set size policy](./assets/img/10/12_stopwatch_size_policy.gif)
 
-### Populate the Timer tab
+## Populate the Timer tab
 
 1. Click on the **Stopwatch** tab
 2. Drag the **Label Widget** from the **Widgets Toolbox** to the top half of the **windows canvas**

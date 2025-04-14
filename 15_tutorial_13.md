@@ -24,13 +24,13 @@ Before we get into the code, we need to create the UI in QT Designer.
 
 ## Menu
 
-1. Click on the Menu **Type Here**
+1. Double-click on the Menu **Type Here**
 2. Type **File** and then return / enter
-3. Click on the first **Type Here** in the new File menu
+3. Double-click on the first **Type Here** in the new File menu
 4. Type **New** and then return / enter
-5. Click on the next **Type Here** in the new File menu
+5. Double-click on the next **Type Here** in the new File menu
 6. Type **Open** and then return / enter
-7. Click on the next **Type Here** in the new File menu
+7. Double-click on the next **Type Here** in the new File menu
 8. Type **Save** and then return / enter
 
 ![menu](./assets/img/15/02_menu.gif)
