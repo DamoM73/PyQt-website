@@ -1,7 +1,9 @@
 # Tutorial 16 - Contacts UI
 
 ```{admonition} In this tutorial, you will:
-TBA
+- Design a main application window using Qt Designer.  
+- Create a second window layout using Qt Designer.  
+- Set up buttons in the main window to trigger actions.  
 ```
 
 Default dialog boxes, like the one we using in our To Do app, are helpful but can be restricting. Sometimes you want dialog boxes that serve very specific purposes. Fortunately Qt allows you to design custom dialog boxes. We will explore creating custom dialog boxes use  through developing a contact list app. We will also look at displaying tabular data and work with csv files.
