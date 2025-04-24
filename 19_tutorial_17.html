@@ -1,0 +1,590 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Tutorial 16 - Contacts UI" href="18_tutorial_16.html" />
+
+    <link rel="shortcut icon" href="_static/logo.ico"/><!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
+        <title>Tutorial 17 - Contact App - PyQt Tutorials</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --font-stack: gill sans, sans-serif;
+  --font-stack--monospace: monaco, monospace;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">PyQt Tutorials</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">PyQt Tutorials</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_tutorial_1.html">Tutorial 1 - Creating Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_tutorial_2.html">Tutorial 2 - Labels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_tutorial_3.html">Tutorial 3 - Layouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_tutorial_4.html">Tutorial 4 - Complex UIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_tutorial_5.html">Tutorial 5 - Signals and Slots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_tutorial_6.html">Tutorial 6 - Create Calculator App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_tutorial_7.html">Tutorial 7 - Refine Calculator App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_tutorial_8.html">Tutorial 8 - Time Machine UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_tutorial_9.html">Tutorial 9 - Using loadUi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_tutorial_10.html">Tutorial 10 - Time Machine Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_tutorial_11.html">Tutorial 11 - Time Machine Stopwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_tutorial_12.html">Tutorial 12 - Time Machine Timer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_tutorial_13.html">Tutorial 13 - To Do UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_tutorial_14.html">Tutorial 14 - Basic To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_tutorial_15.html">Tutorial 15 - Advanced To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_tutorial_16.html">Tutorial 16 - Contacts UI</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial 17 - Contact App</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/19_tutorial_17.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="tutorial-17-contact-app">
+<h1>Tutorial 17 - Contact App<a class="headerlink" href="#tutorial-17-contact-app" title="Link to this heading">¶</a></h1>
+<div class="admonition-in-this-tutorial-you-will admonition">
+<p class="admonition-title">In this tutorial, you will:</p>
+<ul class="simple">
+<li><p>Load multiple window designs into a PyQt application using <code class="docutils literal notranslate"><span class="pre">.ui</span></code> files.</p></li>
+<li><p>Implement functionality to open a secondary window from the main window.</p></li>
+<li><p>Pass information between windows within a PyQt application.</p></li>
+<li><p>Test and validate navigation between multiple windows.</p></li>
+</ul>
+</div>
+<section id="new-file">
+<h2>New file<a class="headerlink" href="#new-file" title="Link to this heading">¶</a></h2>
+<p>First, we need to setup your new file:</p>
+<ol class="arabic simple">
+<li><p>Copy your new <strong>main_window.py</strong> file, calling it <strong>contacts.py</strong>.</p></li>
+<li><p>Change the file name to <strong>contacts.ui</strong></p></li>
+</ol>
+<p><img alt="new file" src="_images/01_new_file1.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>Run the code to ensure the window loads.</p></li>
+</ol>
+</section>
+<section id="loading-contacts-file">
+<h2>Loading Contacts File<a class="headerlink" href="#loading-contacts-file" title="Link to this heading">¶</a></h2>
+<section id="download-contacts-file">
+<h3>Download Contacts File<a class="headerlink" href="#download-contacts-file" title="Link to this heading">¶</a></h3>
+<p>The first feature that we will add to our app is loading contacts from a <strong>csv</strong> file. To do this we will need a csv file with contact details.</p>
+<ol class="arabic simple">
+<li><p><strong>Right mouse click</strong> on this <strong><a class="reference download internal" download="" href="_downloads/84ca758a17db3cae0c9e307b6336f039/contacts.csv"><span class="xref download myst">contacts csv file</span></a></strong></p></li>
+<li><p>Click on <strong>save link as</strong> and then choose the same folder as your <strong>contacts.py</strong> file.</p></li>
+</ol>
+</section>
+<section id="get-contacts-file-name">
+<h3>Get Contacts File Name<a class="headerlink" href="#get-contacts-file-name" title="Link to this heading">¶</a></h3>
+<p>Next we will need to make a slot that opens <strong>Qt’s File Dialogue Box</strong> and gets the name of the contact file.</p>
+<ol class="arabic simple">
+<li><p>Add the <strong>QFileDialog</strong> to the <strong>import</strong> statements</p></li>
+</ol>
+<p><img alt="File dialog" src="_images/02_import_QFileDialogue.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>In the Slots section create the <strong>open_contacts</strong> slot which opens the <strong>QFileDialog</strong> and retrieves the name and path of the selected file.</p></li>
+</ol>
+<p><img alt="Open contact file" src="_images/03_open_contacts.png" /></p>
+</section>
+<section id="read-contacts-file">
+<h3>Read Contacts File<a class="headerlink" href="#read-contacts-file" title="Link to this heading">¶</a></h3>
+<p>We are now going to read the csv file into the <strong>tableWidget_contacts</strong> in our UI, but we need to handle possible errors, to prevent our program from crashing.</p>
+<div class="hint admonition">
+<p class="admonition-title">Exception handling</p>
+<p>Exception handling is a way for a program to deal with errors that happen while it is running. When something goes wrong, like trying to divide by zero or opening a file that doesn’t exist, the program can stop working unless the error is handled.</p>
+<p>With exception handling, the program checks for these errors and responds to them without stopping completely. This keeps the program running or allows it to show a helpful message to the user instead of crashing.</p>
+</div>
+<p>First we need to import two new modules:</p>
+<ul class="simple">
+<li><p><strong>csv</strong> → reading csv files</p></li>
+<li><p><strong>QMessageBox</strong> → displaying error messages</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Add the libraires below into your import section</p></li>
+</ol>
+<p><img alt="import csv" src="_images/04_import_csv.png" /></p>
+<p>Now we need to open and read the csv file. There are two likely errors we need to handle:</p>
+<ul class="simple">
+<li><p>The user did not select a file (ie. they clicked <strong>Cancel</strong> on the dialogue box)</p></li>
+<li><p>The csv file cannot be opened.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Add the code below to the bottom of the <strong>open_contacts</strong> slot.</p></li>
+</ol>
+<p><img alt="read csv file" src="_images/05_read_csv.png" /></p>
+<p>Lets look at how this code handles those possible errors.</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">file_path:</span></code></strong> → will only let the program attempt to open a file when a file name has been returned from the file dialog box.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">try:</span></code></strong> block → attempts to open the provided file as a csv and read the contents into the <strong>data</strong> list.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Exception:</span></code></strong> block → if the <code class="docutils literal notranslate"><span class="pre">try:</span></code> fails, then a dialog box will pop up with an error message.</p></li>
+</ul>
+</section>
+<section id="display-contact-details">
+<h3>Display Contact Details<a class="headerlink" href="#display-contact-details" title="Link to this heading">¶</a></h3>
+<p>Now we need to take the contacts details in the <strong>data</strong> list and write it to <strong>tableWidget_contacts</strong>. Again we need to handle possible errors, in this case where the csv file is empty.</p>
+<ol class="arabic simple">
+<li><p>We need to import the <strong>QTableWidgetItem</strong> module (the <strong>QtWidgets</strong> import is getting a bit long, so let’s spread it over multiple lines).</p></li>
+</ol>
+<p><img alt="Import widgets" src="_images/06_import_widgets.png" /></p>
+<p>We also need to create headings for our contacts table. We will use a list to store this information.</p>
+<ol class="arabic simple" start="2">
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> add the following line.</p></li>
+</ol>
+<p><img alt="headers" src="_images/07_headers.png" /></p>
+<p>Now we can finally read the contact details from the data list</p>
+<ol class="arabic simple" start="3">
+<li><p>Add the code below into the <strong>try block</strong> in the <strong>open_contact</strong> slot</p></li>
+</ol>
+<p><img alt="display" src="_images/08_read_csv.png" /></p>
+</section>
+<section id="connect-signal-to-slot">
+<h3>Connect Signal to Slot<a class="headerlink" href="#connect-signal-to-slot" title="Link to this heading">¶</a></h3>
+<p>Next we will connect the signal to our completed <strong>open_contact</strong> slot.</p>
+<ol class="arabic simple">
+<li><p>In the <strong>signals</strong> method add the code below.</p></li>
+</ol>
+<p><img alt="open signal" src="_images/09_open_signal.png" /></p>
+</section>
+<section id="test-file-open">
+<h3>Test File Open<a class="headerlink" href="#test-file-open" title="Link to this heading">¶</a></h3>
+<p>Now run your app and check the you can open the <strong>contacts.csv</strong> and that is displays 10 contacts.</p>
+</section>
+</section>
+<section id="new-contact-dialog">
+<h2>New Contact Dialog<a class="headerlink" href="#new-contact-dialog" title="Link to this heading">¶</a></h2>
+<p>Now we need to add new contacts using the <strong>new_contact.ui</strong> we created. To access the <strong>new_contact.ui</strong> we need to create a <strong>NewContact</strong> class.</p>
+<section id="create-newcontact-class">
+<h3>Create NewContact class<a class="headerlink" href="#create-newcontact-class" title="Link to this heading">¶</a></h3>
+<p>This new class is not a QDialog, not a QMainWindow, so we need to import that widget.</p>
+<ol class="arabic simple">
+<li><p>Change your import section</p></li>
+</ol>
+<p><img alt="dialog import" src="_images/10_dialog_import.png" /></p>
+<p>Now to create the <strong>NewContact</strong> class</p>
+<ol class="arabic simple" start="2">
+<li><p>After the import section add the new class definition</p></li>
+</ol>
+<p><img alt="NewContact_class" src="_images/11_newcontact_class.png" /></p>
+</section>
+<section id="code-ok-button">
+<h3>Code Ok Button<a class="headerlink" href="#code-ok-button" title="Link to this heading">¶</a></h3>
+<p>We need a method that will read the values entered and return them to the <strong>MainWindow</strong>. This method needs to be placed in the <strong>NewContact</strong> class.</p>
+<ol class="arabic simple" start="3">
+<li><p>Under the <strong>NewClass</strong> <code class="docutils literal notranslate"><span class="pre">__init__</span></code> add.</p></li>
+</ol>
+<p><img alt="get_details" src="_images/13_get_details_method.png" /></p>
+<p>Now we need to make a slot that will launch the new contact dialog</p>
+<ol class="arabic simple" start="4">
+<li><p>At the bottom of the slots section add</p></li>
+</ol>
+<p><img alt="open dialog" src="_images/12_open_dialog.png" /></p>
+<p>Lets look at some of that code:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">dialog.exec():</span></code> → this code block will be executed when the dialog’s <strong>Ok</strong> button is clicked.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">details</span> <span class="pre">=</span> <span class="pre">dialog.get_details()</span></code> → run the <code class="docutils literal notranslate"><span class="pre">get_details</span></code> method and save the returned values in the <code class="docutils literal notranslate"><span class="pre">details</span></code> variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(details)</span></code> → this is only for testing, we will change it later.</p></li>
+</ul>
+<p>Finally, link the <strong>pushButton_add</strong> signal to this slot.</p>
+<ol class="arabic simple" start="5">
+<li><p>In the <strong>signals</strong> method add</p></li>
+</ol>
+<p><img alt="dialog signal" src="_images/14_dialog_signal.png" /></p>
+</section>
+<section id="test-ok-button">
+<h3>Test Ok Button<a class="headerlink" href="#test-ok-button" title="Link to this heading">¶</a></h3>
+<p>Now lets test what we have done.</p>
+<ol class="arabic simple">
+<li><p>Run your app</p></li>
+<li><p>Click the <strong>Add</strong> button</p></li>
+<li><p>Enter values into the new contact dialog</p></li>
+<li><p>Click <strong>Ok</strong></p></li>
+<li><p>Check that the values you entered are printed in your terminal.</p></li>
+</ol>
+</section>
+<section id="display-new-contact">
+<h3>Display New Contact<a class="headerlink" href="#display-new-contact" title="Link to this heading">¶</a></h3>
+<p>Finally we need to add the new contact details to our <strong>tableWidget_contacts</strong>.</p>
+<p>First we will create a method that will take the values in <strong>details</strong> and write them to <strong>tableWidget_contact</strong>. This isn’t a slot, so we will create a new utilities section to place this method.</p>
+<ol class="arabic simple">
+<li><p>At the bottom of the <strong>slots</strong> section add this code:</p></li>
+</ol>
+<p><img alt="add contact" src="_images/15_add_contact.png" /></p>
+<p>Then we need to execute this method when the Dialog Ok button is pressed.</p>
+<ol class="arabic simple" start="2">
+<li><p>In the <strong>open_contact_dialog</strong> replace the <strong>print</strong> statement with the following code.</p></li>
+</ol>
+<p><img alt="call add contact" src="_images/15_call_add_contact.png" /></p>
+</section>
+<section id="test-new-contact">
+<h3>Test New Contact<a class="headerlink" href="#test-new-contact" title="Link to this heading">¶</a></h3>
+<p>Run your app and add a new contact. Did the information appear correctly in your contact list?</p>
+</section>
+</section>
+<section id="saving-contacts">
+<h2>Saving Contacts<a class="headerlink" href="#saving-contacts" title="Link to this heading">¶</a></h2>
+<p>Now for the final step, saving our contact list. We will use the <strong>QFileDialog</strong> to get the path for the save file. Then write the contents of the <strong>tableWidget_contacts</strong> to the file in csv format.</p>
+<section id="getting-save-file-path">
+<h3>Getting Save File Path<a class="headerlink" href="#getting-save-file-path" title="Link to this heading">¶</a></h3>
+<p>Use the <strong>QFileDialog</strong> to get the save file path.</p>
+<ol class="arabic simple">
+<li><p>At the bottom of the <strong>Slots</strong> section add the following code</p></li>
+</ol>
+<p><img alt="save contacts" src="_images/16_save_contacts.png" /></p>
+</section>
+<section id="save-contact-to-file">
+<h3>Save Contact to File<a class="headerlink" href="#save-contact-to-file" title="Link to this heading">¶</a></h3>
+<p>Now we need to write the content of the <strong>tableWidget_content</strong> to a csv file. We need to make sure that we have the same error handling as we did for reading a csv file.</p>
+<ol class="arabic simple" start="2">
+<li><p>Complete the <strong>save_content</strong> method with the code below</p></li>
+</ol>
+<p><img alt="save file" src="_images/17_save_file.png" /></p>
+</section>
+<section id="connect-save-signal">
+<h3>Connect Save Signal<a class="headerlink" href="#connect-save-signal" title="Link to this heading">¶</a></h3>
+<p>Finally we need to connect the <strong>actionSave</strong> signal to our <strong>save_content</strong> slot.</p>
+<ol class="arabic simple">
+<li><p>In the <strong>signals</strong> method, add the following code.</p></li>
+</ol>
+<p><img alt="connect save signal" src="_images/18_connect_save_signal.png" /></p>
+</section>
+<section id="testing-save">
+<h3>Testing Save<a class="headerlink" href="#testing-save" title="Link to this heading">¶</a></h3>
+<p>Now to test the save function of your app.</p>
+<ol class="arabic simple">
+<li><p>Launch your app</p></li>
+<li><p>Open the contacts file</p></li>
+<li><p>Add a new contact</p></li>
+<li><p>Save your contact file</p></li>
+<li><p>Close the app</p></li>
+<li><p>Launch the app again</p></li>
+<li><p>Open the contact file</p></li>
+<li><p>Check that your new contact is in the file.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="18_tutorial_16.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Tutorial 16 - Contacts UI</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Damien Murtagh
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/DamoM73/PyQt-website" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+            </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Tutorial 17 - Contact App</a><ul>
+<li><a class="reference internal" href="#new-file">New file</a></li>
+<li><a class="reference internal" href="#loading-contacts-file">Loading Contacts File</a><ul>
+<li><a class="reference internal" href="#download-contacts-file">Download Contacts File</a></li>
+<li><a class="reference internal" href="#get-contacts-file-name">Get Contacts File Name</a></li>
+<li><a class="reference internal" href="#read-contacts-file">Read Contacts File</a></li>
+<li><a class="reference internal" href="#display-contact-details">Display Contact Details</a></li>
+<li><a class="reference internal" href="#connect-signal-to-slot">Connect Signal to Slot</a></li>
+<li><a class="reference internal" href="#test-file-open">Test File Open</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#new-contact-dialog">New Contact Dialog</a><ul>
+<li><a class="reference internal" href="#create-newcontact-class">Create NewContact class</a></li>
+<li><a class="reference internal" href="#code-ok-button">Code Ok Button</a></li>
+<li><a class="reference internal" href="#test-ok-button">Test Ok Button</a></li>
+<li><a class="reference internal" href="#display-new-contact">Display New Contact</a></li>
+<li><a class="reference internal" href="#test-new-contact">Test New Contact</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#saving-contacts">Saving Contacts</a><ul>
+<li><a class="reference internal" href="#getting-save-file-path">Getting Save File Path</a></li>
+<li><a class="reference internal" href="#save-contact-to-file">Save Contact to File</a></li>
+<li><a class="reference internal" href="#connect-save-signal">Connect Save Signal</a></li>
+<li><a class="reference internal" href="#testing-save">Testing Save</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=cb975c41"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>
