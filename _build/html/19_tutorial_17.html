@@ -283,7 +283,204 @@
 <ol class="arabic simple" start="3">
 <li><p>Run the code to ensure the window loads.</p></li>
 </ol>
-<p><a class="reference download internal" download="" href="_downloads/84ca758a17db3cae0c9e307b6336f039/contacts.csv"><span class="xref download myst">Contacts csv file</span></a></p>
+</section>
+<section id="loading-contacts-file">
+<h2>Loading Contacts File<a class="headerlink" href="#loading-contacts-file" title="Link to this heading">¶</a></h2>
+<section id="download-contacts-file">
+<h3>Download Contacts File<a class="headerlink" href="#download-contacts-file" title="Link to this heading">¶</a></h3>
+<p>The first feature that we will add to our app is loading contacts from a <strong>csv</strong> file. To do this we will need a csv file with contact details.</p>
+<ol class="arabic simple">
+<li><p><strong>Right mouse click</strong> on this <strong><a class="reference download internal" download="" href="_downloads/84ca758a17db3cae0c9e307b6336f039/contacts.csv"><span class="xref download myst">contacts csv file</span></a></strong></p></li>
+<li><p>Click on <strong>save link as</strong> and then choose the same folder as your <strong>contacts.py</strong> file.</p></li>
+</ol>
+</section>
+<section id="get-contacts-file-name">
+<h3>Get Contacts File Name<a class="headerlink" href="#get-contacts-file-name" title="Link to this heading">¶</a></h3>
+<p>Next we will need to make a slot that opens <strong>Qt’s File Dialogue Box</strong> and gets the name of the contact file.</p>
+<ol class="arabic simple">
+<li><p>Add the <strong>QFileDialog</strong> to the <strong>import</strong> statements</p></li>
+</ol>
+<p><img alt="File dialog" src="_images/02_import_QFileDialogue.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>In the Slots section create the <strong>open_contacts</strong> slot which opens the <strong>QFileDialog</strong> and retrieves the name and path of the selected file.</p></li>
+</ol>
+<p><img alt="Open contact file" src="_images/03_open_contacts.png" /></p>
+</section>
+<section id="read-contacts-file">
+<h3>Read Contacts File<a class="headerlink" href="#read-contacts-file" title="Link to this heading">¶</a></h3>
+<p>We are now going to read the csv file into the <strong>tableWidget_contacts</strong> in our UI, but we need to handle possible errors, to prevent our program from crashing.</p>
+<div class="hint admonition">
+<p class="admonition-title">Exception handling</p>
+<p>Exception handling is a way for a program to deal with errors that happen while it is running. When something goes wrong, like trying to divide by zero or opening a file that doesn’t exist, the program can stop working unless the error is handled.</p>
+<p>With exception handling, the program checks for these errors and responds to them without stopping completely. This keeps the program running or allows it to show a helpful message to the user instead of crashing.</p>
+</div>
+<p>First we need to import two new modules:</p>
+<ul class="simple">
+<li><p><strong>csv</strong> → reading csv files</p></li>
+<li><p><strong>QMessageBox</strong> → displaying error messages</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Add the libraires below into your import section</p></li>
+</ol>
+<p><img alt="import csv" src="_images/04_import_csv.png" /></p>
+<p>Now we need to open and read the csv file. There are two likely errors we need to handle:</p>
+<ul class="simple">
+<li><p>The user did not select a file (ie. they clicked <strong>Cancel</strong> on the dialogue box)</p></li>
+<li><p>The csv file cannot be opened.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Add the code below to the bottom of the <strong>open_contacts</strong> slot.</p></li>
+</ol>
+<p><img alt="read csv file" src="_images/05_read_csv.png" /></p>
+<p>Lets look at how this code handles those possible errors.</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">file_path:</span></code></strong> → will only let the program attempt to open a file when a file name has been returned from the file dialog box.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">try:</span></code></strong> block → attempts to open the provided file as a csv and read the contents into the <strong>data</strong> list.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Exception:</span></code></strong> block → if the <code class="docutils literal notranslate"><span class="pre">try:</span></code> fails, then a dialog box will pop up with an error message.</p></li>
+</ul>
+</section>
+<section id="display-contact-details">
+<h3>Display Contact Details<a class="headerlink" href="#display-contact-details" title="Link to this heading">¶</a></h3>
+<p>Now we need to take the contacts details in the <strong>data</strong> list and write it to <strong>tableWidget_contacts</strong>. Again we need to handle possible errors, in this case where the csv file is empty.</p>
+<ol class="arabic simple">
+<li><p>We need to import the <strong>QTableWidgetItem</strong> module (the <strong>QtWidgets</strong> import is getting a bit long, so let’s spread it over multiple lines).</p></li>
+</ol>
+<p><img alt="Import widgets" src="_images/06_import_widgets.png" /></p>
+<p>We also need to create headings for our contacts table. We will use a list to store this information.</p>
+<ol class="arabic simple" start="2">
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> add the following line.</p></li>
+</ol>
+<p><img alt="headers" src="_images/07_headers.png" /></p>
+<p>Now we can finally read the contact details from the data list</p>
+<ol class="arabic simple" start="3">
+<li><p>Add the code below into the <strong>try block</strong> in the <strong>open_contact</strong> slot</p></li>
+</ol>
+<p><img alt="display" src="_images/08_read_csv.png" /></p>
+</section>
+<section id="connect-signal-to-slot">
+<h3>Connect Signal to Slot<a class="headerlink" href="#connect-signal-to-slot" title="Link to this heading">¶</a></h3>
+<p>Next we will connect the signal to our completed <strong>open_contact</strong> slot.</p>
+<ol class="arabic simple">
+<li><p>In the <strong>signals</strong> method add the code below.</p></li>
+</ol>
+<p><img alt="open signal" src="_images/09_open_signal.png" /></p>
+</section>
+<section id="test-file-open">
+<h3>Test File Open<a class="headerlink" href="#test-file-open" title="Link to this heading">¶</a></h3>
+<p>Now run your app and check the you can open the <strong>contacts.csv</strong> and that is displays 10 contacts.</p>
+</section>
+</section>
+<section id="new-contact-dialog">
+<h2>New Contact Dialog<a class="headerlink" href="#new-contact-dialog" title="Link to this heading">¶</a></h2>
+<p>Now we need to add new contacts using the <strong>new_contact.ui</strong> we created. To access the <strong>new_contact.ui</strong> we need to create a <strong>NewContact</strong> class.</p>
+<section id="create-newcontact-class">
+<h3>Create NewContact class<a class="headerlink" href="#create-newcontact-class" title="Link to this heading">¶</a></h3>
+<p>This new class is not a QDialog, not a QMainWindow, so we need to import that widget.</p>
+<ol class="arabic simple">
+<li><p>Change your import section</p></li>
+</ol>
+<p><img alt="dialog import" src="_images/10_dialog_import.png" /></p>
+<p>Now to create the <strong>NewContact</strong> class</p>
+<ol class="arabic simple" start="2">
+<li><p>After the import section add the new class definition</p></li>
+</ol>
+<p><img alt="NewContact_class" src="_images/11_newcontact_class.png" /></p>
+</section>
+<section id="code-ok-button">
+<h3>Code Ok Button<a class="headerlink" href="#code-ok-button" title="Link to this heading">¶</a></h3>
+<p>We need a method that will read the values entered and return them to the <strong>MainWindow</strong>. This method needs to be placed in the <strong>NewContact</strong> class.</p>
+<ol class="arabic simple" start="3">
+<li><p>Under the <strong>NewClass</strong> <code class="docutils literal notranslate"><span class="pre">__init__</span></code> add.</p></li>
+</ol>
+<p><img alt="get_details" src="_images/13_get_details_method.png" /></p>
+<p>Now we need to make a slot that will launch the new contact dialog</p>
+<ol class="arabic simple" start="4">
+<li><p>At the bottom of the slots section add</p></li>
+</ol>
+<p><img alt="open dialog" src="_images/12_open_dialog.png" /></p>
+<p>Lets look at some of that code:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">dialog.exec():</span></code> → this code block will be executed when the dialog’s <strong>Ok</strong> button is clicked.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">details</span> <span class="pre">=</span> <span class="pre">dialog.get_details()</span></code> → run the <code class="docutils literal notranslate"><span class="pre">get_details</span></code> method and save the returned values in the <code class="docutils literal notranslate"><span class="pre">details</span></code> variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(details)</span></code> → this is only for testing, we will change it later.</p></li>
+</ul>
+<p>Finally, link the <strong>pushButton_add</strong> signal to this slot.</p>
+<ol class="arabic simple" start="5">
+<li><p>In the <strong>signals</strong> method add</p></li>
+</ol>
+<p><img alt="dialog signal" src="_images/14_dialog_signal.png" /></p>
+</section>
+<section id="test-ok-button">
+<h3>Test Ok Button<a class="headerlink" href="#test-ok-button" title="Link to this heading">¶</a></h3>
+<p>Now lets test what we have done.</p>
+<ol class="arabic simple">
+<li><p>Run your app</p></li>
+<li><p>Click the <strong>Add</strong> button</p></li>
+<li><p>Enter values into the new contact dialog</p></li>
+<li><p>Click <strong>Ok</strong></p></li>
+<li><p>Check that the values you entered are printed in your terminal.</p></li>
+</ol>
+</section>
+<section id="display-new-contact">
+<h3>Display New Contact<a class="headerlink" href="#display-new-contact" title="Link to this heading">¶</a></h3>
+<p>Finally we need to add the new contact details to our <strong>tableWidget_contacts</strong>.</p>
+<p>First we will create a method that will take the values in <strong>details</strong> and write them to <strong>tableWidget_contact</strong>. This isn’t a slot, so we will create a new utilities section to place this method.</p>
+<ol class="arabic simple">
+<li><p>At the bottom of the <strong>slots</strong> section add this code:</p></li>
+</ol>
+<p><img alt="add contact" src="_images/15_add_contact.png" /></p>
+<p>Then we need to execute this method when the Dialog Ok button is pressed.</p>
+<ol class="arabic simple" start="2">
+<li><p>In the <strong>open_contact_dialog</strong> replace the <strong>print</strong> statement with the following code.</p></li>
+</ol>
+<p><img alt="call add contact" src="_images/15_call_add_contact.png" /></p>
+</section>
+<section id="test-new-contact">
+<h3>Test New Contact<a class="headerlink" href="#test-new-contact" title="Link to this heading">¶</a></h3>
+<p>Run your app and add a new contact. Did the information appear correctly in your contact list?</p>
+</section>
+</section>
+<section id="saving-contacts">
+<h2>Saving Contacts<a class="headerlink" href="#saving-contacts" title="Link to this heading">¶</a></h2>
+<p>Now for the final step, saving our contact list. We will use the <strong>QFileDialog</strong> to get the path for the save file. Then write the contents of the <strong>tableWidget_contacts</strong> to the file in csv format.</p>
+<section id="getting-save-file-path">
+<h3>Getting Save File Path<a class="headerlink" href="#getting-save-file-path" title="Link to this heading">¶</a></h3>
+<p>Use the <strong>QFileDialog</strong> to get the save file path.</p>
+<ol class="arabic simple">
+<li><p>At the bottom of the <strong>Slots</strong> section add the following code</p></li>
+</ol>
+<p><img alt="save contacts" src="_images/16_save_contacts.png" /></p>
+</section>
+<section id="save-contact-to-file">
+<h3>Save Contact to File<a class="headerlink" href="#save-contact-to-file" title="Link to this heading">¶</a></h3>
+<p>Now we need to write the content of the <strong>tableWidget_content</strong> to a csv file. We need to make sure that we have the same error handling as we did for reading a csv file.</p>
+<ol class="arabic simple" start="2">
+<li><p>Complete the <strong>save_content</strong> method with the code below</p></li>
+</ol>
+<p><img alt="save file" src="_images/17_save_file.png" /></p>
+</section>
+<section id="connect-save-signal">
+<h3>Connect Save Signal<a class="headerlink" href="#connect-save-signal" title="Link to this heading">¶</a></h3>
+<p>Finally we need to connect the <strong>actionSave</strong> signal to our <strong>save_content</strong> slot.</p>
+<ol class="arabic simple">
+<li><p>In the <strong>signals</strong> method, add the following code.</p></li>
+</ol>
+<p><img alt="connect save signal" src="_images/18_connect_save_signal.png" /></p>
+</section>
+<section id="testing-save">
+<h3>Testing Save<a class="headerlink" href="#testing-save" title="Link to this heading">¶</a></h3>
+<p>Now to test the save function of your app.</p>
+<ol class="arabic simple">
+<li><p>Launch your app</p></li>
+<li><p>Open the contacts file</p></li>
+<li><p>Add a new contact</p></li>
+<li><p>Save your contact file</p></li>
+<li><p>Close the app</p></li>
+<li><p>Launch the app again</p></li>
+<li><p>Open the contact file</p></li>
+<li><p>Check that your new contact is in the file.</p></li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -343,6 +540,30 @@
             <ul>
 <li><a class="reference internal" href="#">Tutorial 17 - Contact App</a><ul>
 <li><a class="reference internal" href="#new-file">New file</a></li>
+<li><a class="reference internal" href="#loading-contacts-file">Loading Contacts File</a><ul>
+<li><a class="reference internal" href="#download-contacts-file">Download Contacts File</a></li>
+<li><a class="reference internal" href="#get-contacts-file-name">Get Contacts File Name</a></li>
+<li><a class="reference internal" href="#read-contacts-file">Read Contacts File</a></li>
+<li><a class="reference internal" href="#display-contact-details">Display Contact Details</a></li>
+<li><a class="reference internal" href="#connect-signal-to-slot">Connect Signal to Slot</a></li>
+<li><a class="reference internal" href="#test-file-open">Test File Open</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#new-contact-dialog">New Contact Dialog</a><ul>
+<li><a class="reference internal" href="#create-newcontact-class">Create NewContact class</a></li>
+<li><a class="reference internal" href="#code-ok-button">Code Ok Button</a></li>
+<li><a class="reference internal" href="#test-ok-button">Test Ok Button</a></li>
+<li><a class="reference internal" href="#display-new-contact">Display New Contact</a></li>
+<li><a class="reference internal" href="#test-new-contact">Test New Contact</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#saving-contacts">Saving Contacts</a><ul>
+<li><a class="reference internal" href="#getting-save-file-path">Getting Save File Path</a></li>
+<li><a class="reference internal" href="#save-contact-to-file">Save Contact to File</a></li>
+<li><a class="reference internal" href="#connect-save-signal">Connect Save Signal</a></li>
+<li><a class="reference internal" href="#testing-save">Testing Save</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
