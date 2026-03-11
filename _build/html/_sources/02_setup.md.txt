@@ -218,7 +218,7 @@ If you are a Windows user, you might need to run a Powershell command before you
 To do this:
 
 1. Open Powershell **as Adminstrator**
-2. Type the following: `Set-ExecutionPolicy Unrestricted -Force` then Enter
+2. Type the following: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` then Enter
 
 You shouldn't need to do this again, unless you get a new computer.
 ```

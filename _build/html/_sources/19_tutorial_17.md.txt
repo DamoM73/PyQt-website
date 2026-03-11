@@ -1,7 +1,11 @@
 # Tutorial 17 - Contact App
 
 ```{admonition} In this tutorial, you will:
-TBA
+
+- Load multiple window designs into a PyQt application using `.ui` files.  
+- Implement functionality to open a secondary window from the main window.  
+- Pass information between windows within a PyQt application.  
+- Test and validate navigation between multiple windows.
 ```
 
 ## New file
