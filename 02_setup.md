@@ -94,7 +94,7 @@ Once it is installed, run GitHub Desktop and sign in using your new GitHub crede
 
 ## IDE
 
-An Integrated Development Environment (IDE) is a special computer program that helps you write, edit, and test your code more easily. It's like a digital workspace for programmers. Inside the IDE, you can write your code, see instant suggestions and corrections, organize your files, and run your programs to see the results. It brings together different tools and features that make coding more efficient and productive.
+An Integrated Development Environment (IDE) is a special computer program that helps you write, edit, and test your code more easily. It's like a digital workspace for programmers. Inside the IDE, you can write your code, see instant suggestions and corrections, organise your files, and run your programs to see the results. It brings together different tools and features that make coding more efficient and productive.
 
 ### Visual Studio Code
 

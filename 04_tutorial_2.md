@@ -57,8 +57,8 @@ Finally we will format the label using its style sheet.
 
 11. Scroll back up to the **QWidget** sections and find **styleSheet**
 12. Click on the ellipses (**...**) on the righthand side
-13. Type **background-color: red;** to change the label background colour to red
-14. Type **color: yellow** to change the font colour to yellow
+13. Type **background-colour: red;** to change the label background colour to red
+14. Type **colour: yellow** to change the font colour to yellow
 15. Type **border: 2px solid black;** to put a black border around the label
 16. Check that the style sheet is **valid** then click **OK**
 
@@ -89,9 +89,9 @@ We will change the alignment of the second label.
 We will also change the style of label 2 so it differs from label 1.
 
 6. Open its style sheet
-7. Delete **color: yellow**
+7. Delete **colour: yellow**
 9. Delete **border: 2px solid black;**
-10. Change to  **background-color: cyan;**
+10. Change to  **background-colour: cyan;**
 11. Check that the style sheet is **valid** then click **OK**
 
 ![label 2 style](./assets/img/04/07_label_2.gif)
