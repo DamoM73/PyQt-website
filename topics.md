@@ -28,8 +28,8 @@ In this tutorial you will learn to:
 - change label margins
 - copy widgets in a window
 - use labels to add images
-- change label font colour
-- change label background colour
+- change label font color
+- change label background color
 - change label borders
 
 ## 05_tutorial_3.md

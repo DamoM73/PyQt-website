@@ -73,7 +73,7 @@ Time to run the app and check that it all works
 Your UI should look the same as below. Notice that all the usual button behaviour is build it:
 
 - highlights when you mouse over it
-- changes colour to indicate a click
+- changes color to indicate a click
 
 But it doesn't do anything. That's where the signals and slots come in.
 
