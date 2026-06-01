@@ -138,7 +138,7 @@ On to adding elements to the Stopwatch tab.
 
 ## Populate the Timer tab
 
-1. Click on the **Stopwatch** tab
+1. Click on the **Timer** tab
 2. Drag the **Label Widget** from the **Widgets Toolbox** to the top half of the **windows canvas**
 3. Locate the **Grid Layout** and drag it to under the **Label Widget**
 4. Locate the **Horizontal Layout** and drag it under the **Grid Layout**
