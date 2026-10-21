@@ -1,0 +1,107 @@
+[project]
+site_name = "PyQt Tutorials"
+site_description = "Build desktop apps in Python with PyQt6 and Qt Designer, for Year 11/12 Digital Solutions students using VS Code."
+site_author = "Damien Murtagh"
+site_url = "https://damom73.github.io/PyQt-website/"
+repo_url = "https://github.com/DamoM73/PyQt-website"
+repo_name = "DamoM73/PyQt-website"
+copyright = "Content licensed under CC BY-NC-SA 4.0. Code licensed under GPLv3."
+docs_dir = "docs"
+extra_css = ["stylesheets/extra.css"]
+
+nav = [
+  { "Home" = "index.md" },
+  { "Getting Started" = [
+    { "Introduction" = "start/introduction.md" },
+    { "Setup" = "start/setup.md" },
+  ] },
+  { "Qt Designer Basics" = [
+    { "Tutorial 1 - Creating Apps" = "basics/01_creating_apps.md" },
+    { "Tutorial 2 - Labels" = "basics/02_labels.md" },
+    { "Tutorial 3 - Layouts" = "basics/03_layouts.md" },
+    { "Tutorial 4 - Complex UIs" = "basics/04_complex_uis.md" },
+    { "Tutorial 5 - Signals and Slots" = "basics/05_signals_slots.md" },
+  ] },
+  { "Calculator" = [
+    { "Tutorial 6 - Create Calculator App" = "calculator/06_create.md" },
+    { "Tutorial 7 - Refine Calculator App" = "calculator/07_refine.md" },
+  ] },
+  { "Time Machine" = [
+    { "Tutorial 8 - Time Machine UI" = "time_machine/08_ui.md" },
+    { "Tutorial 9 - Using loadUi" = "time_machine/09_loadui.md" },
+    { "Tutorial 10 - Time Machine Clock" = "time_machine/10_clock.md" },
+    { "Tutorial 11 - Time Machine Stopwatch" = "time_machine/11_stopwatch.md" },
+    { "Tutorial 12 - Time Machine Timer" = "time_machine/12_timer.md" },
+  ] },
+  { "To Do List" = [
+    { "Tutorial 13 - To Do UI" = "to_do/13_ui.md" },
+    { "Tutorial 14 - Basic To Do" = "to_do/14_basic.md" },
+    { "Tutorial 15 - Advanced To Do" = "to_do/15_advanced.md" },
+  ] },
+  { "Contacts" = [
+    { "Tutorial 16 - Contacts UI" = "contacts/16_ui.md" },
+    { "Tutorial 17 - Contact App" = "contacts/17_app.md" },
+  ] },
+  { "Reference" = [
+    { "Boilerplate Code" = "reference/boilerplate.md" },
+    { "Common Errors" = "reference/common_errors.md" },
+    { "Exercise Solutions" = "reference/solutions.md" },
+    { "Glossary" = "reference/glossary.md" },
+    { "Licence" = "reference/licence.md" },
+  ] },
+]
+
+[project.theme]
+language = "en"
+logo = "assets/logo.png"
+favicon = "assets/favicon.ico"
+features = [
+  "content.code.copy",
+  "content.code.select",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.path",
+  "navigation.sections",
+  "navigation.tabs",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "Switch to light mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "custom"
+accent = "custom"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "custom"
+accent = "custom"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to system preference"
+
+[project.markdown_extensions]
+admonition = {}
+attr_list = {}
+md_in_html = {}
+tables = {}
+toc.permalink = true
+pymdownx.details = {}
+pymdownx.highlight.anchor_linenums = true
+pymdownx.highlight.line_spans = "__span"
+pymdownx.highlight.pygments_lang_class = true
+pymdownx.inlinehilite = {}
+pymdownx.keys = {}
+pymdownx.snippets.base_path = ["docs"]
+pymdownx.snippets.check_paths = true
+pymdownx.superfences = {}
