@@ -2,7 +2,7 @@
 
 These tasks finish the Zensical rework of *PyQt Tutorials*. They couldn't be done from Cowork, which can only create and overwrite files in this folder. It can't delete files, run git, access GitHub or write inside `.github/`.
 
-Work on the `zensical` branch, in order. Check with Damien before each task marked **Confirm first**. Report the output of the checks after each task.
+The site went live on 21 October 2026: `zensical` was merged into `main`, and the old Sphinx site is tagged `v1-sphinx`. All work now happens on `main`; pushing to `main` deploys the site. Check with Damien before each task marked **Confirm first**. Report the output of the checks after each task.
 
 ## Context
 
