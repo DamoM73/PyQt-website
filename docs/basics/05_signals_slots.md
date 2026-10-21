@@ -9,7 +9,7 @@
 !!! terms "Terminology"
     - **push button** – a widget that the user clicks to make something happen.
     - **event-driven programming** – a style of programming where the program keeps checking for things to happen and then responds to them.
-    - **event** – something that happens which the program needs to respond to, such as a button being clicked.
+    - **event** – something that happens which the program needs to respond to, such as a button being pressed, which the main loop listens for and then handles.
     - **signal** – a message a Qt widget sends when an event happens to it, such as a button's `clicked` signal.
     - **slot** – a method that runs in response to a signal, so it acts as the signal's event handler.
     - **placeholder** – code that does nothing, such as `pass`, used to fill a gap until we write the real code.

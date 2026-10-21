@@ -35,7 +35,7 @@ This glossary lists every technical term introduced on this site, in alphabetica
 
 ## E
 
-- **event** – something that happens which the program needs to respond to, such as a button being clicked. ([Tutorial 5 - Signals and Slots](../basics/05_signals_slots.md))
+- **event** – something that happens which the program needs to respond to, such as a button being pressed, which the main loop listens for and then handles. ([Tutorial 5 - Signals and Slots](../basics/05_signals_slots.md))
 - **event loop** – the part of an event-driven program that keeps checking for events and runs the matching event handlers. ([Tutorial 10 - Time Machine Clock](../time_machine/10_clock.md))
 - **event-driven programming** – a style of programming where the program keeps checking for things to happen and then responds to them. ([Tutorial 5 - Signals and Slots](../basics/05_signals_slots.md))
 - **exception** – an error that happens while a program is running, such as dividing by zero. ([Tutorial 7 - Refine Calculator App](../calculator/07_refine.md))
@@ -43,7 +43,7 @@ This glossary lists every technical term introduced on this site, in alphabetica
 
 ## F
 
-- **flag variable** – a variable that stores `True` or `False` to record whether something has happened, such as whether `=` was the last button clicked. ([Tutorial 7 - Refine Calculator App](../calculator/07_refine.md))
+- **flag variable** – a variable that stores `True` or `False` to control part of a program, such as `running` keeping the main loop going. ([Tutorial 7 - Refine Calculator App](../calculator/07_refine.md))
 - **fork** – our own copy of someone else's repository on GitHub, which we are allowed to push to. ([Setup](../start/setup.md))
 
 ## G
@@ -61,7 +61,7 @@ This glossary lists every technical term introduced on this site, in alphabetica
 ## I
 
 - **IDE** – an Integrated Development Environment, which is an app for writing, running and fixing code. ([Setup](../start/setup.md))
-- **index** – the number that gives an item's position in a sequence such as a string, starting from `0`, where `-1` means the last item. ([Tutorial 7 - Refine Calculator App](../calculator/07_refine.md))
+- **index** – the number that gives an item's position in a list, starting from `0`. ([Tutorial 7 - Refine Calculator App](../calculator/07_refine.md))
 
 ## J
 
@@ -121,7 +121,7 @@ This glossary lists every technical term introduced on this site, in alphabetica
 - **slot** – a method that runs in response to a signal, so it acts as the signal's event handler. ([Tutorial 5 - Signals and Slots](../basics/05_signals_slots.md))
 - **spacer** – an invisible widget that pushes other widgets apart in a layout, like a spring. ([Tutorial 4 - Complex UIs](../basics/04_complex_uis.md))
 - **spin box** – an input widget for whole numbers, with up and down arrows to change the value. ([Tutorial 8 - Time Machine UI](../time_machine/08_ui.md))
-- **state** – the situation a program is in at a particular moment, such as the stopwatch running or stopped. ([Tutorial 11 - Time Machine Stopwatch](../time_machine/11_stopwatch.md))
+- **state** – the situation a program is in at a particular moment, such as which room the player is in. ([Tutorial 11 - Time Machine Stopwatch](../time_machine/11_stopwatch.md))
 - **state machine** – a way of thinking about a program as always being in one state, with rules that decide the next state when an event happens. ([Tutorial 11 - Time Machine Stopwatch](../time_machine/11_stopwatch.md))
 - **static UI** – a user interface whose widgets keep the same size and position when the window is resized. ([Tutorial 3 - Layouts](../basics/03_layouts.md))
 - **string slicing** – making a new string from part of another one, such as `text[:-1]` for everything except the last character. ([Tutorial 7 - Refine Calculator App](../calculator/07_refine.md))
@@ -140,7 +140,7 @@ This glossary lists every technical term introduced on this site, in alphabetica
 
 ## U
 
-- **unpacking** – storing each value from a tuple or list in its own variable in one line, such as `new_task, ok = ...`. ([Tutorial 14 - Basic To Do](../to_do/14_basic.md))
+- **unpacking** – storing each value from a tuple or list into its own variable in one line, such as `x, y, z = accelerometer.get_values()`. ([Tutorial 14 - Basic To Do](../to_do/14_basic.md))
 - **utility method** – a helper method that isn't connected to a signal, but is called by other methods to do a job, such as converting values. ([Tutorial 12 - Time Machine Timer](../time_machine/12_timer.md))
 
 ## V

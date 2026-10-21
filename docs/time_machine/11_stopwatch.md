@@ -7,7 +7,7 @@
     - how to add time to a `QTime` and format it to tenths of a second
 
 !!! terms "Terminology"
-    - **state** – the situation a program is in at a particular moment, such as the stopwatch running or stopped.
+    - **state** – the situation a program is in at a particular moment, such as which room the player is in.
     - **state machine** – a way of thinking about a program as always being in one state, with rules that decide the next state when an event happens.
 
 Now let's make the second tab work: the stopwatch. It also uses a timer. Qt lets us run as many timers as we like, so the stopwatch gets its own, independent of the clock's. The big difference is that this time we care about how much time has passed.

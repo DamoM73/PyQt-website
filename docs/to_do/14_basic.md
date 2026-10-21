@@ -9,7 +9,7 @@
 !!! terms "Terminology"
     - **dialog box** – a small pop-up window that shows the user a message or asks them for input.
     - **tuple** – a group of values written in round brackets that works like a list but can't be changed.
-    - **unpacking** – storing each value from a tuple or list in its own variable in one line, such as `new_task, ok = ...`.
+    - **unpacking** – storing each value from a tuple or list into its own variable in one line, such as `x, y, z = accelerometer.get_values()`.
     - **safety** – the usability principle that a digital solution helps users avoid serious errors and recover easily when something goes wrong.
 
 In this tutorial we'll build the basic features of our To Do List:

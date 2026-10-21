@@ -8,11 +8,11 @@
     - how to handle an exception with `try` and `except`
 
 !!! terms "Terminology"
-    - **flag variable** – a variable that stores `True` or `False` to record whether something has happened, such as whether `=` was the last button clicked.
+    - **flag variable** – a variable that stores `True` or `False` to control part of a program, such as `running` keeping the main loop going.
     - **systematic testing** – testing every combination of inputs in an organised order, so no path through the program is missed.
     - **test coverage** – how much of a program's possible behaviour our tests check.
     - **traceback** – the error report Python prints when a program crashes, showing the path it took to the error with the most recent step last.
-    - **index** – the number that gives an item's position in a sequence such as a string, starting from `0`, where `-1` means the last item.
+    - **index** – the number that gives an item's position in a list, starting from `0`.
     - **string slicing** – making a new string from part of another one, such as `text[:-1]` for everything except the last character.
     - **exception** – an error that happens while a program is running, such as dividing by zero.
     - **leading zero** – a `0` at the start of a whole number, such as the `0` in `09`.
